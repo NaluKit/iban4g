@@ -94,6 +94,6 @@ Licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/L
 
 #### Modifications
 * rename packages from 'org.iban4j' to 'de.gishmo.gwt.iban4g'
-* move everything benieath 'org.iban4j' to 'de.gishmo.gwt.iban4g.shared'
+* move everything beneath 'org.iban4j' to 'de.gishmo.gwt.iban4g.shared'
 * add module descriptor
 * replace String.format with an self written implementation that is supported by GWT
