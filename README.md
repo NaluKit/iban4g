@@ -6,7 +6,8 @@ iban4g
 
 A GWT library for generation and validation of the International Bank Account Numbers (<a href="http://en.wikipedia.org/wiki/ISO_13616" target="_blank">IBAN ISO_13616</a>) and Business Identifier Codes (<a href="http://en.wikipedia.org/wiki/ISO_9362" target="_blank">BIC ISO_9362</a>).
 
-The lilbrary was originally created by Arthur Mkrtchyan (see: [iban4j](https://github.com/arturmkrtchyan/iban4j)).
+Documentation and most of the classes are copied from [iban4j](https://github.com/arturmkrtchyan/iban4j). 
+The lilbrary was originally created by Arthur Mkrtchyan.
 
 
 
