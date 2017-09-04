@@ -1,0 +1,9 @@
+<module>
+  <!-- Inherit the core Web Toolkit stuff.                        -->
+  <inherits name='com.google.gwt.user.User'/>
+
+  <inherits name="com.google.gwt.regexp.RegExp" />
+
+  <!-- Specify the paths for translatable code                    -->
+  <source path='shared'/>
+</module>
