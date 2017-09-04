@@ -65,7 +65,7 @@ The lilbrary was originally created by Arthur Mkrtchyan.
 ```
 
 #### Maven dependency: 
-```
+```xml
 <dependency>
   <groupId>de.gishmo.gwt.iban4g</groupId>
   <artifactId>iban4g</artifactId>
@@ -74,7 +74,7 @@ The lilbrary was originally created by Arthur Mkrtchyan.
 ```
 
 #### Module dependency:
-```
+```xml
 <inherits name="de.gishmo.gwt.iban4g.Iban4g" />
 ```
 
