@@ -95,9 +95,3 @@ Modifications Copyright 2017 Frank Hossfeld
 
 
 Licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
-
-#### Modifications
-* rename packages from 'org.iban4j' to 'de.gishmo.gwt.iban4g'
-* move everything beneath 'org.iban4j' to 'de.gishmo.gwt.iban4g.shared'
-* add module descriptor
-* replace String.format with an self written implementation that is supported by GWT
