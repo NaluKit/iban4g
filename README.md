@@ -83,6 +83,7 @@ The lilbrary was originally created by Arthur Mkrtchyan.
 
 #### References
 
+- <a href="https://github.com/arturmkrtchyan/iban4j">Artur Mkrtchyan's IBAN4j project</a>
 - http://en.wikipedia.org/wiki/ISO_13616
 - http://en.wikipedia.org/wiki/ISO_9362
 - http://www.swift.com/dsp/resources/documents/IBAN_Registry.pdf
