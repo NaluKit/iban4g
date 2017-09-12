@@ -81,9 +81,6 @@ The lilbrary was originally created by Arthur Mkrtchyan.
 <inherits name="de.gishmo.gwt.iban4g.Iban4g" />
 ```
 
-
-![Compatibility Badge](https://java.net/downloads/adoptopenjdk/compat.svg)
-
 #### References
 
 - http://en.wikipedia.org/wiki/ISO_13616
