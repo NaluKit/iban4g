@@ -102,18 +102,18 @@
       <artifactId>gwt-codeserver</artifactId>
       <scope>provided</scope>
     </dependency>
-    <!--<dependency>-->
-      <!--<groupId>junit</groupId>-->
-      <!--<artifactId>junit</artifactId>-->
-      <!--<version>4.12</version>-->
-      <!--<scope>test</scope>-->
-    <!--</dependency>-->
     <dependency>
-      <groupId>com.google.gwt.gwtmockito</groupId>
-      <artifactId>gwtmockito</artifactId>
-      <version>1.1.6</version>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
+    <!--<dependency>-->
+      <!--<groupId>com.google.gwt.gwtmockito</groupId>-->
+      <!--<artifactId>gwtmockito</artifactId>-->
+      <!--<version>1.1.6</version>-->
+      <!--<scope>test</scope>-->
+    <!--</dependency>-->
     <!--<dependency>-->
       <!--<groupId>com.carrotsearch</groupId>-->
       <!--<artifactId>junit-benchmarks</artifactId>-->
@@ -158,15 +158,15 @@
         <extensions>true</extensions>
         <configuration>
           <moduleName>de.gishmo.gwt.iban4g.Iban4g</moduleName>
+          <logLevel>TRACE</logLevel>
         </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>compile</goal>
-              <goal>test</goal>
-            </goals>
-          </execution>
-        </executions>
+        <!--<executions>-->
+          <!--<execution>-->
+            <!--<goals>-->
+              <!--<goal>compile</goal>-->
+            <!--</goals>-->
+          <!--</execution>-->
+        <!--</executions>-->
       </plugin>
 
       <!--&lt;!&ndash; SureFire testing &ndash;&gt;-->
@@ -262,15 +262,6 @@
       <!--</execution>-->
       <!--</executions>-->
       <!--</plugin>-->
-
-      <plugin>
-        <groupId>net.ltgt.gwt.maven</groupId>
-        <artifactId>gwt-maven-plugin</artifactId>
-        <version>1.0-rc-7</version>
-        <configuration>
-          <moduleName>de.gishmo.gwt.iban4g.Iban4g</moduleName>
-        </configuration>
-      </plugin>
       <!--<plugin>-->
       <!--<groupId>org.eluder.coveralls</groupId>-->
       <!--<artifactId>coveralls-maven-plugin</artifactId>-->
