@@ -166,7 +166,7 @@ public class IbanFormatException
     return bbanEntryType;
   }
 
-  public static enum IbanFormatViolation {
+  public enum IbanFormatViolation {
     UNKNOWN,
 
     IBAN_FORMATTING,

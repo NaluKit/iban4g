@@ -11,7 +11,7 @@ public class GwtSuite {
     suite.addTestSuite(BicUtilTest.class);
     suite.addTestSuite(CountryCodeTest.class);
     suite.addTestSuite(IbanTest.class);
-//    suite.addTestSuite(IbanUtilTest.class);
+    suite.addTestSuite(IbanUtilTest.class);
     return suite;
   }
 }
