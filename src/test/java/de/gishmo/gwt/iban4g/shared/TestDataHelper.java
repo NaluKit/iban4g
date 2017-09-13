@@ -17,15 +17,496 @@
  */
 package de.gishmo.gwt.iban4g.shared;
 
-import java.util.Arrays;
-import java.util.Collection;
+import java.util.*;
 
 final class TestDataHelper {
 
   private TestDataHelper() {
   }
 
-  public static Collection<Object[]> getIbanData() {
+  public static Map<String, Iban> getIbanData() {
+    return new HashMap<String, Iban>() {
+      {
+        put("AL47212110090000000235698741",
+            new Iban.Builder()
+              .countryCode(CountryCode.AL)
+              .bankCode("212")
+              .branchCode("1100")
+              .accountNumber("0000000235698741")
+              .nationalCheckDigit("9")
+              .build());
+        put("AD1200012030200359100100",
+            new Iban.Builder()
+              .countryCode(CountryCode.AD)
+              .bankCode("0001")
+              .branchCode("2030")
+              .accountNumber("200359100100")
+              .build());
+        put("AT611904300234573201",
+            new Iban.Builder()
+              .countryCode(CountryCode.AT)
+              .bankCode("19043")
+              .accountNumber("00234573201")
+              .build());
+        put("AZ21NABZ00000000137010001944",
+            new Iban.Builder()
+              .countryCode(CountryCode.AZ)
+              .bankCode("NABZ")
+              .accountNumber("00000000137010001944")
+              .build());
+        put("BH72SCBLBHD18903608801",
+            new Iban.Builder()
+              .countryCode(CountryCode.BH)
+              .bankCode("SCBL")
+              .accountNumber("BHD18903608801")
+              .build());
+        put("BE68539007547034",
+            new Iban.Builder()
+              .countryCode(CountryCode.BE)
+              .bankCode("539")
+              .accountNumber("0075470")
+              .nationalCheckDigit("34")
+              .build());
+        put("BA391290079401028494",
+            new Iban.Builder()
+              .countryCode(CountryCode.BA)
+              .bankCode("129")
+              .branchCode("007")
+              .accountNumber("94010284")
+              .nationalCheckDigit("94")
+              .build());
+        put("BR9700360305000010009795493P1",
+            new Iban.Builder()
+              .countryCode(CountryCode.BR)
+              .bankCode("00360305")
+              .branchCode("00001")
+              .accountNumber("0009795493")
+              .accountType("P")
+              .ownerAccountType("1")
+              .build());
+        put("BG80BNBG96611020345678",
+            new Iban.Builder()
+              .countryCode(CountryCode.BG)
+              .bankCode("BNBG")
+              .branchCode("9661")
+              .accountNumber("20345678")
+              .accountType("10")
+              .build());
+        put("CR0515202001026284066",
+            new Iban.Builder()
+              .countryCode(CountryCode.CR)
+              .bankCode("152")
+              .accountNumber("02001026284066")
+              .build());
+        put("HR1210010051863000160",
+            new Iban.Builder()
+              .countryCode(CountryCode.HR)
+              .bankCode("1001005")
+              .accountNumber("1863000160")
+              .build());
+        put("CY17002001280000001200527600",
+            new Iban.Builder()
+              .countryCode(CountryCode.CY)
+              .bankCode("002")
+              .branchCode("00128")
+              .accountNumber("0000001200527600")
+              .build());
+        put("CZ6508000000192000145399",
+            new Iban.Builder()
+              .countryCode(CountryCode.CZ)
+              .bankCode("0800")
+              .accountNumber("0000192000145399")
+              .build());
+        put("DK5000400440116243",
+            new Iban.Builder()
+              .countryCode(CountryCode.DK)
+              .bankCode("0040")
+              .accountNumber("0440116243")
+              .build());
+        put("DO28BAGR00000001212453611324",
+            new Iban.Builder()
+              .countryCode(CountryCode.DO)
+              .bankCode("BAGR")
+              .accountNumber("00000001212453611324")
+              .build());
+        put("EE382200221020145685",
+            new Iban.Builder()
+              .countryCode(CountryCode.EE)
+              .bankCode("22")
+              .branchCode("00")
+              .accountNumber("22102014568")
+              .nationalCheckDigit("5")
+              .build());
+        put("FI2112345600000785",
+            new Iban.Builder()
+              .countryCode(CountryCode.FI)
+              .bankCode("123456")
+              .accountNumber("0000078")
+              .nationalCheckDigit("5")
+              .build());
+        put("FR1420041010050500013M02606",
+            new Iban.Builder()
+              .countryCode(CountryCode.FR)
+              .bankCode("20041")
+              .branchCode("01005")
+              .accountNumber("0500013M026")
+              .nationalCheckDigit("06")
+              .build());
+        put("GE29NB0000000101904917",
+            new Iban.Builder()
+              .countryCode(CountryCode.GE)
+              .bankCode("NB")
+              .accountNumber("0000000101904917")
+              .build());
+        put("DE89370400440532013000",
+            new Iban.Builder()
+              .countryCode(CountryCode.DE)
+              .bankCode("37040044")
+              .accountNumber("0532013000")
+              .build());
+        put("GI75NWBK000000007099453",
+            new Iban.Builder()
+              .countryCode(CountryCode.GI)
+              .bankCode("NWBK")
+              .accountNumber("000000007099453")
+              .build());
+        put("GR1601101250000000012300695",
+            new Iban.Builder()
+              .countryCode(CountryCode.GR)
+              .bankCode("011")
+              .branchCode("0125")
+              .accountNumber("0000000012300695")
+              .build());
+        put("GT82TRAJ01020000001210029690",
+            new Iban.Builder()
+              .countryCode(CountryCode.GT)
+              .bankCode("TRAJ")
+              .accountNumber("01020000001210029690")
+              .build());
+        put("HU42117730161111101800000000",
+            new Iban.Builder()
+              .countryCode(CountryCode.HU)
+              .bankCode("117")
+              .branchCode("7301")
+              .accountNumber("6111110180000000")
+              .nationalCheckDigit("0")
+              .build());
+        put("IS140159260076545510730339",
+            new Iban.Builder()
+              .countryCode(CountryCode.IS)
+              .bankCode("0159")
+              .branchCode("26")
+              .accountNumber("007654")
+              .identificationNumber("5510730339")
+              .build());
+        put("IE29AIBK93115212345678",
+            new Iban.Builder()
+              .countryCode(CountryCode.IE)
+              .bankCode("AIBK")
+              .branchCode("931152")
+              .accountNumber("12345678")
+              .build());
+        put("IL620108000000099999999",
+            new Iban.Builder()
+              .countryCode(CountryCode.IL)
+              .bankCode("010")
+              .branchCode("800")
+              .accountNumber("0000099999999")
+              .build());
+        put("IT60X0542811101000000123456",
+            new Iban.Builder()
+              .countryCode(CountryCode.IT)
+              .bankCode("05428")
+              .branchCode("11101")
+              .nationalCheckDigit("X")
+              .accountNumber("000000123456")
+              .build());
+        put("JO94CBJO0010000000000131000302",
+            new Iban.Builder()
+              .countryCode(CountryCode.JO)
+              .bankCode("CBJO")
+              .branchCode("0010")
+              .accountNumber("000000000131000302")
+              .build());
+        put("KZ86125KZT5004100100",
+            new Iban.Builder()
+              .countryCode(CountryCode.KZ)
+              .bankCode("125")
+              .accountNumber("KZT5004100100")
+              .build());
+        put("KW81CBKU0000000000001234560101",
+            new Iban.Builder()
+              .countryCode(CountryCode.KW)
+              .bankCode("CBKU")
+              .accountNumber("0000000000001234560101")
+              .build());
+        put("LV80BANK0000435195001",
+            new Iban.Builder()
+              .countryCode(CountryCode.LV)
+              .bankCode("BANK")
+              .accountNumber("0000435195001")
+              .build());
+        put("LB62099900000001001901229114",
+            new Iban.Builder()
+              .countryCode(CountryCode.LB)
+              .bankCode("0999")
+              .accountNumber("00000001001901229114")
+              .build());
+        put("LI21088100002324013AA",
+            new Iban.Builder()
+              .countryCode(CountryCode.LI)
+              .bankCode("08810")
+              .accountNumber("0002324013AA")
+              .build());
+        put("LT121000011101001000",
+            new Iban.Builder()
+              .countryCode(CountryCode.LT)
+              .bankCode("10000")
+              .accountNumber("11101001000")
+              .build());
+        put("LU280019400644750000",
+            new Iban.Builder()
+              .countryCode(CountryCode.LU)
+              .bankCode("001")
+              .accountNumber("9400644750000")
+              .build());
+        put("MK07250120000058984",
+            new Iban.Builder()
+              .countryCode(CountryCode.MK)
+              .bankCode("250")
+              .accountNumber("1200000589")
+              .nationalCheckDigit("84")
+              .build());
+        put("MT84MALT011000012345MTLCAST001S",
+            new Iban.Builder()
+              .countryCode(CountryCode.MT)
+              .bankCode("MALT")
+              .branchCode("01100")
+              .accountNumber("0012345MTLCAST001S")
+              .build());
+        put("MR1300020001010000123456753",
+            new Iban.Builder()
+              .countryCode(CountryCode.MR)
+              .bankCode("00020")
+              .branchCode("00101")
+              .accountNumber("00001234567")
+              .nationalCheckDigit("53")
+              .build());
+        put("MU17BOMM0101101030300200000MUR",
+            new Iban.Builder()
+              .countryCode(CountryCode.MU)
+              .bankCode("BOMM01")
+              .branchCode("01")
+              .accountNumber("101030300200000MUR")
+              .build());
+        put("MD24AG000225100013104168",
+            new Iban.Builder()
+              .countryCode(CountryCode.MD)
+              .bankCode("AG")
+              .accountNumber("000225100013104168")
+              .build());
+        put("MC5811222000010123456789030",
+            new Iban.Builder()
+              .countryCode(CountryCode.MC)
+              .bankCode("11222")
+              .branchCode("00001")
+              .accountNumber("01234567890")
+              .nationalCheckDigit("30")
+              .build());
+        put("ME25505000012345678951",
+            new Iban.Builder()
+              .countryCode(CountryCode.ME)
+              .bankCode("505")
+              .accountNumber("0000123456789")
+              .nationalCheckDigit("51")
+              .build());
+        put("NL91ABNA0417164300",
+            new Iban.Builder()
+              .countryCode(CountryCode.NL)
+              .bankCode("ABNA")
+              .accountNumber("0417164300")
+              .build());
+        put("NO9386011117947",
+            new Iban.Builder()
+              .countryCode(CountryCode.NO)
+              .bankCode("8601")
+              .accountNumber("111794")
+              .nationalCheckDigit("7")
+              .build());
+        put("PK36SCBL0000001123456702",
+            new Iban.Builder()
+              .countryCode(CountryCode.PK)
+              .bankCode("SCBL")
+              .accountNumber("0000001123456702")
+              .build());
+        put("PS92PALS000000000400123456702",
+            new Iban.Builder()
+              .countryCode(CountryCode.PS)
+              .bankCode("PALS")
+              .accountNumber("000000000400123456702")
+              .build());
+        put("PL61109010140000071219812874",
+            new Iban.Builder()
+              .countryCode(CountryCode.PL)
+              .bankCode("109")
+              .branchCode("0101")
+              .accountNumber("0000071219812874")
+              .nationalCheckDigit("4")
+              .build());
+        put("PT50000201231234567890154",
+            new Iban.Builder()
+              .countryCode(CountryCode.PT)
+              .bankCode("0002")
+              .branchCode("0123")
+              .accountNumber("12345678901")
+              .nationalCheckDigit("54")
+              .build());
+        put("RO49AAAA1B31007593840000",
+            new Iban.Builder()
+              .countryCode(CountryCode.RO)
+              .bankCode("AAAA")
+              .accountNumber("1B31007593840000")
+              .build());
+        put("QA58DOHB00001234567890ABCDEFG",
+            new Iban.Builder()
+              .countryCode(CountryCode.QA)
+              .bankCode("DOHB")
+              .accountNumber("00001234567890ABCDEFG")
+              .build());
+        put("SM86U0322509800000000270100",
+            new Iban.Builder()
+              .countryCode(CountryCode.SM)
+              .bankCode("03225")
+              .branchCode("09800")
+              .accountNumber("000000270100")
+              .nationalCheckDigit("U")
+              .build());
+        put("SA0380000000608010167519",
+            new Iban.Builder()
+              .countryCode(CountryCode.SA)
+              .bankCode("80")
+              .accountNumber("000000608010167519")
+              .build());
+        put("RS35260005601001611379",
+            new Iban.Builder()
+              .countryCode(CountryCode.RS)
+              .bankCode("260")
+              .branchCode("26")
+              .accountNumber("0056010016113")
+              .nationalCheckDigit("79")
+              .build());
+        put("SK3112000000198742637541",
+            new Iban.Builder()
+              .countryCode(CountryCode.SK)
+              .bankCode("1200")
+              .accountNumber("0000198742637541")
+              .build());
+        put("SI56263300012039086",
+            new Iban.Builder()
+              .countryCode(CountryCode.SI)
+              .bankCode("26")
+              .branchCode("330")
+              .accountNumber("00120390")
+              .nationalCheckDigit("86")
+              .build());
+        put("ES9121000418450200051332",
+            new Iban.Builder()
+              .countryCode(CountryCode.ES)
+              .bankCode("2100")
+              .branchCode("0418")
+              .accountNumber("0200051332")
+              .nationalCheckDigit("45")
+              .build());
+        put("SE4550000000058398257466",
+            new Iban.Builder()
+              .countryCode(CountryCode.SE)
+              .bankCode("500")
+              .accountNumber("00000058398257466")
+              .build());
+        put("CH9300762011623852957",
+            new Iban.Builder()
+              .countryCode(CountryCode.CH)
+              .bankCode("00762")
+              .accountNumber("011623852957")
+              .build());
+        put("TN5910006035183598478831",
+            new Iban.Builder()
+              .countryCode(CountryCode.TN)
+              .bankCode("10")
+              .branchCode("006")
+              .accountNumber("035183598478831")
+              .build());
+        put("TR330006100519786457841326",
+            new Iban.Builder()
+              .countryCode(CountryCode.TR)
+              .bankCode("00061")
+              .accountNumber("0519786457841326")
+              .nationalCheckDigit("0")
+              .build());
+        put("AE070331234567890123456",
+            new Iban.Builder()
+              .countryCode(CountryCode.AE)
+              .bankCode("033")
+              .accountNumber("1234567890123456")
+              .build());
+        put("GB29NWBK60161331926819",
+            new Iban.Builder()
+              .countryCode(CountryCode.GB)
+              .bankCode("NWBK")
+              .branchCode("601613")
+              .accountNumber("31926819")
+              .build());
+        put("VG96VPVG0000012345678901",
+            new Iban.Builder()
+              .countryCode(CountryCode.VG)
+              .bankCode("VPVG")
+              .accountNumber("0000012345678901")
+              .build());
+        put("TL380080012345678910157",
+            new Iban.Builder()
+              .countryCode(CountryCode.TL)
+              .bankCode("008")
+              .accountNumber("00123456789101")
+              .nationalCheckDigit("57")
+              .build());
+        put("XK051000000000000053",
+            new Iban.Builder()
+              .countryCode(CountryCode.XK)
+              .bankCode("10")
+              .branchCode("00")
+              .accountNumber("0000000000")
+              .nationalCheckDigit("53")
+              .build());
+        put("IR200170000000000123456789",
+            new Iban.Builder()
+              .countryCode(CountryCode.IR)
+              .bankCode("017")
+              .accountNumber("0000000000123456789")
+              .build());
+        put("FO9754320388899944",
+            new Iban.Builder()
+              .countryCode(CountryCode.FO)
+              .bankCode("5432")
+              .accountNumber("038889994")
+              .nationalCheckDigit("4")
+              .build());
+        put("GL8964710001000206",
+            new Iban.Builder()
+              .countryCode(CountryCode.GL)
+              .bankCode("6471")
+              .accountNumber("0001000206")
+              .build());
+        put("UA573543470006762462054925026",
+            new Iban.Builder()
+              .countryCode(CountryCode.UA)
+              .bankCode("354347")
+              .accountNumber("0006762462054925026")
+              .build());
+      }
+    };
+  }
+
+  public static Collection<Object[]> getIbanDataOld() {
     return Arrays.asList(new Object[][]{
       {new Iban.Builder()
          .countryCode(CountryCode.AL)
@@ -505,16 +986,17 @@ final class TestDataHelper {
     });
   }
 
-  public static Collection<Object[]> getBicData() {
-    return Arrays.asList(new Object[][]{
-      {"DEUTDEFF"},
-      {"DEUTDEFF500"},
-      {"NEDSZAJJXXX"},
-      {"DABADKKK"},
-      {"UNCRIT2B912"},
-      {"DSBACNBXSHA"},
-      {"BNORPHMM"}
-    });
+  public static List<String> getBicData() {
+    return new ArrayList<String>() {
+      {
+        add("DEUTDEFF");
+        add("DEUTDEFF500");
+        add("NEDSZAJJXXX");
+        add("DABADKKK");
+        add("UNCRIT2B912");
+        add("DSBACNBXSHA");
+        add("BNORPHMM");
+      }
+    };
   }
-
 }

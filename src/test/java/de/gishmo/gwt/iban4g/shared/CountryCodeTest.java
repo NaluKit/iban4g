@@ -1,129 +1,99 @@
-/*
- * Copyright 2013 Artur Mkrtchyan
- * Modification Copyright 2017 Frank Hossfeld
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- */
 package de.gishmo.gwt.iban4g.shared;
 
-import org.junit.Test;
+import com.google.gwt.junit.client.GWTTestCase;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.assertThat;
+public class CountryCodeTest
+  extends GWTTestCase {
 
-public class CountryCodeTest {
-  @Test
-  public void getByCodeWithAlpha2CodeShouldReturnCountry() {
+  @Override
+  public String getModuleName() {
+    return "de.gishmo.gwt.iban4g.Iban4g";
+  }
+
+  public void testGetByCodeWithAlpha2CodeShouldReturnCountry() {
     for (CountryCode code : CountryCode.values()) {
       CountryCode newCode = CountryCode.getByCode(code.getAlpha2());
-      assertThat(newCode,
-                 is(equalTo(code)));
+      assertEquals(code,
+                   newCode);
     }
   }
 
-  @Test
-  public void getByCodeWithLowerCaseAlpha2CodeShouldReturnCountry() {
+  public void testGetByCodeWithLowerCaseAlpha2CodeShouldReturnCountry() {
     for (CountryCode code : CountryCode.values()) {
       CountryCode newCode = CountryCode.getByCode(code.getAlpha2()
                                                       .toLowerCase());
-      assertThat(newCode,
-                 is(equalTo(code)));
+      assertEquals(code,
+                   newCode);
     }
   }
 
-  @Test
-  public void getByCodeWithUpperCaseAlpha2CodeShouldReturnCountry() {
+  public void testGetByCodeWithUpperCaseAlpha2CodeShouldReturnCountry() {
     for (CountryCode code : CountryCode.values()) {
       CountryCode newCode = CountryCode.getByCode(code.getAlpha2()
                                                       .toUpperCase());
-      assertThat(newCode,
-                 is(equalTo(code)));
+      assertEquals(code,
+                   newCode);
     }
   }
 
-  @Test
-  public void getByCodeWithAlpha3CodeShouldReturnCountryCode() {
+  public void testGetByCodeWithAlpha3CodeShouldReturnCountryCode() {
     for (CountryCode code : CountryCode.values()) {
       CountryCode newCode = CountryCode.getByCode(code.getAlpha3());
-      assertThat(newCode,
-                 is(equalTo(code)));
+      assertEquals(code,
+                   newCode);
     }
   }
 
-  @Test
-  public void getByCodeWithLowerCaseAlpha3CodeShouldReturnCountry() {
+  public void testGetByCodeWithLowerCaseAlpha3CodeShouldReturnCountry() {
     for (CountryCode code : CountryCode.values()) {
       CountryCode newCode = CountryCode.getByCode(code.getAlpha3()
                                                       .toLowerCase());
-      assertThat(newCode,
-                 is(equalTo(code)));
+      assertEquals(code,
+                   newCode);
     }
   }
 
-  @Test
-  public void getByCodeWithUpperCaseAlpha3CodeShouldReturnCountry() {
+  public void testGetByCodeWithUpperCaseAlpha3CodeShouldReturnCountry() {
     for (CountryCode code : CountryCode.values()) {
       CountryCode newCode = CountryCode.getByCode(code.getAlpha3()
                                                       .toUpperCase());
-      assertThat(newCode,
-                 is(equalTo(code)));
+      assertEquals(code,
+                   newCode);
     }
   }
 
-  @Test
-  public void getByCodeWithNullCodeShouldReturnNull() {
+  public void testGetByCodeWithNullCodeShouldReturnNull() {
     CountryCode code = CountryCode.getByCode(null);
-    assertThat(code,
-               is(nullValue()));
+    assertNull(code);
   }
 
-  @Test
-  public void getByCodeWith4DigitCodeShouldReturnNull() {
+  public void testGetByCodeWith4DigitCodeShouldReturnNull() {
     CountryCode code = CountryCode.getByCode("XXXX");
-    assertThat(code,
-               is(nullValue()));
+    assertNull(code);
   }
 
-  @Test
-  public void getByCodeWithWrongAlpha2CodeShouldReturnNull() {
+  public void testGetByCodeWithWrongAlpha2CodeShouldReturnNull() {
     CountryCode code = CountryCode.getByCode("XX");
-    assertThat(code,
-               is(nullValue()));
+    assertNull(code);
   }
 
-  @Test
-  public void getByCodeWithWrongAlpha3CodeShouldReturnNull() {
+  public void testGetByCodeWithWrongAlpha3CodeShouldReturnNull() {
     CountryCode code = CountryCode.getByCode("XXX");
-    assertThat(code,
-               is(nullValue()));
+    assertNull(code);
   }
 
-  @Test
-  public void getNameWithDECodeShouldReturnGermany() {
-    assertThat(CountryCode.DE.getName(),
-               is(equalTo("Germany")));
+  public void testGetNameWithDECodeShouldReturnGermany() {
+    assertEquals("Germany",
+                 CountryCode.DE.getName());
   }
 
-  @Test
-  public void getAlpha2WithDECodeShouldReturnGermany() {
-    assertThat(CountryCode.DE.getAlpha2(),
-               is(equalTo("DE")));
+  public void testGetAlpha2WithDECodeShouldReturnGermany() {
+    assertEquals("DE",
+                 CountryCode.DE.getAlpha2());
   }
 
-  @Test
-  public void getAlpha3WithDECodeShouldReturnGermany() {
-    assertThat(CountryCode.DE.getAlpha3(),
-               is(equalTo("DEU")));
+  public void testGetAlpha3WithDECodeShouldReturnGermany() {
+    assertEquals("DEU",
+                 CountryCode.DE.getAlpha3());
   }
 }

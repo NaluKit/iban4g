@@ -21,11 +21,11 @@
   <groupId>de.gishmo.gwt.iban4g</groupId>
   <artifactId>iban4g</artifactId>
   <version>1.0.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <packaging>gwt-lib</packaging>
 
   <name>iban4g</name>
   <description>A GWT library for International Bank Account Number (IBAN) generation.</description>
-  <url>http://iban4j.org</url>
+  <!--<url>http://iban4j.org</url>-->
 
   <licenses>
     <license>
@@ -34,36 +34,44 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
+  <!---->
+  <!--<scm>-->
+  <!--<connection>scm:git:git@github.com:arturmkrtchyan/iban4j.git</connection>-->
+  <!--<developerConnection>scm:git:git@github.com:arturmkrtchyan/iban4j.git</developerConnection>-->
+  <!--<url>git@github.com:arturmkrtchyan/iban4j.git</url>-->
+  <!--<tag>HEAD</tag>-->
+  <!--</scm>-->
 
-  <scm>
-    <connection>scm:git:git@github.com:arturmkrtchyan/iban4j.git</connection>
-    <developerConnection>scm:git:git@github.com:arturmkrtchyan/iban4j.git</developerConnection>
-    <url>git@github.com:arturmkrtchyan/iban4j.git</url>
-    <tag>HEAD</tag>
-  </scm>
-
-  <developers>
-    <developer>
-      <name>Artur Mkrtchyan</name>
-    </developer>
-    <developer>
-      <name>Frank Hossfeld</name>
-    </developer>
-  </developers>
+  <!--<developers>-->
+  <!--<developer>-->
+  <!--<name>Artur Mkrtchyan</name>-->
+  <!--</developer>-->
+  <!--<developer>-->
+  <!--<name>Frank Hossfeld</name>-->
+  <!--</developer>-->
+  <!--</developers>-->
 
 
-  <parent>
-    <groupId>org.sonatype.oss</groupId>
-    <artifactId>oss-parent</artifactId>
-    <version>7</version>
-  </parent>
+  <!--<parent>-->
+  <!--<groupId>org.sonatype.oss</groupId>-->
+  <!--<artifactId>oss-parent</artifactId>-->
+  <!--<version>7</version>-->
+  <!--</parent>-->
 
 
   <properties>
+    <!-- Convenience property to set the GWT version -->
+    <gwt.version>2.8.1</gwt.version>
+    <gwt.mockito.version>1.1.6</gwt.mockito.version>
+
+    <!-- GWT needs at least java 1.6 -->
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <jdkVersion>1.8</jdkVersion>
-    <jdk8Signature>java18</jdk8Signature>
-    <skipSigning>true</skipSigning>
+    <!--<jdkVersion>1.8</jdkVersion>-->
+    <!--<jdk8Signature>java18</jdk8Signature>-->
+    <!--<skipSigning>true</skipSigning>-->
   </properties>
 
   <dependencyManagement>
@@ -71,7 +79,7 @@
       <dependency>
         <groupId>com.google.gwt</groupId>
         <artifactId>gwt</artifactId>
-        <version>2.8.1</version>
+        <version>${gwt.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -94,18 +102,24 @@
       <artifactId>gwt-codeserver</artifactId>
       <scope>provided</scope>
     </dependency>
+    <!--<dependency>-->
+      <!--<groupId>junit</groupId>-->
+      <!--<artifactId>junit</artifactId>-->
+      <!--<version>4.12</version>-->
+      <!--<scope>test</scope>-->
+    <!--</dependency>-->
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <groupId>com.google.gwt.gwtmockito</groupId>
+      <artifactId>gwtmockito</artifactId>
+      <version>1.1.6</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>com.carrotsearch</groupId>
-      <artifactId>junit-benchmarks</artifactId>
-      <version>0.7.2</version>
-      <scope>test</scope>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>com.carrotsearch</groupId>-->
+      <!--<artifactId>junit-benchmarks</artifactId>-->
+      <!--<version>0.7.2</version>-->
+      <!--<scope>test</scope>-->
+    <!--</dependency>-->
   </dependencies>
 
   <build>
@@ -124,229 +138,252 @@
         </includes>
       </resource>
     </resources>
-    <plugins>
 
-      <!-- Compilation -->
+    <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.1</version>
         <configuration>
           <encoding>${project.build.sourceEncoding}</encoding>
-          <source>${jdkVersion}</source>
-          <target>${jdkVersion}</target>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
         </configuration>
       </plugin>
 
-
-      <!-- SureFire testing -->
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.16</version>
+        <groupId>net.ltgt.gwt.maven</groupId>
+        <artifactId>gwt-maven-plugin</artifactId>
+        <version>1.0-rc-7</version>
+        <extensions>true</extensions>
         <configuration>
-          <!-- Sets the VM argument line used when unit tests are run. -->
-          <argLine>${surefireArgLine}</argLine>
-          <!-- Skips unit tests if the value of skip.unit.tests property is true -->
-          <skipTests>${skip.unit.tests}</skipTests>
-           <!--Excludes integration tests when unit tests are run.-->
-          <excludes>
-            <exclude>**/IT*.java</exclude>
-          </excludes>
-          <includes>
-            <include>**/Test*.java</include>
-            <include>**/*Test.java</include>
-            <include>**/*TestCase.java</include>
-            <include>**/*Benchmark.java</include>
-          </includes>
+          <moduleName>de.gishmo.gwt.iban4g.Iban4g</moduleName>
         </configuration>
-      </plugin>
-
-
-      <!-- Code coverage -->
-      <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.7.2.201409121644</version>
-        <executions>
-          <!--
-             Prepares the property pointing to the JaCoCo runtime agent which
-             is passed as VM argument when Maven the Surefire plugin is executed.
-         -->
-          <execution>
-            <id>pre-unit-test</id>
-            <goals>
-              <goal>prepare-agent</goal>
-            </goals>
-            <configuration>
-              <!-- Sets the path to the file which contains the execution data. -->
-              <destFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</destFile>
-              <!--
-                 Sets the name of the property containing the settings
-                 for JaCoCo runtime agent.
-             -->
-              <propertyName>surefireArgLine</propertyName>
-            </configuration>
-          </execution>
-          <!--
-             Ensures that the code coverage report for unit tests is created after
-             unit tests have been run.
-         -->
-          <execution>
-            <id>post-unit-test</id>
-            <phase>test</phase>
-            <goals>
-              <goal>report</goal>
-            </goals>
-            <configuration>
-              <excludes>
-                <exclude>**/org/iban4j/BicFormatException.*</exclude>
-                <exclude>**/org/iban4j/Iban4jException.*</exclude>
-                <exclude>**/org/iban4j/IbanFormatException.*</exclude>
-                <exclude>**/org/iban4j/UnsupportedCountryException.*</exclude>
-                <exclude>**/org/iban4j/InvalidCheckDigitException.*</exclude>
-                <exclude>**/org/iban4j/**BicFormatViolation**</exclude>
-                <exclude>**/org/iban4j/**IbanFormatViolation**</exclude>
-
-              </excludes>
-              <!-- Sets the path to the file which contains the execution data. -->
-              <dataFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</dataFile>
-              <!-- Sets the output directory for the code coverage report. -->
-              <outputDirectory>${project.reporting.outputDirectory}/jacoco</outputDirectory>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
-      <!-- Bundle sources during verify phase -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-source-plugin</artifactId>
-        <version>2.2.1</version>
         <executions>
           <execution>
-            <id>attach-sources</id>
-            <phase>verify</phase>
             <goals>
-              <goal>jar-no-fork</goal>
+              <goal>compile</goal>
+              <goal>test</goal>
             </goals>
           </execution>
         </executions>
       </plugin>
 
-      <plugin>
-        <groupId>org.eluder.coveralls</groupId>
-        <artifactId>coveralls-maven-plugin</artifactId>
-        <version>3.0.1</version>
-      </plugin>
-
-      <!-- Generating Javadoc during verify phase -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.9.1</version>
-        <executions>
-          <execution>
-            <id>attach-javadocs</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <excludePackageNames>*.support</excludePackageNames>
-        </configuration>
-      </plugin>
-
-      <!-- GPG Signing during verify phase -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-gpg-plugin</artifactId>
-        <version>1.4</version>
-        <executions>
-          <execution>
-            <id>sign-artifacts</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>sign</goal>
-            </goals>
-            <configuration>
-              <skip>${skipSigning}</skip>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
-      <!-- Releasing -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-release-plugin</artifactId>
-        <version>2.5.3</version>
-      </plugin>
-
-      <!-- Checking a project against API signatures  -->
+      <!--&lt;!&ndash; SureFire testing &ndash;&gt;-->
       <!--<plugin>-->
-        <!--<groupId>org.codehaus.mojo</groupId>-->
-        <!--<artifactId>animal-sniffer-maven-plugin</artifactId>-->
-        <!--<version>1.11</version>-->
-        <!--<executions>-->
-          <!--<execution>-->
-            <!--<id>check-java-api</id>-->
-            <!--<phase>test</phase>-->
-            <!--<goals>-->
-              <!--<goal>check</goal>-->
-            <!--</goals>-->
-            <!--<configuration>-->
-              <!--<signature>-->
-                <!--<groupId>org.codehaus.mojo.signature-->
-                <!--</groupId>-->
-                <!--<artifactId>${jdk8Signature}</artifactId>-->
-                <!--<version>1.0</version>-->
-              <!--</signature>-->
-            <!--</configuration>-->
-          <!--</execution>-->
-        <!--</executions>-->
+      <!--<groupId>org.apache.maven.plugins</groupId>-->
+      <!--<artifactId>maven-surefire-plugin</artifactId>-->
+      <!--<version>2.16</version>-->
+      <!--<configuration>-->
+      <!--&lt;!&ndash; Sets the VM argument line used when unit tests are run. &ndash;&gt;-->
+      <!--<argLine>${surefireArgLine}</argLine>-->
+      <!--&lt;!&ndash; Skips unit tests if the value of skip.unit.tests property is true &ndash;&gt;-->
+      <!--<skipTests>${skip.unit.tests}</skipTests>-->
+      <!--&lt;!&ndash;Excludes integration tests when unit tests are run.&ndash;&gt;-->
+      <!--<excludes>-->
+      <!--<exclude>**/IT*.java</exclude>-->
+      <!--</excludes>-->
+      <!--<includes>-->
+      <!--<include>**/Test*.java</include>-->
+      <!--<include>**/*Test.java</include>-->
+      <!--<include>**/*TestCase.java</include>-->
+      <!--<include>**/*Benchmark.java</include>-->
+      <!--</includes>-->
+      <!--</configuration>-->
       <!--</plugin>-->
+
+
+      <!--&lt;!&ndash; Code coverage &ndash;&gt;-->
+      <!--<plugin>-->
+      <!--<groupId>org.jacoco</groupId>-->
+      <!--<artifactId>jacoco-maven-plugin</artifactId>-->
+      <!--<version>0.7.2.201409121644</version>-->
+      <!--<executions>-->
+      <!--&lt;!&ndash;-->
+      <!--Prepares the property pointing to the JaCoCo runtime agent which-->
+      <!--is passed as VM argument when Maven the Surefire plugin is executed.-->
+      <!--&ndash;&gt;-->
+      <!--<execution>-->
+      <!--<id>pre-unit-test</id>-->
+      <!--<goals>-->
+      <!--<goal>prepare-agent</goal>-->
+      <!--</goals>-->
+      <!--<configuration>-->
+      <!--&lt;!&ndash; Sets the path to the file which contains the execution data. &ndash;&gt;-->
+      <!--<destFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</destFile>-->
+      <!--&lt;!&ndash;-->
+      <!--Sets the name of the property containing the settings-->
+      <!--for JaCoCo runtime agent.-->
+      <!--&ndash;&gt;-->
+      <!--<propertyName>surefireArgLine</propertyName>-->
+      <!--</configuration>-->
+      <!--</execution>-->
+      <!--&lt;!&ndash;-->
+      <!--Ensures that the code coverage report for unit tests is created after-->
+      <!--unit tests have been run.-->
+      <!--&ndash;&gt;-->
+      <!--<execution>-->
+      <!--<id>post-unit-test</id>-->
+      <!--<phase>test</phase>-->
+      <!--<goals>-->
+      <!--<goal>report</goal>-->
+      <!--</goals>-->
+      <!--<configuration>-->
+      <!--<excludes>-->
+      <!--<exclude>**/de/gishmo/gwt/BicFormatException.*</exclude>-->
+      <!--<exclude>**/de/gishmo/gwt/Iban4jException.*</exclude>-->
+      <!--<exclude>**/de/gishmo/gwt/IbanFormatException.*</exclude>-->
+      <!--<exclude>**/de/gishmo/gwt/UnsupportedCountryException.*</exclude>-->
+      <!--<exclude>**/de/gishmo/gwt/InvalidCheckDigitException.*</exclude>-->
+      <!--<exclude>**//de/gishmo/gwt/**BicFormatViolation**</exclude>-->
+      <!--<exclude>**/de/gishmo/gwt/**IbanFormatViolation**</exclude>-->
+      <!--</excludes>-->
+      <!--&lt;!&ndash; Sets the path to the file which contains the execution data. &ndash;&gt;-->
+      <!--<dataFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</dataFile>-->
+      <!--&lt;!&ndash; Sets the output directory for the code coverage report. &ndash;&gt;-->
+      <!--<outputDirectory>${project.reporting.outputDirectory}/jacoco</outputDirectory>-->
+      <!--</configuration>-->
+      <!--</execution>-->
+      <!--</executions>-->
+      <!--</plugin>-->
+
+      <!--&lt;!&ndash; Bundle sources during verify phase &ndash;&gt;-->
+      <!--<plugin>-->
+      <!--<groupId>org.apache.maven.plugins</groupId>-->
+      <!--<artifactId>maven-source-plugin</artifactId>-->
+      <!--<version>2.2.1</version>-->
+      <!--<executions>-->
+      <!--<execution>-->
+      <!--<id>attach-sources</id>-->
+      <!--<phase>verify</phase>-->
+      <!--<goals>-->
+      <!--<goal>jar-no-fork</goal>-->
+      <!--</goals>-->
+      <!--</execution>-->
+      <!--</executions>-->
+      <!--</plugin>-->
+
+      <plugin>
+        <groupId>net.ltgt.gwt.maven</groupId>
+        <artifactId>gwt-maven-plugin</artifactId>
+        <version>1.0-rc-7</version>
+        <configuration>
+          <moduleName>de.gishmo.gwt.iban4g.Iban4g</moduleName>
+        </configuration>
+      </plugin>
+      <!--<plugin>-->
+      <!--<groupId>org.eluder.coveralls</groupId>-->
+      <!--<artifactId>coveralls-maven-plugin</artifactId>-->
+      <!--<version>3.0.1</version>-->
+      <!--</plugin>-->
+
+      <!--&lt;!&ndash; Generating Javadoc during verify phase &ndash;&gt;-->
+      <!--<plugin>-->
+      <!--<groupId>org.apache.maven.plugins</groupId>-->
+      <!--<artifactId>maven-javadoc-plugin</artifactId>-->
+      <!--<version>2.9.1</version>-->
+      <!--<executions>-->
+      <!--<execution>-->
+      <!--<id>attach-javadocs</id>-->
+      <!--<phase>verify</phase>-->
+      <!--<goals>-->
+      <!--<goal>jar</goal>-->
+      <!--</goals>-->
+      <!--</execution>-->
+      <!--</executions>-->
+      <!--<configuration>-->
+      <!--<excludePackageNames>*.support</excludePackageNames>-->
+      <!--</configuration>-->
+      <!--</plugin>-->
+
+      <!--&lt;!&ndash; GPG Signing during verify phase &ndash;&gt;-->
+      <!--<plugin>-->
+      <!--<groupId>org.apache.maven.plugins</groupId>-->
+      <!--<artifactId>maven-gpg-plugin</artifactId>-->
+      <!--<version>1.4</version>-->
+      <!--<executions>-->
+      <!--<execution>-->
+      <!--<id>sign-artifacts</id>-->
+      <!--<phase>verify</phase>-->
+      <!--<goals>-->
+      <!--<goal>sign</goal>-->
+      <!--</goals>-->
+      <!--<configuration>-->
+      <!--<skip>${skipSigning}</skip>-->
+      <!--</configuration>-->
+      <!--</execution>-->
+      <!--</executions>-->
+      <!--</plugin>-->
+
+      <!--&lt;!&ndash; Releasing &ndash;&gt;-->
+      <!--<plugin>-->
+      <!--<groupId>org.apache.maven.plugins</groupId>-->
+      <!--<artifactId>maven-release-plugin</artifactId>-->
+      <!--<version>2.5.3</version>-->
+      <!--</plugin>-->
+
+      <!--&lt;!&ndash; Checking a project against API signatures  &ndash;&gt;-->
+      <!--&lt;!&ndash;<plugin>&ndash;&gt;-->
+      <!--&lt;!&ndash;<groupId>org.codehaus.mojo</groupId>&ndash;&gt;-->
+      <!--&lt;!&ndash;<artifactId>animal-sniffer-maven-plugin</artifactId>&ndash;&gt;-->
+      <!--&lt;!&ndash;<version>1.11</version>&ndash;&gt;-->
+      <!--&lt;!&ndash;<executions>&ndash;&gt;-->
+      <!--&lt;!&ndash;<execution>&ndash;&gt;-->
+      <!--&lt;!&ndash;<id>check-java-api</id>&ndash;&gt;-->
+      <!--&lt;!&ndash;<phase>test</phase>&ndash;&gt;-->
+      <!--&lt;!&ndash;<goals>&ndash;&gt;-->
+      <!--&lt;!&ndash;<goal>check</goal>&ndash;&gt;-->
+      <!--&lt;!&ndash;</goals>&ndash;&gt;-->
+      <!--&lt;!&ndash;<configuration>&ndash;&gt;-->
+      <!--&lt;!&ndash;<signature>&ndash;&gt;-->
+      <!--&lt;!&ndash;<groupId>org.codehaus.mojo.signature&ndash;&gt;-->
+      <!--&lt;!&ndash;</groupId>&ndash;&gt;-->
+      <!--&lt;!&ndash;<artifactId>${jdk8Signature}</artifactId>&ndash;&gt;-->
+      <!--&lt;!&ndash;<version>1.0</version>&ndash;&gt;-->
+      <!--&lt;!&ndash;</signature>&ndash;&gt;-->
+      <!--&lt;!&ndash;</configuration>&ndash;&gt;-->
+      <!--&lt;!&ndash;</execution>&ndash;&gt;-->
+      <!--&lt;!&ndash;</executions>&ndash;&gt;-->
+      <!--&lt;!&ndash;</plugin>&ndash;&gt;-->
 
     </plugins>
   </build>
 
-  <reporting>
-    <plugins>
+  <!--<reporting>-->
+  <!--<plugins>-->
 
-      <!--<plugin>-->
-        <!--<groupId>org.codehaus.mojo</groupId>-->
-        <!--<artifactId>findbugs-maven-plugin</artifactId>-->
-        <!--<version>2.5.2</version>-->
-      <!--</plugin>-->
+  <!--&lt;!&ndash;<plugin>&ndash;&gt;-->
+  <!--&lt;!&ndash;<groupId>org.codehaus.mojo</groupId>&ndash;&gt;-->
+  <!--&lt;!&ndash;<artifactId>findbugs-maven-plugin</artifactId>&ndash;&gt;-->
+  <!--&lt;!&ndash;<version>2.5.2</version>&ndash;&gt;-->
+  <!--&lt;!&ndash;</plugin>&ndash;&gt;-->
 
-      <!--<plugin>-->
-        <!--<groupId>org.codehaus.mojo</groupId>-->
-        <!--<artifactId>jdepend-maven-plugin</artifactId>-->
-        <!--<version>2.0-beta-2</version>-->
-      <!--</plugin>-->
+  <!--&lt;!&ndash;<plugin>&ndash;&gt;-->
+  <!--&lt;!&ndash;<groupId>org.codehaus.mojo</groupId>&ndash;&gt;-->
+  <!--&lt;!&ndash;<artifactId>jdepend-maven-plugin</artifactId>&ndash;&gt;-->
+  <!--&lt;!&ndash;<version>2.0-beta-2</version>&ndash;&gt;-->
+  <!--&lt;!&ndash;</plugin>&ndash;&gt;-->
 
-    </plugins>
-  </reporting>
+  <!--</plugins>-->
+  <!--</reporting>-->
 
-  <profiles>
+  <!--<profiles>-->
 
-    <profile>
-      <id>develop</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
-    </profile>
+  <!--<profile>-->
+  <!--<id>develop</id>-->
+  <!--<activation>-->
+  <!--<activeByDefault>true</activeByDefault>-->
+  <!--</activation>-->
+  <!--</profile>-->
 
-    <profile>
-      <id>release</id>
-      <properties>
-        <skipSigning>false</skipSigning>
-      </properties>
-    </profile>
+  <!--<profile>-->
+  <!--<id>release</id>-->
+  <!--<properties>-->
+  <!--<skipSigning>false</skipSigning>-->
+  <!--</properties>-->
+  <!--</profile>-->
 
-  </profiles>
+  <!--</profiles>-->
 
 
 </project>

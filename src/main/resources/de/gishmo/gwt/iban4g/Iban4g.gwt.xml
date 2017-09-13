@@ -1,3 +1,5 @@
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.8.1//EN"
+    "http://gwtproject.org/doctype/2.8.1/gwt-module.dtd">
 <module>
   <!-- Inherit the core Web Toolkit stuff.                        -->
   <inherits name='com.google.gwt.user.User'/>
@@ -5,5 +7,5 @@
   <inherits name="com.google.gwt.regexp.RegExp" />
 
   <!-- Specify the paths for translatable code                    -->
-  <source path='shared'/>
+  <source path='shared' />
 </module>

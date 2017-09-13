@@ -1,156 +1,112 @@
-/*
- * Copyright 2013 Artur Mkrtchyan
- * Modification Copyright 2017 Frank Hossfeld
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- */
 package de.gishmo.gwt.iban4g.shared;
 
-import org.junit.Test;
-import org.junit.experimental.runners.Enclosed;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
+import com.google.gwt.junit.client.GWTTestCase;
 
-import java.util.Collection;
+import java.util.List;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertThat;
 
-@RunWith(Enclosed.class)
-public class BicTest {
+public class BicTest
+  extends GWTTestCase {
 
-  public static class BicCreationTest1 {
+  @Override
+  public String getModuleName() {
+    return "de.gishmo.gwt.iban4g.Iban4g";
+  }
 
-    @Test(expected = UnsupportedCountryException.class)
-    public void bicConstructionWithInvalidCountryCodeShouldThrowException() {
+  public void testBicConstructionWithInvalidCountryCodeShouldThrowException() {
+    try {
       Bic.valueOf("DEUTAAFF500");
-    }
-
-    @Test
-    public void bicsWithSameDataShouldBeEqual() {
-      Bic bic1 = Bic.valueOf("DEUTDEFF500");
-      Bic bic2 = Bic.valueOf("DEUTDEFF500");
-
-      assertThat(bic1,
-                 is(equalTo(bic2)));
-    }
-
-    @Test
-    public void bicsWithDifferentDataShouldNotBeEqual() {
-      Bic bic1 = Bic.valueOf("DEUTDEFF500");
-      Bic bic2 = Bic.valueOf("DEUTDEFF501");
-
-      assertThat(bic1,
-                 is(not(equalTo(bic2))));
-    }
-
-    @Test
-    public void bicsWithStringValueAndBicShouldNotBeEqual() {
-      Bic bic = Bic.valueOf("DEUTDEFF500");
-
-      assertNotEquals(bic,
-                      "DEUTDEFF500");
-    }
-
-    @Test
-    public void bicsWithSameDataShouldHaveSameHashCode() {
-      Bic bic1 = Bic.valueOf("DEUTDEFF500");
-      Bic bic2 = Bic.valueOf("DEUTDEFF500");
-
-      assertThat(bic1.hashCode(),
-                 is(equalTo(bic2.hashCode())));
-    }
-
-    @Test
-    public void bicsWithDifferentDataShouldNotHaveSameHashCode() {
-      Bic bic1 = Bic.valueOf("DEUTDEFF500");
-      Bic bic2 = Bic.valueOf("DEUTDEFF501");
-
-      assertThat(bic1.hashCode(),
-                 is(not(equalTo(bic2.hashCode()))));
-    }
-
-    @Test
-    public void bicShouldReturnBankCode() {
-      Bic bic = Bic.valueOf("DEUTDEFF500");
-
-      assertThat(bic.getBankCode(),
-                 is(equalTo("DEUT")));
-    }
-
-    @Test
-    public void bicShouldReturnCountryCode() {
-      Bic bic = Bic.valueOf("DEUTDEFF500");
-
-      assertThat(bic.getCountryCode(),
-                 is(equalTo(CountryCode.DE)));
-    }
-
-    @Test
-    public void bicShouldReturnBranchCode() {
-      Bic bic = Bic.valueOf("DEUTDEFF500");
-
-      assertThat(bic.getBranchCode(),
-                 is(equalTo("500")));
-    }
-
-    @Test
-    public void bicWithoutBrnachCodeShouldReturnNull() {
-      Bic bic = Bic.valueOf("DEUTDEFF");
-
-      assertThat(bic.getBranchCode(),
-                 is(equalTo(null)));
-    }
-
-    @Test
-    public void bicShouldReturnLocationCode() {
-      Bic bic = Bic.valueOf("DEUTDEFF500");
-
-      assertThat(bic.getLocationCode(),
-                 is(equalTo("FF")));
-    }
-
-    @Test
-    public void bicToStringShouldReturnString() {
-      Bic bic = Bic.valueOf("DEUTDEFF500");
-
-      assertThat(bic.toString(),
-                 is(equalTo("DEUTDEFF500")));
+      assertFalse("UnsupportedCountryException expected",
+                  true);
+    } catch (UnsupportedCountryException e) {
     }
   }
 
-  @RunWith(Parameterized.class)
-  public static class BicCreationTest2 {
+  public void testBicsWithSameDataShouldBeEqual() {
+    Bic bic1 = Bic.valueOf("DEUTDEFF500");
+    Bic bic2 = Bic.valueOf("DEUTDEFF500");
 
-    private final String bicString;
-
-    public BicCreationTest2(String bicString) {
-      this.bicString = bicString;
-    }
-
-    @Parameterized.Parameters
-    public static Collection<Object[]> bicParameters() {
-      return TestDataHelper.getBicData();
-    }
-
-    @Test
-    public void bicConstructionWithValueOfShouldReturnBic() {
-      assertThat(Bic.valueOf(bicString),
-                 is(notNullValue()));
-    }
-
+    assertEquals(bic1,
+                 bic2);
   }
 
+  public void testBicsWithDifferentDataShouldNotBeEqual() {
+    Bic bic1 = Bic.valueOf("DEUTDEFF500");
+    Bic bic2 = Bic.valueOf("DEUTDEFF501");
+
+    assertNotSame(bic1,
+                  bic2);
+  }
+
+  public void testBicsWithStringValueAndBicShouldNotBeEqual() {
+    Bic bic = Bic.valueOf("DEUTDEFF500");
+
+    assertNotSame(bic,
+                  "DEUTDEFF500");
+  }
+
+  public void testBicsWithSameDataShouldHaveSameHashCode() {
+    Bic bic1 = Bic.valueOf("DEUTDEFF500");
+    Bic bic2 = Bic.valueOf("DEUTDEFF500");
+
+    assertEquals(bic1.hashCode(),
+                 bic2.hashCode());
+  }
+
+  public void testBicsWithDifferentDataShouldNotHaveSameHashCode() {
+    Bic bic1 = Bic.valueOf("DEUTDEFF500");
+    Bic bic2 = Bic.valueOf("DEUTDEFF501");
+
+    assertNotSame(bic1.hashCode(),
+                  bic2.hashCode());
+  }
+
+  public void testBicShouldReturnBankCode() {
+    Bic bic = Bic.valueOf("DEUTDEFF500");
+
+    assertEquals(bic.getBankCode(),
+                 "DEUT");
+  }
+
+  public void testBicShouldReturnCountryCode() {
+    Bic bic = Bic.valueOf("DEUTDEFF500");
+
+    assertEquals(bic.getCountryCode(),
+                 CountryCode.DE);
+  }
+
+  public void testBicShouldReturnBranchCode() {
+    Bic bic = Bic.valueOf("DEUTDEFF500");
+
+    assertEquals(bic.getBranchCode(),
+                 "500");
+  }
+
+  public void testBicWithoutBrnachCodeShouldReturnNull() {
+    Bic bic = Bic.valueOf("DEUTDEFF");
+
+    assertEquals(bic.getBranchCode(),
+                 null);
+  }
+
+  public void testBicShouldReturnLocationCode() {
+    Bic bic = Bic.valueOf("DEUTDEFF500");
+
+    assertEquals(bic.getLocationCode(),
+                 "FF");
+  }
+
+  public void testBicToStringShouldReturnString() {
+    Bic bic = Bic.valueOf("DEUTDEFF500");
+
+    assertEquals(bic.toString(),
+                 "DEUTDEFF500");
+  }
+
+  public void testBicConstructionWithValueOfShouldReturnBic() {
+    List<String> listOfBics = TestDataHelper.getBicData();
+    for (String bic : listOfBics) {
+      assertNotNull(Bic.valueOf(bic));
+    }
+  }
 }
