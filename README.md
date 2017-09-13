@@ -4,6 +4,8 @@ iban4g
 <!-- [![Build Status](https://api.travis-ci.org/repositories/arturmkrtchyan/iban4j.png)](https://travis-ci.org/arturmkrtchyan/iban4j) [![Coverage Status](https://img.shields.io/coveralls/arturmkrtchyan/iban4j.svg)](https://coveralls.io/r/arturmkrtchyan/iban4j) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.iban4j/iban4j/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.iban4j/iban4j) -->
 <!-- [![License](http://img.shields.io/:license-Apache 2.0-blue.svg)](https://raw.githubusercontent.com/arturmkrtchyan/iban4j/master/LICENSE.txt) -->
 
+A port of Artur Mkrtchyan's IBAN4j project to GWT. Artur's project can be found <a href="https://github.com/arturmkrtchyan/iban4j">here</a>
+
 A GWT library for generation and validation of the International Bank Account Numbers (<a href="http://en.wikipedia.org/wiki/ISO_13616" target="_blank">IBAN ISO_13616</a>) and Business Identifier Codes (<a href="http://en.wikipedia.org/wiki/ISO_9362" target="_blank">BIC ISO_9362</a>). The library can be used on the client and server side!
 
 Documentation and most of the classes are copied from [iban4j](https://github.com/arturmkrtchyan/iban4j).
@@ -79,11 +81,9 @@ The lilbrary was originally created by Arthur Mkrtchyan.
 <inherits name="de.gishmo.gwt.iban4g.Iban4g" />
 ```
 
-
-![Compatibility Badge](https://java.net/downloads/adoptopenjdk/compat.svg)
-
 #### References
 
+- <a href="https://github.com/arturmkrtchyan/iban4j">Artur Mkrtchyan's IBAN4j project</a>
 - http://en.wikipedia.org/wiki/ISO_13616
 - http://en.wikipedia.org/wiki/ISO_9362
 - http://www.swift.com/dsp/resources/documents/IBAN_Registry.pdf
