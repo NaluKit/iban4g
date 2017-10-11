@@ -20,12 +20,11 @@
 
   <groupId>de.gishmo.gwt.iban4g</groupId>
   <artifactId>iban4g</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>gwt-lib</packaging>
 
   <name>iban4g</name>
   <description>A GWT library for International Bank Account Number (IBAN) generation.</description>
-  <!--<url>http://iban4j.org</url>-->
 
   <licenses>
     <license>
@@ -34,22 +33,22 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
-  <!---->
-  <!--<scm>-->
-  <!--<connection>scm:git:git@github.com:arturmkrtchyan/iban4j.git</connection>-->
-  <!--<developerConnection>scm:git:git@github.com:arturmkrtchyan/iban4j.git</developerConnection>-->
-  <!--<url>git@github.com:arturmkrtchyan/iban4j.git</url>-->
-  <!--<tag>HEAD</tag>-->
-  <!--</scm>-->
 
-  <!--<developers>-->
-  <!--<developer>-->
-  <!--<name>Artur Mkrtchyan</name>-->
-  <!--</developer>-->
-  <!--<developer>-->
-  <!--<name>Frank Hossfeld</name>-->
-  <!--</developer>-->
-  <!--</developers>-->
+  <scm>
+    <connection>scm:git:git@github.com:frankhossfeld/iban4g.git</connection>
+    <developerConnection>scm:git:git@github.com:frankhossfeld/iban4g.git</developerConnection>
+    <url>git@github.com:frankhossfeld/iban4g.git</url>
+    <tag>HEAD</tag>
+  </scm>
+
+  <developers>
+    <developer>
+      <name>Artur Mkrtchyan</name>
+    </developer>
+    <developer>
+      <name>Frank Hossfeld</name>
+    </developer>
+  </developers>
 
 
   <!--<parent>-->
@@ -70,7 +69,7 @@
 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!--<jdkVersion>1.8</jdkVersion>-->
-    <!--<jdk8Signature>java18</jdk8Signature>-->
+    <jdk8Signature>java18</jdk8Signature>
     <!--<skipSigning>true</skipSigning>-->
   </properties>
 
@@ -109,16 +108,16 @@
       <scope>test</scope>
     </dependency>
     <!--<dependency>-->
-      <!--<groupId>com.google.gwt.gwtmockito</groupId>-->
-      <!--<artifactId>gwtmockito</artifactId>-->
-      <!--<version>1.1.6</version>-->
-      <!--<scope>test</scope>-->
+    <!--<groupId>com.google.gwt.gwtmockito</groupId>-->
+    <!--<artifactId>gwtmockito</artifactId>-->
+    <!--<version>1.1.6</version>-->
+    <!--<scope>test</scope>-->
     <!--</dependency>-->
     <!--<dependency>-->
-      <!--<groupId>com.carrotsearch</groupId>-->
-      <!--<artifactId>junit-benchmarks</artifactId>-->
-      <!--<version>0.7.2</version>-->
-      <!--<scope>test</scope>-->
+    <!--<groupId>com.carrotsearch</groupId>-->
+    <!--<artifactId>junit-benchmarks</artifactId>-->
+    <!--<version>0.7.2</version>-->
+    <!--<scope>test</scope>-->
     <!--</dependency>-->
   </dependencies>
 
@@ -161,36 +160,36 @@
           <logLevel>TRACE</logLevel>
         </configuration>
         <!--<executions>-->
-          <!--<execution>-->
-            <!--<goals>-->
-              <!--<goal>compile</goal>-->
-            <!--</goals>-->
-          <!--</execution>-->
+        <!--<execution>-->
+        <!--<goals>-->
+        <!--<goal>compile</goal>-->
+        <!--</goals>-->
+        <!--</execution>-->
         <!--</executions>-->
       </plugin>
 
-      <!--&lt;!&ndash; SureFire testing &ndash;&gt;-->
-      <!--<plugin>-->
-      <!--<groupId>org.apache.maven.plugins</groupId>-->
-      <!--<artifactId>maven-surefire-plugin</artifactId>-->
-      <!--<version>2.16</version>-->
-      <!--<configuration>-->
-      <!--&lt;!&ndash; Sets the VM argument line used when unit tests are run. &ndash;&gt;-->
-      <!--<argLine>${surefireArgLine}</argLine>-->
-      <!--&lt;!&ndash; Skips unit tests if the value of skip.unit.tests property is true &ndash;&gt;-->
-      <!--<skipTests>${skip.unit.tests}</skipTests>-->
-      <!--&lt;!&ndash;Excludes integration tests when unit tests are run.&ndash;&gt;-->
-      <!--<excludes>-->
-      <!--<exclude>**/IT*.java</exclude>-->
-      <!--</excludes>-->
-      <!--<includes>-->
-      <!--<include>**/Test*.java</include>-->
-      <!--<include>**/*Test.java</include>-->
-      <!--<include>**/*TestCase.java</include>-->
-      <!--<include>**/*Benchmark.java</include>-->
-      <!--</includes>-->
-      <!--</configuration>-->
-      <!--</plugin>-->
+      <!-- SureFire testing -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.16</version>
+        <configuration>
+          <!-- Sets the VM argument line used when unit tests are run. -->
+          <argLine>${surefireArgLine}</argLine>
+          <!-- Skips unit tests if the value of skip.unit.tests property is true -->
+          <skipTests>${skip.unit.tests}</skipTests>
+          <!--Excludes integration tests when unit tests are run.-->
+          <excludes>
+            <exclude>**/IT*.java</exclude>
+          </excludes>
+          <includes>
+            <include>**/Test*.java</include>
+            <include>**/*Test.java</include>
+            <include>**/*TestCase.java</include>
+            <include>**/*Benchmark.java</include>
+          </includes>
+        </configuration>
+      </plugin>
 
 
       <!--&lt;!&ndash; Code coverage &ndash;&gt;-->
@@ -248,44 +247,44 @@
       <!--</plugin>-->
 
       <!--&lt;!&ndash; Bundle sources during verify phase &ndash;&gt;-->
-      <!--<plugin>-->
-      <!--<groupId>org.apache.maven.plugins</groupId>-->
-      <!--<artifactId>maven-source-plugin</artifactId>-->
-      <!--<version>2.2.1</version>-->
-      <!--<executions>-->
-      <!--<execution>-->
-      <!--<id>attach-sources</id>-->
-      <!--<phase>verify</phase>-->
-      <!--<goals>-->
-      <!--<goal>jar-no-fork</goal>-->
-      <!--</goals>-->
-      <!--</execution>-->
-      <!--</executions>-->
-      <!--</plugin>-->
-      <!--<plugin>-->
-      <!--<groupId>org.eluder.coveralls</groupId>-->
-      <!--<artifactId>coveralls-maven-plugin</artifactId>-->
-      <!--<version>3.0.1</version>-->
-      <!--</plugin>-->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>2.2.1</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.eluder.coveralls</groupId>
+        <artifactId>coveralls-maven-plugin</artifactId>
+        <version>3.0.1</version>
+      </plugin>
 
-      <!--&lt;!&ndash; Generating Javadoc during verify phase &ndash;&gt;-->
-      <!--<plugin>-->
-      <!--<groupId>org.apache.maven.plugins</groupId>-->
-      <!--<artifactId>maven-javadoc-plugin</artifactId>-->
-      <!--<version>2.9.1</version>-->
-      <!--<executions>-->
-      <!--<execution>-->
-      <!--<id>attach-javadocs</id>-->
-      <!--<phase>verify</phase>-->
-      <!--<goals>-->
-      <!--<goal>jar</goal>-->
-      <!--</goals>-->
-      <!--</execution>-->
-      <!--</executions>-->
-      <!--<configuration>-->
-      <!--<excludePackageNames>*.support</excludePackageNames>-->
-      <!--</configuration>-->
-      <!--</plugin>-->
+      <!-- Generating Javadoc during verify phase -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.9.1</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <excludePackageNames>*.support</excludePackageNames>
+        </configuration>
+      </plugin>
 
       <!--&lt;!&ndash; GPG Signing during verify phase &ndash;&gt;-->
       <!--<plugin>-->
@@ -306,57 +305,55 @@
       <!--</executions>-->
       <!--</plugin>-->
 
-      <!--&lt;!&ndash; Releasing &ndash;&gt;-->
-      <!--<plugin>-->
-      <!--<groupId>org.apache.maven.plugins</groupId>-->
-      <!--<artifactId>maven-release-plugin</artifactId>-->
-      <!--<version>2.5.3</version>-->
-      <!--</plugin>-->
+      <!-- Releasing -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.5.3</version>
+      </plugin>
 
-      <!--&lt;!&ndash; Checking a project against API signatures  &ndash;&gt;-->
-      <!--&lt;!&ndash;<plugin>&ndash;&gt;-->
-      <!--&lt;!&ndash;<groupId>org.codehaus.mojo</groupId>&ndash;&gt;-->
-      <!--&lt;!&ndash;<artifactId>animal-sniffer-maven-plugin</artifactId>&ndash;&gt;-->
-      <!--&lt;!&ndash;<version>1.11</version>&ndash;&gt;-->
-      <!--&lt;!&ndash;<executions>&ndash;&gt;-->
-      <!--&lt;!&ndash;<execution>&ndash;&gt;-->
-      <!--&lt;!&ndash;<id>check-java-api</id>&ndash;&gt;-->
-      <!--&lt;!&ndash;<phase>test</phase>&ndash;&gt;-->
-      <!--&lt;!&ndash;<goals>&ndash;&gt;-->
-      <!--&lt;!&ndash;<goal>check</goal>&ndash;&gt;-->
-      <!--&lt;!&ndash;</goals>&ndash;&gt;-->
-      <!--&lt;!&ndash;<configuration>&ndash;&gt;-->
-      <!--&lt;!&ndash;<signature>&ndash;&gt;-->
-      <!--&lt;!&ndash;<groupId>org.codehaus.mojo.signature&ndash;&gt;-->
-      <!--&lt;!&ndash;</groupId>&ndash;&gt;-->
-      <!--&lt;!&ndash;<artifactId>${jdk8Signature}</artifactId>&ndash;&gt;-->
-      <!--&lt;!&ndash;<version>1.0</version>&ndash;&gt;-->
-      <!--&lt;!&ndash;</signature>&ndash;&gt;-->
-      <!--&lt;!&ndash;</configuration>&ndash;&gt;-->
-      <!--&lt;!&ndash;</execution>&ndash;&gt;-->
-      <!--&lt;!&ndash;</executions>&ndash;&gt;-->
-      <!--&lt;!&ndash;</plugin>&ndash;&gt;-->
+      <!--Checking a project against API signatures-->
+      <!--<plugin>-->
+        <!--<groupId>org.codehaus.mojo</groupId>-->
+        <!--<artifactId>animal-sniffer-maven-plugin</artifactId>-->
+        <!--<version>1.11</version>-->
+        <!--<executions>-->
+          <!--<execution>-->
+            <!--<id>check-java-api</id>-->
+            <!--<phase>test</phase>-->
+            <!--<goals>-->
+              <!--<goal>check</goal>-->
+            <!--</goals>-->
+            <!--<configuration>-->
+              <!--<signature>-->
+                <!--<groupId>org.codehaus.mojo.signature-->
+                <!--</groupId>-->
+                <!--<artifactId>${jdk8Signature}</artifactId>-->
+                <!--<version>1.0</version>-->
+              <!--</signature>-->
+            <!--</configuration>-->
+          <!--</execution>-->
+        <!--</executions>-->
+      <!--</plugin>-->
 
     </plugins>
   </build>
 
-  <!--<reporting>-->
-  <!--<plugins>-->
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+        <version>2.5.2</version>
+      </plugin>
 
-  <!--&lt;!&ndash;<plugin>&ndash;&gt;-->
-  <!--&lt;!&ndash;<groupId>org.codehaus.mojo</groupId>&ndash;&gt;-->
-  <!--&lt;!&ndash;<artifactId>findbugs-maven-plugin</artifactId>&ndash;&gt;-->
-  <!--&lt;!&ndash;<version>2.5.2</version>&ndash;&gt;-->
-  <!--&lt;!&ndash;</plugin>&ndash;&gt;-->
-
-  <!--&lt;!&ndash;<plugin>&ndash;&gt;-->
-  <!--&lt;!&ndash;<groupId>org.codehaus.mojo</groupId>&ndash;&gt;-->
-  <!--&lt;!&ndash;<artifactId>jdepend-maven-plugin</artifactId>&ndash;&gt;-->
-  <!--&lt;!&ndash;<version>2.0-beta-2</version>&ndash;&gt;-->
-  <!--&lt;!&ndash;</plugin>&ndash;&gt;-->
-
-  <!--</plugins>-->
-  <!--</reporting>-->
+      <!--<plugin>-->
+      <!--<groupId>org.codehaus.mojo</groupId>-->
+      <!--<artifactId>jdepend-maven-plugin</artifactId>-->
+      <!--<version>2.0-beta-2</version>-->
+      <!--</plugin>-->
+    </plugins>
+  </reporting>
 
   <!--<profiles>-->
 
