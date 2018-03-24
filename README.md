@@ -67,15 +67,15 @@ Documentation and most of the classes are copied from [iban4j](https://github.co
 #### Maven dependency: 
 ```xml
 <dependency>
-  <groupId>de.gishmo.gwt.iban4g</groupId>
+  <groupId>com.github.mvp4g</groupId>
   <artifactId>iban4g</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
 </dependency>
 ```
 
 #### Module dependency:
 ```xml
-<inherits name="de.gishmo.gwt.iban4g.Iban4g" />
+<inherits name="com.github.mvp4g.iban4g.Iban4g" />
 ```
 
 #### References
