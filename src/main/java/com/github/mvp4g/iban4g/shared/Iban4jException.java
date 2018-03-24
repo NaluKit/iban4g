@@ -25,6 +25,7 @@ package com.github.mvp4g.iban4g.shared;
  * @see UnsupportedCountryException
  * @see BicFormatException
  */
+@SuppressWarnings("serial")
 public abstract class Iban4jException
   extends RuntimeException {
 
