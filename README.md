@@ -1,8 +1,10 @@
-iban4g
-======
+# IBAN4G
 
-<!-- [![Build Status](https://api.travis-ci.org/repositories/arturmkrtchyan/iban4j.png)](https://travis-ci.org/arturmkrtchyan/iban4j) [![Coverage Status](https://img.shields.io/coveralls/arturmkrtchyan/iban4j.svg)](https://coveralls.io/r/arturmkrtchyan/iban4j) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.iban4j/iban4j/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.iban4j/iban4j) -->
-<!-- [![License](http://img.shields.io/:license-Apache 2.0-blue.svg)](https://raw.githubusercontent.com/arturmkrtchyan/iban4j/master/LICENSE.txt) -->
+
+[![Build Status](https://api.travis-ci.org/repositories/nalukit/iban4g.png)](https://travis-ci.org/nalukit/iban4g) [![Coverage Status](https://img.shields.io/coveralls/nalukit/iban4g.svg)](https://coveralls.io/r/nalukit/iban4g) [![Maven Central](https://maven-badges.herokuapp.com/maven-centralcom.github.nalukit/iban4g/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.nalukit/iban4gj)
+
+[![License](http://img.shields.io/:license-Apache 2.0-blue.svg)](https://raw.githubusercontent.com/arturmkrtchyan/iban4j/master/LICENSE.txt)
+![GWT3/J2CL compatible](https://img.shields.io/badge/GWT3/J2CL-compatible-brightgreen.svg)  [![License](https://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html) [![Chat on Gitter](https://badges.gitter.im/hal/elemento.svg)](https://gitter.im/gwtproject/gwt-modules) ![CI](https://github.com/gwtproject/gwt-timer/workflows/CI/badge.svg)
 
 A port of Artur Mkrtchyan's iban4j project to GWT. Artur's project can be found <a href="https://github.com/arturmkrtchyan/iban4j">here</a>
 
@@ -13,7 +15,7 @@ Documentation and most of the classes are copied from [iban4j](https://github.co
 
 #### Iban quick examples:
 
-```java
+```java_holder_method_tree
  // How to generate Iban
  Iban iban = new Iban.Builder()
                 .countryCode(CountryCode.AT)
@@ -50,7 +52,7 @@ Documentation and most of the classes are copied from [iban4j](https://github.co
 
 #### Bic quick examples:
 
-```java
+```java_holder_method_tree
  //How to create Bic object from String
  Bic bic = Bic.valueOf("DEUTDEFF");
 
@@ -64,18 +66,18 @@ Documentation and most of the classes are copied from [iban4j](https://github.co
  }
 ```
 
-#### Maven dependency: 
+#### Maven dependency:
 ```xml
 <dependency>
-  <groupId>com.github.mvp4g</groupId>
+  <groupId>com.github.nalukit</groupId>
   <artifactId>iban4g</artifactId>
-  <version>1.1.0</version>
+  <version>2.0.0</version>
 </dependency>
 ```
 
 #### Module dependency:
 ```xml
-<inherits name="com.github.mvp4g.iban4g.Iban4g" />
+<inherits name="com.github.nalukit.iban4g.Iban4g" />
 ```
 
 #### References
@@ -88,7 +90,7 @@ Documentation and most of the classes are copied from [iban4j](https://github.co
 ## License
 Copyright 2015 Artur Mkrtchyan
 
-Modifications Copyright 2017 Frank Hossfeld
+Modifications Copyright 2020 Frank Hossfeld
 
 
 Licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0

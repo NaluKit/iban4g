@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.github.nalukit</groupId>
+    <artifactId>iban4g-parent</artifactId>
+    <version>dev</version>
+  </parent>
+  <artifactId>iban4g</artifactId>
+  <packaging>gwt-lib</packaging>
+  <version>${revision}</version>
+
+  <name>IBAN4G</name>
+  <description>A GWT library for International Bank Account Number (IBAN) generation.</description>
+  <url>https://github.com/nalukit/iban4g</url>
+
+  <licenses>
+    <license>
+      <name>Apache License 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>Artur Mkrtchyan</name>
+    </developer>
+    <developer>
+      <name>Frank Hossfeld</name>
+      <id>frankhossfeld</id>
+      <email>hossfeld@hossfeld-solutions.de</email>
+      <organization>Hossfeld Solutions GmbH</organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:git@github.com:nalukit/iban4g.git</connection>
+    <developerConnection>scm:git:git@github.com:nalukit/iban4g.git</developerConnection>
+    <url>git@github.com:nalukit/iban4g.git</url>
+  </scm>
+
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/nalukit/iban4g/issues</url>
+  </issueManagement>
+
+  <inceptionYear>2020</inceptionYear>
+
+  <properties>
+    <gwt.regexp.version>1.0.0-RC1</gwt.regexp.version>
+
+    <maven.gwt.plugin>1.0.0</maven.gwt.plugin>
+    <maven.gpg.plugin>1.6</maven.gpg.plugin>
+    <maven.javadoc.plugin>3.2.0</maven.javadoc.plugin>
+    <maven.source.plugin>3.2.1</maven.source.plugin>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.gwtproject.regexp</groupId>
+      <artifactId>gwt-regexp</artifactId>
+      <version>${gwt.regexp.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>net.ltgt.gwt.maven</groupId>
+        <artifactId>gwt-maven-plugin</artifactId>
+        <version>${maven.gwt.plugin}</version>
+        <extensions>true</extensions>
+        <configuration>
+          <moduleName>com.github.nalukit.iban4g.Iban4g</moduleName>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <configuration>
+          <skip>false</skip>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <profiles>
+    <!-- release profile to create sources, javadoc, and sign all artifacts before uploading -->
+    <profile>
+      <id>release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>${maven.source.plugin}</version>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <goals>
+                  <goal>jar-no-fork</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>${maven.javadoc.plugin}</version>
+            <executions>
+              <execution>
+                <id>attach-javadocs</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <!-- see http://central.sonatype.org/pages/working-with-pgp-signatures.html for more detail -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>${maven.gpg.plugin}</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+</project>
