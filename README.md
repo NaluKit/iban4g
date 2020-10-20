@@ -14,7 +14,7 @@ Documentation and most of the classes are copied from [iban4j](https://github.co
 
 #### Iban quick examples:
 
-```java_holder_method_tree
+```java
  // How to generate Iban
  Iban iban = new Iban.Builder()
                 .countryCode(CountryCode.AT)
@@ -51,7 +51,7 @@ Documentation and most of the classes are copied from [iban4j](https://github.co
 
 #### Bic quick examples:
 
-```java_holder_method_tree
+```java
  //How to create Bic object from String
  Bic bic = Bic.valueOf("DEUTDEFF");
 
