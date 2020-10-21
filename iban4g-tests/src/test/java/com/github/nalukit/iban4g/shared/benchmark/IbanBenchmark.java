@@ -38,7 +38,7 @@ public class IbanBenchmark {
 
     for (int i = 0; i < LOOPS_COUNT; i++) {
       Iban iban =
-          new Iban.Builder()
+          Iban.builder()
               .countryCode(CountryCode.DE)
               .bankCode("52060170")
               .accountNumber("0012335785")

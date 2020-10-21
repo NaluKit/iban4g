@@ -98,11 +98,11 @@ public final class Iban {
   }
 
   public static Iban random() {
-    return new Iban.Builder().buildRandom();
+    return Iban.builder().buildRandom();
   }
 
   public static Iban random(CountryCode cc) {
-    return new Iban.Builder().countryCode(cc).buildRandom();
+    return Iban.builder().countryCode(cc).buildRandom();
   }
 
   /**
@@ -211,6 +211,10 @@ public final class Iban {
   @Override
   public String toString() {
     return value;
+  }
+
+  public static Builder builder() {
+    return new Builder();
   }
 
   /** Iban Builder Class */

@@ -308,7 +308,7 @@ public class IbanUtilTest {
       // iban with 01 check digit
       data.add(
           new Object[] {
-            new Iban.Builder()
+            Iban.builder()
                 .countryCode(CountryCode.TR)
                 .bankCode("00123")
                 .accountNumber("0882101517977799")
@@ -319,7 +319,7 @@ public class IbanUtilTest {
       // iban with 98 check digit
       data.add(
           new Object[] {
-            new Iban.Builder()
+            Iban.builder()
                 .countryCode(CountryCode.TR)
                 .bankCode("00123")
                 .accountNumber("0882101517977799")

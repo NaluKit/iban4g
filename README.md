@@ -16,11 +16,11 @@ Documentation and most of the classes are copied from [iban4j](https://github.co
 
 ```java
  // How to generate Iban
- Iban iban = new Iban.Builder()
-                .countryCode(CountryCode.AT)
-                .bankCode("19043")
-                .accountNumber("00234573201")
-                .build();
+ Iban iban = Iban.builder()
+           1     .countryCode(CountryCode.AT)
+                 .bankCode("19043")
+                 .accountNumber("00234573201")
+                 .build();
 
 
  // How to create Iban object from String
@@ -32,7 +32,7 @@ Documentation and most of the classes are copied from [iban4j](https://github.co
  // How to generate random Iban
  Iban iban = Iban.random(CountryCode.AT);
  Iban iban = Iban.random();
- Iban iban = new Iban.Builder()
+ Iban iban = Iban.builder()
                  .countryCode(CountryCode.AT)
                  .bankCode("19043")
                  .buildRandom();
@@ -70,7 +70,7 @@ Documentation and most of the classes are copied from [iban4j](https://github.co
 <dependency>
   <groupId>com.github.nalukit</groupId>
   <artifactId>iban4g</artifactId>
-  <version>2.0.0</version>
+  <version>2.0.0-RC1</version>
 </dependency>
 ```
 
