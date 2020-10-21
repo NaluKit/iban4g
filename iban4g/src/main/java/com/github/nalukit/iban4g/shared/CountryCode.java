@@ -528,7 +528,7 @@ public enum CountryCode {
    * Country alpha3 code map, maps alpha3 codes to country codes <a
    * href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-3 alpha-3</a> code.
    */
-  private static final Map<String, CountryCode> alpha3Map = new HashMap<String, CountryCode>();
+  private static final Map<String, CountryCode> alpha3Map = new HashMap<>();
 
   static {
     for (final CountryCode cc : values()) {
@@ -548,6 +548,35 @@ public enum CountryCode {
   CountryCode(final String name, final String alpha3) {
     this.name = name;
     this.alpha3 = alpha3;
+  }
+
+  /**
+   * Get the country name.
+   *
+   * @return The country name.
+   */
+  public String getName() {
+    return name;
+  }
+
+  /**
+   * Get the <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> code.
+   *
+   * @return The <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>
+   *     code.
+   */
+  public String getAlpha2() {
+    return name();
+  }
+
+  /**
+   * Get the <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> code.
+   *
+   * @return The <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a>
+   *     code.
+   */
+  public String getAlpha3() {
+    return alpha3;
   }
 
   /**
@@ -602,34 +631,5 @@ public enum CountryCode {
    */
   private static CountryCode getByAlpha3Code(final String code) {
     return alpha3Map.get(code);
-  }
-
-  /**
-   * Get the country name.
-   *
-   * @return The country name.
-   */
-  public String getName() {
-    return name;
-  }
-
-  /**
-   * Get the <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> code.
-   *
-   * @return The <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>
-   *     code.
-   */
-  public String getAlpha2() {
-    return name();
-  }
-
-  /**
-   * Get the <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> code.
-   *
-   * @return The <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a>
-   *     code.
-   */
-  public String getAlpha3() {
-    return alpha3;
   }
 }

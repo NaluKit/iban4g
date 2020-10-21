@@ -92,7 +92,8 @@ public class BbanStructure {
         CountryCode.BY,
         new BbanStructure(
             BbanStructureEntry.bankCode(4, 'c'),
-            BbanStructureEntry.accountType(4, 'n'),
+            BbanStructureEntry.branchCode(4, 'n'),
+            //            BbanStructureEntry.accountType(4, 'n'),
             BbanStructureEntry.accountNumber(16, 'c')));
 
     structures.put(
