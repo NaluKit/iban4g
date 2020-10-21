@@ -102,7 +102,7 @@ public class IbanTest {
               .accountNumber("00234573201")
               .build();
 
-      assertNotEquals(iban1.toString(), "AT611904300234573201");
+      assertNotEquals(iban1, "AT611904300234573201");
     }
 
     @Test

@@ -17,7 +17,7 @@ Documentation and most of the classes are copied from [iban4j](https://github.co
 ```java
  // How to generate Iban
  Iban iban = Iban.builder()
-           1     .countryCode(CountryCode.AT)
+                 .countryCode(CountryCode.AT)
                  .bankCode("19043")
                  .accountNumber("00234573201")
                  .build();
@@ -70,7 +70,7 @@ Documentation and most of the classes are copied from [iban4j](https://github.co
 <dependency>
   <groupId>com.github.nalukit</groupId>
   <artifactId>iban4g</artifactId>
-  <version>2.0.0-RC1</version>
+  <version>2.0.0-RC2</version>
 </dependency>
 ```
 
