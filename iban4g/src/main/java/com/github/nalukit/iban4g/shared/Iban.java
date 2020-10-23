@@ -34,10 +34,15 @@ public final class Iban {
   // Cache string value of the iban
   private final String value;
 
+  /** Creates iban instance. */
+  private Iban() {
+    this(null);
+  }
+
   /**
-   * Creates iban instance.
+   * Creates iban instance for a given IBAN.
    *
-   * @param value String
+   * @param value IBAN value
    */
   private Iban(final String value) {
     this.value = value;
