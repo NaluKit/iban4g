@@ -120,6 +120,13 @@ public class BicTest {
     }
   }
 
+  @Test
+  public void bicShouldReturnBic8Code() {
+    Bic bic = Bic.valueOf("DEUTDEFF500");
+
+    assertThat(bic.getBic8(), is(equalTo("DEUTDEFF")));
+  }
+
   @RunWith(Parameterized.class)
   public static class BicCreationTest2 {
 

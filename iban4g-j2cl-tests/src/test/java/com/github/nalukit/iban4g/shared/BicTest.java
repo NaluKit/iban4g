@@ -121,4 +121,11 @@ public class BicTest {
       assertNotNull(Bic.valueOf(bic));
     }
   }
+
+  @Test
+  public void bicShouldReturnBic8Code() {
+    Bic bic = Bic.valueOf("DEUTDEFF500");
+
+    assertEquals(bic.getBic8(), "DEUTDEFF");
+  }
 }

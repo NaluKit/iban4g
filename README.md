@@ -1,13 +1,12 @@
 # IBAN4G
 
-
-
-
 ![GWT3/J2CL compatible](https://img.shields.io/badge/GWT3/J2CL-compatible-brightgreen.svg)  [![License](https://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html) [![Chat on Gitter](https://badges.gitter.im/hal/elemento.svg)](https://gitter.im/Nalukit42/Lobby) ![CI](https://github.com/NaluKit/iban4g/workflows/CI/badge.svg) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.nalukit/iban4g/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.nalukit/iban4gj)
 
 A port of Artur Mkrtchyan's iban4j project to GWT. Artur's project can be found <a href="https://github.com/arturmkrtchyan/iban4j">here</a>
 
-A GWT and J2CL ready library for generation and validation of the International Bank Account Numbers (<a href="http://en.wikipedia.org/wiki/ISO_13616" target="_blank">IBAN ISO_13616</a>) and Business Identifier Codes (<a href="http://en.wikipedia.org/wiki/ISO_9362" target="_blank">BIC ISO_9362</a>). The library can be used on the client and server side!
+A Java, GWT and J2CL ready library for generation and validation of the International Bank Account Numbers (<a href="http://en.wikipedia.org/wiki/ISO_13616" target="_blank">IBAN ISO_13616</a>) and Business Identifier Codes (<a href="http://en.wikipedia.org/wiki/ISO_9362" target="_blank">BIC ISO_9362</a>). The library can be used on the client and server side!
+
+**The library can be used in a pure Java-, GWT- or J2CL-environment.**
 
 Documentation and most of the classes are copied from [iban4j](https://github.com/arturmkrtchyan/iban4j).
 

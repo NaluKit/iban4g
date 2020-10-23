@@ -109,4 +109,10 @@ public class BicTest extends GWTTestCase {
       assertNotNull(Bic.valueOf(bic));
     }
   }
+
+  public void testBicShouldReturnBic8Code() {
+    Bic bic = Bic.valueOf("DEUTDEFF500");
+
+    assertEquals(bic.getBic8(), "DEUTDEFF");
+  }
 }
