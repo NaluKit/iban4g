@@ -80,10 +80,12 @@ Documentation and most of the classes are copied from [iban4j](https://github.co
 
 #### References
 
-- <a href="https://github.com/arturmkrtchyan/iban4j">Artur Mkrtchyan's IBAN4j project</a>
-- http://en.wikipedia.org/wiki/ISO_13616
-- http://en.wikipedia.org/wiki/ISO_9362
-- http://www.swift.com/dsp/resources/documents/IBAN_Registry.pdf
+- [Artur Mkrtchyan's IBAN4j project](https://github.com/arturmkrtchyan/iban4j)
+- [https://en.wikipedia.org/wiki/ISO_13616](https://en.wikipedia.org/wiki/ISO_13616)
+- [https://en.wikipedia.org/wiki/ISO_9362](https://en.wikipedia.org/wiki/ISO_9362)
+- [https://www.swift.com/dsp/resources/documents/IBAN_Registry.pdf](https://www.swift.com/dsp/resources/documents/IBAN_Registry.pdf)
+- [https://www.swift.com/resource/iban-registry-pdf](https://www.swift.com/resource/iban-registry-pdf)
+- [https://bank.codes/iban/structure](https://bank.codes/iban/structure)
 
 ## License
 Copyright 2015 Artur Mkrtchyan
