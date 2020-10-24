@@ -20,7 +20,6 @@ import com.carrotsearch.junitbenchmarks.BenchmarkRule;
 import com.github.nalukit.iban4g.shared.CountryCode;
 import com.github.nalukit.iban4g.shared.Iban;
 import com.github.nalukit.iban4g.shared.IbanUtil;
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestRule;
@@ -33,9 +32,7 @@ public class IbanBenchmark {
 
   @BenchmarkOptions(benchmarkRounds = 3, warmupRounds = 1)
   @Test
-  @Ignore
   public void ibanConstruction() {
-
     for (int i = 0; i < LOOPS_COUNT; i++) {
       Iban iban =
           Iban.builder()
@@ -48,9 +45,7 @@ public class IbanBenchmark {
 
   @BenchmarkOptions(benchmarkRounds = 3, warmupRounds = 1)
   @Test
-  @Ignore
   public void ibanValidation() {
-
     for (int i = 0; i < LOOPS_COUNT; i++) {
       IbanUtil.validate("DE89370400440532013000");
     }
