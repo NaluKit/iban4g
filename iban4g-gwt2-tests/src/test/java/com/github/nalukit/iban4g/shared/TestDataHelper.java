@@ -573,6 +573,13 @@ final class TestDataHelper {
                 .bankCode("354347")
                 .accountNumber("0006762462054925026")
                 .build());
+        put(
+            "VA59001123000012345678",
+            Iban.builder()
+                .countryCode(CountryCode.VA)
+                .bankCode("001")
+                .accountNumber("123000012345678")
+                .build());
       }
     };
   }

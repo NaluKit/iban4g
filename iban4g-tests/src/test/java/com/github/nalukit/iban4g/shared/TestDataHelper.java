@@ -682,6 +682,14 @@ final class TestDataHelper {
                 .accountNumber("0006762462054925026")
                 .build(),
             "UA573543470006762462054925026"
+          },
+          {
+            Iban.builder()
+                .countryCode(CountryCode.VA)
+                .bankCode("001")
+                .accountNumber("123000012345678")
+                .build(),
+            "VA59001123000012345678"
           }
         });
   }
