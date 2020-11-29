@@ -84,8 +84,8 @@ public final class Iban {
    * @param iban the String to be parsed.
    * @return an Iban object holding the value represented by the string argument.
    * @throws IbanFormatException if the String doesn't contain parsable Iban
-   *     InvalidCheckDigitException if Iban has invalid check digit UnsupportedCountryException if
-   *     Iban's Country is not supported.
+   * @throws InvalidCheckDigitException if Iban has invalid check digit
+   * @throws UnsupportedCountryException if Iban's Country is not supported.
    */
   public static Iban valueOf(final String iban)
       throws IbanFormatException, InvalidCheckDigitException, UnsupportedCountryException {

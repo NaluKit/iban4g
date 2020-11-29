@@ -36,8 +36,8 @@ public class BicUtil {
    * Validates bic.
    *
    * @param bic to be validated.
-   * @throws BicFormatException if bic is invalid. UnsupportedCountryException if bic's country is
-   *     not supported.
+   * @throws BicFormatException if bic is invalid.
+   * @throws UnsupportedCountryException if bic's country is not supported.
    */
   public static void validate(final String bic)
       throws BicFormatException, UnsupportedCountryException {
