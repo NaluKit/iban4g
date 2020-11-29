@@ -151,7 +151,7 @@ public final class IbanUtil {
     // check if country is supported
     final BbanStructure structure = BbanStructure.forCountry(CountryCode.getByCode(countryCode));
     if (structure == null) {
-      throw new UnsupportedCountryException(countryCode, "Country code is not supported.");
+      throw new UnsupportedCountryException(countryCode);
     }
   }
 

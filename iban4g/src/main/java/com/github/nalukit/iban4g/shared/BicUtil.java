@@ -109,7 +109,7 @@ public class BicUtil {
     }
 
     if (CountryCode.getByCode(countryCode) == null) {
-      throw new UnsupportedCountryException(countryCode, "Country code is not supported.");
+      throw new UnsupportedCountryException(countryCode);
     }
   }
 

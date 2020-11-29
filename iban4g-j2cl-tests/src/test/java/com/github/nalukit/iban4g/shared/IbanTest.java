@@ -367,8 +367,21 @@ public class IbanTest {
   public void testIbanConstructionWithoutBankCodeShouldThrowException() {
     try {
       Iban.builder()
-          .countryCode(CountryCode.AM)
+          .countryCode(CountryCode.AT)
           .branchCode("2030")
+          .accountNumber("200359100100")
+          .build();
+      fail();
+    } catch (IbanFormatException e) {
+    }
+  }
+
+  @Test
+  public void ibanConstructionWithoutBranchCodeShouldThrowException() {
+    try {
+      new Iban.Builder()
+          .countryCode(CountryCode.SC)
+          .bankCode("0001")
           .accountNumber("200359100100")
           .build();
       fail();
@@ -379,7 +392,64 @@ public class IbanTest {
   @Test
   public void testIbanConstructionWithoutAccountNumberShouldThrowException() {
     try {
-      Iban.builder().countryCode(CountryCode.AM).bankCode("0001").branchCode("2030").build();
+      Iban.builder().countryCode(CountryCode.AT).bankCode("0001").branchCode("2030").build();
+      fail();
+    } catch (IbanFormatException e) {
+    }
+  }
+
+  @Test
+  public void ibanConstructionWithoutNationalCheckDigitShouldThrowException() {
+    try {
+      new Iban.Builder()
+          .countryCode(CountryCode.SM)
+          .bankCode("0001")
+          .branchCode("2030")
+          .accountNumber("200359100100")
+          .build();
+      fail();
+    } catch (IbanFormatException e) {
+    }
+  }
+
+  @Test
+  public void ibanConstructionWithoutAccountTypeShouldThrowException() {
+    try {
+      new Iban.Builder()
+          .countryCode(CountryCode.SC)
+          .bankCode("0001")
+          .branchCode("2030")
+          .accountNumber("200359100100")
+          .build();
+      fail();
+    } catch (IbanFormatException e) {
+    }
+  }
+
+  @Test
+  public void ibanConstructionWithoutOwnerAccountNumberShouldThrowException() {
+    try {
+      new Iban.Builder()
+          .countryCode(CountryCode.BR)
+          .bankCode("0001")
+          .branchCode("2030")
+          .accountNumber("200359100100")
+          .accountType("00")
+          .build();
+      fail();
+    } catch (IbanFormatException e) {
+    }
+  }
+
+  @Test
+  public void ibanConstructionWithoutIdentificationNumberShouldThrowException() {
+    try {
+      new Iban.Builder()
+          .countryCode(CountryCode.IS)
+          .bankCode("0001")
+          .branchCode("2030")
+          .accountNumber("200359100100")
+          .build();
       fail();
     } catch (IbanFormatException e) {
     }
@@ -425,7 +495,7 @@ public class IbanTest {
   }
 
   @Test
-  public void testIbanContructionRandom() {
+  public void testIbanContrucstionRandom() {
     for (int i = 0; i < 100; i++) {
       Iban.builder().buildRandom();
       Iban.random();
@@ -433,7 +503,7 @@ public class IbanTest {
   }
 
   @Test
-  public void testIbanContructionRandomAcctRetainsSpecifiedCountry() {
+  public void testIbanContrucstionRandomAcctRetainsSpecifiedCountry() {
     Iban iban = Iban.builder().countryCode(CountryCode.AT).buildRandom();
     assertEquals(CountryCode.AT, iban.getCountryCode());
 
@@ -442,44 +512,44 @@ public class IbanTest {
   }
 
   @Test
-  public void testIbanContructionRandomRetainsSpecifiedBankCode() {
+  public void testIbanContrucstionRandomRetainsSpecifiedBankCode() {
     Iban iban = Iban.builder().countryCode(CountryCode.AT).bankCode("12345").buildRandom();
     assertEquals("12345", iban.getBankCode());
   }
 
   @Test
-  public void testIbanContructionRandomDoesNotOverwriteBankAccount() {
+  public void testIbanContrucstionRandomDoesNotOverwriteBankAccount() {
     Iban iban =
         Iban.builder().countryCode(CountryCode.AT).accountNumber("12345678901").buildRandom();
     assertEquals("12345678901", iban.getAccountNumber());
   }
 
   @Test
-  public void testIbanContructionRandomDoesNotOverwriteBranchCode() {
+  public void testIbanContrucstionRandomDoesNotOverwriteBranchCode() {
     Iban iban = Iban.builder().countryCode(CountryCode.AL).branchCode("1234").buildRandom();
     assertEquals("1234", iban.getBranchCode());
   }
 
   @Test
-  public void testIbanContructionRandomDoesNotOverwriteNationalCheckDigit() {
+  public void testIbanContrucstionRandomDoesNotOverwriteNationalCheckDigit() {
     Iban iban = Iban.builder().countryCode(CountryCode.AL).nationalCheckDigit("1").buildRandom();
     assertEquals("1", iban.getNationalCheckDigit());
   }
 
   @Test
-  public void testIbanContructionRandomDoesNotOverwriteAccountType() {
+  public void testIbanContrucstionRandomDoesNotOverwriteAccountType() {
     Iban iban = Iban.builder().countryCode(CountryCode.BR).accountType("A").buildRandom();
     assertEquals("A", iban.getAccountType());
   }
 
   @Test
-  public void testIbanContructionRandomDoesNotOverwriteOwnerAccountType() {
+  public void testIbanContrucstionRandomDoesNotOverwriteOwnerAccountType() {
     Iban iban = Iban.builder().countryCode(CountryCode.BR).ownerAccountType("C").buildRandom();
     assertEquals("C", iban.getOwnerAccountType());
   }
 
   @Test
-  public void testIbanContructionRandomDoesNotOverwriteIdentificationNumber() {
+  public void testIbanContrucstionRandomDoesNotOverwriteIdentificationNumber() {
     Iban iban =
         Iban.builder().countryCode(CountryCode.IS).identificationNumber("1234567890").buildRandom();
     assertEquals("1234567890", iban.getIdentificationNumber());

@@ -26,6 +26,7 @@ public class IbanTest extends GWTTestCase {
     return "com.github.nalukit.iban4g.Iban4g";
   }
 
+  @Test
   public void testIbanConstructionWithSupportedCountriesShouldReturnIban() {
     Map<String, Iban> testData = TestDataHelper.getIbanData();
     for (String expectedIban : testData.keySet()) {
@@ -33,6 +34,7 @@ public class IbanTest extends GWTTestCase {
     }
   }
 
+  @Test
   public void testIbansWithSameDataShouldBeEqual() {
     Iban iban1 =
         Iban.builder()
@@ -50,6 +52,7 @@ public class IbanTest extends GWTTestCase {
     assertEquals(iban1, iban2);
   }
 
+  @Test
   public void testIbansWithDifferentDataShouldNotBeEqual() {
     Iban iban1 =
         Iban.builder()
@@ -67,6 +70,7 @@ public class IbanTest extends GWTTestCase {
     assertNotSame(iban1, iban2);
   }
 
+  @Test
   public void testIbansWithStringValueAndIbanShouldNotBeEqual() {
     Iban iban1 =
         Iban.builder()
@@ -78,6 +82,7 @@ public class IbanTest extends GWTTestCase {
     assertNotSame("AT611904300234573201", iban1);
   }
 
+  @Test
   public void testIbanShouldReturnValidCountryCode() {
     Iban iban =
         Iban.builder()
@@ -89,6 +94,7 @@ public class IbanTest extends GWTTestCase {
     assertEquals(CountryCode.AT, iban.getCountryCode());
   }
 
+  @Test
   public void testIbanShouldReturnValidBankCode() {
     Iban iban =
         Iban.builder()
@@ -100,6 +106,7 @@ public class IbanTest extends GWTTestCase {
     assertEquals("19043", iban.getBankCode());
   }
 
+  @Test
   public void testIbanShouldReturnValidAccountNumber() {
     Iban iban =
         Iban.builder()
@@ -111,6 +118,7 @@ public class IbanTest extends GWTTestCase {
     assertEquals("00234573201", iban.getAccountNumber());
   }
 
+  @Test
   public void testIbanShouldReturnValidBranchCode() {
     Iban iban =
         Iban.builder()
@@ -123,6 +131,7 @@ public class IbanTest extends GWTTestCase {
     assertEquals("2030", iban.getBranchCode());
   }
 
+  @Test
   public void testIbanShouldReturnValidNationalCheckDigit() {
     Iban iban =
         Iban.builder()
@@ -135,6 +144,7 @@ public class IbanTest extends GWTTestCase {
     assertEquals("9", iban.getNationalCheckDigit());
   }
 
+  @Test
   public void testIbanShouldReturnValidAccountType() {
     Iban iban =
         Iban.builder()
@@ -148,6 +158,7 @@ public class IbanTest extends GWTTestCase {
     assertEquals("P", iban.getAccountType());
   }
 
+  @Test
   public void testIbanShouldReturnValidOwnerAccountType() {
     Iban iban =
         Iban.builder()
@@ -161,6 +172,7 @@ public class IbanTest extends GWTTestCase {
     assertEquals("1", iban.getOwnerAccountType());
   }
 
+  @Test
   public void testIbanShouldReturnValidIdentificationNumber() {
     Iban iban =
         Iban.builder()
@@ -173,6 +185,7 @@ public class IbanTest extends GWTTestCase {
     assertEquals("5510730339", iban.getIdentificationNumber());
   }
 
+  @Test
   public void testIbanShouldReturnValidBban() {
     Iban iban =
         Iban.builder()
@@ -184,6 +197,7 @@ public class IbanTest extends GWTTestCase {
     assertEquals("1904300234573201", iban.getBban());
   }
 
+  @Test
   public void testIbanShouldReturnValidCheckDigit() {
     Iban iban =
         Iban.builder()
@@ -195,6 +209,7 @@ public class IbanTest extends GWTTestCase {
     assertEquals("61", iban.getCheckDigit());
   }
 
+  @Test
   public void testIbansWithSameDataShouldHaveSameHashCode() {
     Iban iban1 =
         Iban.builder()
@@ -212,6 +227,7 @@ public class IbanTest extends GWTTestCase {
     assertEquals(iban1.hashCode(), iban2.hashCode());
   }
 
+  @Test
   public void testIbansWithDifferentDataShouldNotHaveSameHashCode() {
     Iban iban1 =
         Iban.builder()
@@ -229,7 +245,7 @@ public class IbanTest extends GWTTestCase {
     assertNotSame(iban1.hashCode(), iban2.hashCode());
   }
 
-  //
+  @Test
   public void testIbanToFormattedStringShouldHaveSpacesAfterEach4Character() {
     Iban iban =
         Iban.builder()
@@ -240,6 +256,7 @@ public class IbanTest extends GWTTestCase {
     assertEquals("AT14 1904 1023 4573 2012", iban.toFormattedString());
   }
 
+  @Test
   public void testIbanConstructionWithShortBankCodeShouldNotThrowExceptionIfValidationIsDisabled() {
     Iban iban =
         Iban.builder()
@@ -250,6 +267,7 @@ public class IbanTest extends GWTTestCase {
     assertEquals("AT40 1904 A023 4573 201", iban.toFormattedString());
   }
 
+  @Test
   public void testIbanConstructionWithNoneFormattingShouldReturnIban() {
     Iban iban = Iban.valueOf("AT611904300234573201", IbanFormat.None);
     assertEquals("AT61 1904 3002 3457 3201", iban.toFormattedString());
@@ -261,6 +279,7 @@ public class IbanTest extends GWTTestCase {
     assertEquals("AT61 1904 3002 3457 3201", iban.toFormattedString());
   }
 
+  @Test
   public void testIbanConstructionWithNonSupportedCountryShouldThrowException() {
     try {
       Iban.builder()
@@ -274,6 +293,7 @@ public class IbanTest extends GWTTestCase {
     }
   }
 
+  @Test
   public void testIbanConstructionWithInvalidCountryShouldThrowException() {
     try {
       Iban.valueOf("ZZ018786767");
@@ -282,6 +302,7 @@ public class IbanTest extends GWTTestCase {
     }
   }
 
+  @Test
   public void testIbanConstructionWithNullStringShouldThrowException() {
     try {
       Iban.valueOf(null);
@@ -290,6 +311,7 @@ public class IbanTest extends GWTTestCase {
     }
   }
 
+  @Test
   public void testIbanConstructionWithInvalidCheckDigitShouldThrowException() {
     try {
       Iban.valueOf("AT621904300234573201");
@@ -298,6 +320,7 @@ public class IbanTest extends GWTTestCase {
     }
   }
 
+  @Test
   public void testIbanConstructionWithInvalidBbanCharacterShouldThrowException() {
     try {
       Iban.valueOf("AZ21NABZ000000001370100_1944");
@@ -306,6 +329,7 @@ public class IbanTest extends GWTTestCase {
     }
   }
 
+  @Test
   public void testIbanConstructionWithDefaultButInvalidFormatShouldThrowException() {
     try {
       Iban.valueOf("AT61 1904 3002 34573201", IbanFormat.Default);
@@ -314,6 +338,7 @@ public class IbanTest extends GWTTestCase {
     }
   }
 
+  @Test
   public void testFormattedIbanConstructionWithNoneFormatShouldThrowException() {
     try {
       Iban.valueOf("AT61 1904 3002 3457 3201", IbanFormat.None);
@@ -322,6 +347,7 @@ public class IbanTest extends GWTTestCase {
     }
   }
 
+  @Test
   public void unformattedIbanConstructionWithDefaultFormatShouldThrowException() {
     try {
       Iban.valueOf("AT611904300234573201", IbanFormat.Default);
@@ -330,6 +356,7 @@ public class IbanTest extends GWTTestCase {
     }
   }
 
+  @Test
   public void testIbanConstructionWithoutCountryShouldThrowException() {
     try {
       Iban.builder().bankCode("0001").branchCode("2030").accountNumber("200359100100").build();
@@ -338,10 +365,11 @@ public class IbanTest extends GWTTestCase {
     }
   }
 
+  @Test
   public void testIbanConstructionWithoutBankCodeShouldThrowException() {
     try {
       Iban.builder()
-          .countryCode(CountryCode.AM)
+          .countryCode(CountryCode.AT)
           .branchCode("2030")
           .accountNumber("200359100100")
           .build();
@@ -350,14 +378,86 @@ public class IbanTest extends GWTTestCase {
     }
   }
 
-  public void testIbanConstructionWithoutAccountNumberShouldThrowException() {
+  @Test
+  public void ibanConstructionWithoutBranchCodeShouldThrowException() {
     try {
-      Iban.builder().countryCode(CountryCode.AM).bankCode("0001").branchCode("2030").build();
+      new Iban.Builder()
+          .countryCode(CountryCode.SC)
+          .bankCode("0001")
+          .accountNumber("200359100100")
+          .build();
       fail();
     } catch (IbanFormatException e) {
     }
   }
 
+  @Test
+  public void testIbanConstructionWithoutAccountNumberShouldThrowException() {
+    try {
+      Iban.builder().countryCode(CountryCode.AT).bankCode("0001").branchCode("2030").build();
+      fail();
+    } catch (IbanFormatException e) {
+    }
+  }
+
+  @Test
+  public void ibanConstructionWithoutNationalCheckDigitShouldThrowException() {
+    try {
+      new Iban.Builder()
+          .countryCode(CountryCode.SM)
+          .bankCode("0001")
+          .branchCode("2030")
+          .accountNumber("200359100100")
+          .build();
+      fail();
+    } catch (IbanFormatException e) {
+    }
+  }
+
+  @Test
+  public void ibanConstructionWithoutAccountTypeShouldThrowException() {
+    try {
+      new Iban.Builder()
+          .countryCode(CountryCode.SC)
+          .bankCode("0001")
+          .branchCode("2030")
+          .accountNumber("200359100100")
+          .build();
+      fail();
+    } catch (IbanFormatException e) {
+    }
+  }
+
+  @Test
+  public void ibanConstructionWithoutOwnerAccountNumberShouldThrowException() {
+    try {
+      new Iban.Builder()
+          .countryCode(CountryCode.BR)
+          .bankCode("0001")
+          .branchCode("2030")
+          .accountNumber("200359100100")
+          .accountType("00")
+          .build();
+      fail();
+    } catch (IbanFormatException e) {
+    }
+  }
+
+  @Test
+  public void ibanConstructionWithoutIdentificationNumberShouldThrowException() {
+    try {
+      new Iban.Builder()
+          .countryCode(CountryCode.IS)
+          .bankCode("0001")
+          .branchCode("2030")
+          .accountNumber("200359100100")
+          .build();
+      fail();
+    } catch (IbanFormatException e) {
+    }
+  }
+
+  @Test
   public void testIbanConstructionWithInvalidCharacterShouldThrowException() {
     try {
       Iban.builder()
@@ -370,6 +470,7 @@ public class IbanTest extends GWTTestCase {
     }
   }
 
+  @Test
   public void testIbanConstructionWithShortBankCodeShouldThrowException() {
     try {
       Iban.builder()
@@ -382,6 +483,7 @@ public class IbanTest extends GWTTestCase {
     }
   }
 
+  @Test
   public void testIbanConstructionWithShortBankCodeShouldThrowExceptionIfValidationRequested() {
     try {
       Iban.builder()
@@ -394,14 +496,16 @@ public class IbanTest extends GWTTestCase {
     }
   }
 
-  public void testIbanContructionRandom() {
+  @Test
+  public void testIbanConstructionRandom() {
     for (int i = 0; i < 100; i++) {
       Iban.builder().buildRandom();
       Iban.random();
     }
   }
 
-  public void testIbanContructionRandomAcctRetainsSpecifiedCountry() {
+  @Test
+  public void testIbanConstructionRandomAcctRetainsSpecifiedCountry() {
     Iban iban = Iban.builder().countryCode(CountryCode.AT).buildRandom();
     assertEquals(CountryCode.AT, iban.getCountryCode());
 
@@ -410,44 +514,44 @@ public class IbanTest extends GWTTestCase {
   }
 
   @Test
-  public void testIbanContructionRandomRetainsSpecifiedBankCode() {
+  public void testIbanConstructionRandomRetainsSpecifiedBankCode() {
     Iban iban = Iban.builder().countryCode(CountryCode.AT).bankCode("12345").buildRandom();
     assertEquals("12345", iban.getBankCode());
   }
 
   @Test
-  public void testIbanContructionRandomDoesNotOverwriteBankAccount() {
+  public void testIbanConstructionRandomDoesNotOverwriteBankAccount() {
     Iban iban =
         Iban.builder().countryCode(CountryCode.AT).accountNumber("12345678901").buildRandom();
     assertEquals("12345678901", iban.getAccountNumber());
   }
 
   @Test
-  public void testIbanContructionRandomDoesNotOverwriteBranchCode() {
+  public void testIbanConstructionRandomDoesNotOverwriteBranchCode() {
     Iban iban = Iban.builder().countryCode(CountryCode.AL).branchCode("1234").buildRandom();
     assertEquals("1234", iban.getBranchCode());
   }
 
   @Test
-  public void testIbanContructionRandomDoesNotOverwriteNationalCheckDigit() {
+  public void testIbanConstructionRandomDoesNotOverwriteNationalCheckDigit() {
     Iban iban = Iban.builder().countryCode(CountryCode.AL).nationalCheckDigit("1").buildRandom();
     assertEquals("1", iban.getNationalCheckDigit());
   }
 
   @Test
-  public void testIbanContructionRandomDoesNotOverwriteAccountType() {
+  public void testIbanConstructionRandomDoesNotOverwriteAccountType() {
     Iban iban = Iban.builder().countryCode(CountryCode.BR).accountType("A").buildRandom();
     assertEquals("A", iban.getAccountType());
   }
 
   @Test
-  public void testIbanContructionRandomDoesNotOverwriteOwnerAccountType() {
+  public void testIbanConstructionRandomDoesNotOverwriteOwnerAccountType() {
     Iban iban = Iban.builder().countryCode(CountryCode.BR).ownerAccountType("C").buildRandom();
     assertEquals("C", iban.getOwnerAccountType());
   }
 
   @Test
-  public void testIbanContructionRandomDoesNotOverwriteIdentificationNumber() {
+  public void testIbanConstructionRandomDoesNotOverwriteIdentificationNumber() {
     Iban iban =
         Iban.builder().countryCode(CountryCode.IS).identificationNumber("1234567890").buildRandom();
     assertEquals("1234567890", iban.getIdentificationNumber());
