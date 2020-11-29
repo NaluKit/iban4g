@@ -45,8 +45,9 @@ public final class IbanUtil {
    *
    * @param iban to be validated.
    * @param format to be used in validation.
-   * @throws IbanFormatException if iban is invalid. UnsupportedCountryException if iban's country
-   *     is not supported. InvalidCheckDigitException if iban has invalid check digit.
+   * @throws IbanFormatException if iban is invalid.
+   * @throws UnsupportedCountryException if iban's country is not supported.
+   * @throws InvalidCheckDigitException if iban has invalid check digit.
    */
   public static void validate(final String iban, final IbanFormat format)
       throws IbanFormatException, InvalidCheckDigitException, UnsupportedCountryException {
@@ -73,8 +74,9 @@ public final class IbanUtil {
    * Validates iban.
    *
    * @param iban to be validated.
-   * @throws IbanFormatException if iban is invalid. UnsupportedCountryException if iban's country
-   *     is not supported. InvalidCheckDigitException if iban has invalid check digit.
+   * @throws IbanFormatException if iban is invalid.
+   * @throws UnsupportedCountryException if iban's country is not supported.
+   * @throws InvalidCheckDigitException if iban has invalid check digit.
    */
   public static void validate(final String iban)
       throws IbanFormatException, InvalidCheckDigitException, UnsupportedCountryException {
@@ -367,7 +369,7 @@ public final class IbanUtil {
   /**
    * Checks whether country is supporting iban.
    *
-   * @param countryCode {@link CountryCode}
+   * @param countryCode {@link com.github.nalukit.iban4g.shared.CountryCode}
    * @return boolean true if country supports iban, false otherwise.
    */
   public static boolean isSupportedCountry(final CountryCode countryCode) {

@@ -34,7 +34,7 @@ public final class Bic {
    * @param bic the String to be parsed.
    * @return a Bic object holding the value represented by the string argument.
    * @throws BicFormatException if the String doesn't contain parsable Bic.
-   *     UnsupportedCountryException if bic's country is not supported.
+   * @throws UnsupportedCountryException if bic's country is not supported.
    */
   public static Bic valueOf(final String bic)
       throws BicFormatException, UnsupportedCountryException {
