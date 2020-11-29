@@ -481,7 +481,7 @@ public class BbanStructure {
     structures.put(
         CountryCode.VG,
         new BbanStructure(
-            BbanStructureEntry.bankCode(4, 'c'), BbanStructureEntry.accountNumber(16, 'n')));
+            BbanStructureEntry.bankCode(4, 'a'), BbanStructureEntry.accountNumber(16, 'n')));
 
     structures.put(
         CountryCode.VA,
