@@ -101,7 +101,7 @@ public class BicUtilTest {
       BicUtil.validate("DEUTDDFF");
       fail();
     } catch (UnsupportedCountryException e) {
-      if (!e.getMessage().contains("Country code is not supported")) {
+      if (!e.getMessage().contains("Country code 'DD' is not supported.")) {
         fail();
       }
     }
