@@ -365,6 +365,15 @@ final class TestDataHelper {
                 .nationalCheckDigit("51")
                 .build());
         put(
+            "MG5791389127383694554421212",
+            Iban.builder()
+                .countryCode(CountryCode.MG)
+                .bankCode("91389")
+                .branchCode("12738")
+                .accountNumber("36945544212")
+                .nationalCheckDigit("12")
+                .build());
+        put(
             "NL91ABNA0417164300",
             Iban.builder()
                 .countryCode(CountryCode.NL)

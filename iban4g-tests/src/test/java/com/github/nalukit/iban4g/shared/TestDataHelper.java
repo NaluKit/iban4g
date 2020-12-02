@@ -422,6 +422,16 @@ final class TestDataHelper {
           },
           {
             Iban.builder()
+                .countryCode(CountryCode.MG)
+                .bankCode("91389")
+                .branchCode("12738")
+                .accountNumber("36945544212")
+                .nationalCheckDigit("12")
+                .build(),
+            "MG5791389127383694554421212"
+          },
+          {
+            Iban.builder()
                 .countryCode(CountryCode.NL)
                 .bankCode("ABNA")
                 .accountNumber("0417164300")
