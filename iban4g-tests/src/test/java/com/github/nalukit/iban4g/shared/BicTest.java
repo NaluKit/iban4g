@@ -122,9 +122,11 @@ public class BicTest {
 
   @Test
   public void bicShouldReturnBic8Code() {
-    Bic bic = Bic.valueOf("DEUTDEFF500");
+    Bic bic01 = Bic.valueOf("DEUTDEFF500");
+    assertThat(bic01.getBic8(), is(equalTo("DEUTDEFF")));
 
-    assertThat(bic.getBic8(), is(equalTo("DEUTDEFF")));
+    Bic bic02 = Bic.valueOf("DEUTDEFF");
+    assertThat(bic02.getBic8(), is(equalTo("DEUTDEFF")));
   }
 
   @RunWith(Parameterized.class)

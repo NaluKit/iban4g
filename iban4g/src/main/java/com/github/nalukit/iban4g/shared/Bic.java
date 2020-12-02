@@ -77,6 +77,7 @@ public final class Bic {
   public String getBic8() {
     return getBankCode() + getCountryCode() + getLocationCode();
   }
+
   /**
    * Returns the branch code from the Bic.
    *

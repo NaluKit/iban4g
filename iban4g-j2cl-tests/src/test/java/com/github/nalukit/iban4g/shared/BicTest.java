@@ -124,8 +124,10 @@ public class BicTest {
 
   @Test
   public void bicShouldReturnBic8Code() {
-    Bic bic = Bic.valueOf("DEUTDEFF500");
+    Bic bic01 = Bic.valueOf("DEUTDEFF500");
+    assertEquals(bic01.getBic8(), "DEUTDEFF");
 
-    assertEquals(bic.getBic8(), "DEUTDEFF");
+    Bic bic02 = Bic.valueOf("DEUTDEFF");
+    assertEquals(bic02.getBic8(), "DEUTDEFF");
   }
 }
