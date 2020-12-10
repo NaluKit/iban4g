@@ -90,15 +90,12 @@ Documentation and most of the classes are copied from [iban4j](https://github.co
 ## To get in touch with the developer
 Please use the [Nalu Gitter room](https://gitter.im/Nalukit42/Lobby).
 
-## License
-Copyright 2015 Artur Mkrtchyan
-
 ## Notes
 In case you find a bug, please open an issue or post it inside the [Nalu Gitter room](https://gitter.im/Nalukit42/Lobby).
 
-
+## License
+Copyright 2015 Artur Mkrtchyan
 
 Modifications Copyright 2020 Frank Hossfeld
-
 
 Licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
