@@ -87,8 +87,16 @@ Documentation and most of the classes are copied from [iban4j](https://github.co
 - [https://www.swift.com/resource/iban-registry-pdf](https://www.swift.com/resource/iban-registry-pdf)
 - [https://bank.codes/iban/structure](https://bank.codes/iban/structure)
 
+## To get in touch with the developer
+Please use the [Nalu Gitter room](https://gitter.im/Nalukit42/Lobby).
+
 ## License
 Copyright 2015 Artur Mkrtchyan
+
+## Notes
+In case you find a bug, please open an issue or post it inside the [Nalu Gitter room](https://gitter.im/Nalukit42/Lobby).
+
+
 
 Modifications Copyright 2020 Frank Hossfeld
 
