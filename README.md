@@ -83,7 +83,7 @@ Documentation and most of the classes are copied from [iban4j](https://github.co
 - [Artur Mkrtchyan's IBAN4j project](https://github.com/arturmkrtchyan/iban4j)
 - [https://en.wikipedia.org/wiki/ISO_13616](https://en.wikipedia.org/wiki/ISO_13616)
 - [https://en.wikipedia.org/wiki/ISO_9362](https://en.wikipedia.org/wiki/ISO_9362)
-* [https://www.ecb.europa.eu/paym/retpaym/paymint/sepa/shared/pdf/iban_registry.pdf](https://www.ecb.europa.eu/paym/retpaym/paymint/sepa/shared/pdf/iban_registry.pdf)
+- [https://www.ecb.europa.eu/paym/retpaym/paymint/sepa/shared/pdf/iban_registry.pdf](https://www.ecb.europa.eu/paym/retpaym/paymint/sepa/shared/pdf/iban_registry.pdf)
 - [https://www.swift.com/dsp/resources/documents/IBAN_Registry.pdf](https://www.swift.com/dsp/resources/documents/IBAN_Registry.pdf)
 - [https://www.swift.com/resource/iban-registry-pdf](https://www.swift.com/resource/iban-registry-pdf)
 - [https://bank.codes/iban/structure](https://bank.codes/iban/structure)
