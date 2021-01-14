@@ -69,7 +69,7 @@ Documentation and most of the classes are copied from [iban4j](https://github.co
 <dependency>
   <groupId>com.github.nalukit</groupId>
   <artifactId>iban4g</artifactId>
-  <version>2.0.0-RC2</version>
+  <version>HEAD-SNAPSHOT</version>
 </dependency>
 ```
 
