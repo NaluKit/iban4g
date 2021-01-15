@@ -194,8 +194,8 @@ public class BbanStructure {
         new BbanStructure(
             BbanStructureEntry.bankCode(3, 'n'),
             BbanStructureEntry.branchCode(4, 'n'),
-            BbanStructureEntry.accountNumber(16, 'n'),
-            BbanStructureEntry.nationalCheckDigit(1, 'n')));
+            BbanStructureEntry.nationalCheckDigit(1, 'n'),
+            BbanStructureEntry.accountNumber(16, 'n')));
 
     structures.put(
         CountryCode.IS,

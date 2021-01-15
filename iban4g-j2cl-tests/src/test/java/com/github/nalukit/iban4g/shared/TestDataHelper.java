@@ -213,8 +213,8 @@ final class TestDataHelper {
                 .countryCode(CountryCode.HU)
                 .bankCode("117")
                 .branchCode("7301")
-                .accountNumber("6111110180000000")
-                .nationalCheckDigit("0")
+                .accountNumber("1111101800000000")
+                .nationalCheckDigit("6")
                 .build());
         put(
             "IS140159260076545510730339",
