@@ -11,7 +11,7 @@
   <packaging>pom</packaging>
 
   <name>IBAN4G</name>
-  <description>A GWT library for International Bank Account Number (IBAN) generation.</description>
+  <description>A library for International Bank Account Number (IBAN) generation to use with Java, GWT or J2CL.</description>
   <url>https://github.com/nalukit/iban4g</url>
 
   <licenses>
