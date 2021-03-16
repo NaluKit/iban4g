@@ -33,4 +33,4 @@ jobs:
         with:
           java-version: ${{ matrix.java }}
       - name: Test
-        run: mvn --batch-mode test
+        run: mvn --batch-mode package
