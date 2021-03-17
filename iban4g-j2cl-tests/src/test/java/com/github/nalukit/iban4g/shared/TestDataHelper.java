@@ -29,6 +29,21 @@ final class TestDataHelper {
 
       {
         put(
+            "AD1200012030200359100100",
+            Iban.builder()
+                .countryCode(CountryCode.AD)
+                .bankCode("0001")
+                .branchCode("2030")
+                .accountNumber("200359100100")
+                .build());
+        put(
+            "AE070331234567890123456",
+            Iban.builder()
+                .countryCode(CountryCode.AE)
+                .bankCode("033")
+                .accountNumber("1234567890123456")
+                .build());
+        put(
             "AL47212110090000000235698741",
             Iban.builder()
                 .countryCode(CountryCode.AL)
@@ -36,14 +51,6 @@ final class TestDataHelper {
                 .branchCode("1100")
                 .accountNumber("0000000235698741")
                 .nationalCheckDigit("9")
-                .build());
-        put(
-            "AD1200012030200359100100",
-            Iban.builder()
-                .countryCode(CountryCode.AD)
-                .bankCode("0001")
-                .branchCode("2030")
-                .accountNumber("200359100100")
                 .build());
         put(
             "AT611904300234573201",
@@ -60,11 +67,13 @@ final class TestDataHelper {
                 .accountNumber("00000000137010001944")
                 .build());
         put(
-            "BH72SCBLBHD18903608801",
+            "BA391290079401028494",
             Iban.builder()
-                .countryCode(CountryCode.BH)
-                .bankCode("SCBL")
-                .accountNumber("BHD18903608801")
+                .countryCode(CountryCode.BA)
+                .bankCode("129")
+                .branchCode("007")
+                .accountNumber("94010284")
+                .nationalCheckDigit("94")
                 .build());
         put(
             "BE68539007547034",
@@ -75,13 +84,29 @@ final class TestDataHelper {
                 .nationalCheckDigit("34")
                 .build());
         put(
-            "BA391290079401028494",
+            "BG80BNBG96611020345678",
             Iban.builder()
-                .countryCode(CountryCode.BA)
-                .bankCode("129")
-                .branchCode("007")
-                .accountNumber("94010284")
-                .nationalCheckDigit("94")
+                .countryCode(CountryCode.BG)
+                .bankCode("BNBG")
+                .branchCode("9661")
+                .accountNumber("20345678")
+                .accountType("10")
+                .build());
+        put(
+            "BH72SCBLBHD18903608801",
+            Iban.builder()
+                .countryCode(CountryCode.BH)
+                .bankCode("SCBL")
+                .accountNumber("BHD18903608801")
+                .build());
+        put(
+            "BL391234512345123456789AB13",
+            Iban.builder()
+                .countryCode(CountryCode.BL)
+                .bankCode("12345")
+                .branchCode("12345")
+                .accountNumber("123456789AB")
+                .nationalCheckDigit("13")
                 .build());
         put(
             "BR9700360305000010009795493P1",
@@ -94,13 +119,11 @@ final class TestDataHelper {
                 .ownerAccountType("1")
                 .build());
         put(
-            "BG80BNBG96611020345678",
+            "CH9300762011623852957",
             Iban.builder()
-                .countryCode(CountryCode.BG)
-                .bankCode("BNBG")
-                .branchCode("9661")
-                .accountNumber("20345678")
-                .accountType("10")
+                .countryCode(CountryCode.CH)
+                .bankCode("00762")
+                .accountNumber("011623852957")
                 .build());
         put(
             "CR05015202001026284066",
@@ -108,13 +131,6 @@ final class TestDataHelper {
                 .countryCode(CountryCode.CR)
                 .bankCode("0152")
                 .accountNumber("02001026284066")
-                .build());
-        put(
-            "HR1210010051863000160",
-            Iban.builder()
-                .countryCode(CountryCode.HR)
-                .bankCode("1001005")
-                .accountNumber("1863000160")
                 .build());
         put(
             "CY17002001280000001200527600",
@@ -130,6 +146,13 @@ final class TestDataHelper {
                 .countryCode(CountryCode.CZ)
                 .bankCode("0800")
                 .accountNumber("0000192000145399")
+                .build());
+        put(
+            "DE89370400440532013000",
+            Iban.builder()
+                .countryCode(CountryCode.DE)
+                .bankCode("37040044")
+                .accountNumber("0532013000")
                 .build());
         put(
             "DK5000400440116243",
@@ -155,12 +178,29 @@ final class TestDataHelper {
                 .nationalCheckDigit("5")
                 .build());
         put(
+            "ES9121000418450200051332",
+            Iban.builder()
+                .countryCode(CountryCode.ES)
+                .bankCode("2100")
+                .branchCode("0418")
+                .accountNumber("0200051332")
+                .nationalCheckDigit("45")
+                .build());
+        put(
             "FI2112345600000785",
             Iban.builder()
                 .countryCode(CountryCode.FI)
                 .bankCode("123456")
                 .accountNumber("0000078")
                 .nationalCheckDigit("5")
+                .build());
+        put(
+            "FO9754320388899944",
+            Iban.builder()
+                .countryCode(CountryCode.FO)
+                .bankCode("5432")
+                .accountNumber("038889994")
+                .nationalCheckDigit("4")
                 .build());
         put(
             "FR1420041010050500013M02606",
@@ -172,6 +212,14 @@ final class TestDataHelper {
                 .nationalCheckDigit("06")
                 .build());
         put(
+            "GB29NWBK60161331926819",
+            Iban.builder()
+                .countryCode(CountryCode.GB)
+                .bankCode("NWBK")
+                .branchCode("601613")
+                .accountNumber("31926819")
+                .build());
+        put(
             "GE29NB0000000101904917",
             Iban.builder()
                 .countryCode(CountryCode.GE)
@@ -179,11 +227,13 @@ final class TestDataHelper {
                 .accountNumber("0000000101904917")
                 .build());
         put(
-            "DE89370400440532013000",
+            "GF121234512345123456789AB13",
             Iban.builder()
-                .countryCode(CountryCode.DE)
-                .bankCode("37040044")
-                .accountNumber("0532013000")
+                .countryCode(CountryCode.GF)
+                .bankCode("12345")
+                .branchCode("12345")
+                .accountNumber("123456789AB")
+                .nationalCheckDigit("13")
                 .build());
         put(
             "GI75NWBK000000007099453",
@@ -191,6 +241,22 @@ final class TestDataHelper {
                 .countryCode(CountryCode.GI)
                 .bankCode("NWBK")
                 .accountNumber("000000007099453")
+                .build());
+        put(
+            "GL8964710001000206",
+            Iban.builder()
+                .countryCode(CountryCode.GL)
+                .bankCode("6471")
+                .accountNumber("0001000206")
+                .build());
+        put(
+            "GP791234512345123456789AB13",
+            Iban.builder()
+                .countryCode(CountryCode.GP)
+                .bankCode("12345")
+                .branchCode("12345")
+                .accountNumber("123456789AB")
+                .nationalCheckDigit("13")
                 .build());
         put(
             "GR1601101250000000012300695",
@@ -208,6 +274,13 @@ final class TestDataHelper {
                 .accountNumber("01020000001210029690")
                 .build());
         put(
+            "HR1210010051863000160",
+            Iban.builder()
+                .countryCode(CountryCode.HR)
+                .bankCode("1001005")
+                .accountNumber("1863000160")
+                .build());
+        put(
             "HU42117730161111101800000000",
             Iban.builder()
                 .countryCode(CountryCode.HU)
@@ -215,15 +288,6 @@ final class TestDataHelper {
                 .branchCode("7301")
                 .accountNumber("1111101800000000")
                 .nationalCheckDigit("6")
-                .build());
-        put(
-            "IS140159260076545510730339",
-            Iban.builder()
-                .countryCode(CountryCode.IS)
-                .bankCode("0159")
-                .branchCode("26")
-                .accountNumber("007654")
-                .identificationNumber("5510730339")
                 .build());
         put(
             "IE29AIBK93115212345678",
@@ -240,6 +304,22 @@ final class TestDataHelper {
                 .bankCode("010")
                 .branchCode("800")
                 .accountNumber("0000099999999")
+                .build());
+        put(
+            "IR200170000000000123456789",
+            Iban.builder()
+                .countryCode(CountryCode.IR)
+                .bankCode("017")
+                .accountNumber("0000000000123456789")
+                .build());
+        put(
+            "IS140159260076545510730339",
+            Iban.builder()
+                .countryCode(CountryCode.IS)
+                .bankCode("0159")
+                .branchCode("26")
+                .accountNumber("007654")
+                .identificationNumber("5510730339")
                 .build());
         put(
             "IT60X0542811101000000123456",
@@ -259,13 +339,6 @@ final class TestDataHelper {
                 .accountNumber("000000000131000302")
                 .build());
         put(
-            "KZ86125KZT5004100100",
-            Iban.builder()
-                .countryCode(CountryCode.KZ)
-                .bankCode("125")
-                .accountNumber("KZT5004100100")
-                .build());
-        put(
             "KW81CBKU0000000000001234560101",
             Iban.builder()
                 .countryCode(CountryCode.KW)
@@ -273,11 +346,11 @@ final class TestDataHelper {
                 .accountNumber("0000000000001234560101")
                 .build());
         put(
-            "LV80BANK0000435195001",
+            "KZ86125KZT5004100100",
             Iban.builder()
-                .countryCode(CountryCode.LV)
-                .bankCode("BANK")
-                .accountNumber("0000435195001")
+                .countryCode(CountryCode.KZ)
+                .bankCode("125")
+                .accountNumber("KZT5004100100")
                 .build());
         put(
             "LB62099900000001001901229114",
@@ -285,6 +358,13 @@ final class TestDataHelper {
                 .countryCode(CountryCode.LB)
                 .bankCode("0999")
                 .accountNumber("00000001001901229114")
+                .build());
+        put(
+            "LC55HEMM000100010012001200023015",
+            Iban.builder()
+                .countryCode(CountryCode.LC)
+                .bankCode("HEMM")
+                .accountNumber("000100010012001200023015")
                 .build());
         put(
             "LI21088100002324013AA",
@@ -308,44 +388,11 @@ final class TestDataHelper {
                 .accountNumber("9400644750000")
                 .build());
         put(
-            "MK07250120000058984",
+            "LV80BANK0000435195001",
             Iban.builder()
-                .countryCode(CountryCode.MK)
-                .bankCode("250")
-                .accountNumber("1200000589")
-                .nationalCheckDigit("84")
-                .build());
-        put(
-            "MT84MALT011000012345MTLCAST001S",
-            Iban.builder()
-                .countryCode(CountryCode.MT)
-                .bankCode("MALT")
-                .branchCode("01100")
-                .accountNumber("0012345MTLCAST001S")
-                .build());
-        put(
-            "MR1300020001010000123456753",
-            Iban.builder()
-                .countryCode(CountryCode.MR)
-                .bankCode("00020")
-                .branchCode("00101")
-                .accountNumber("00001234567")
-                .nationalCheckDigit("53")
-                .build());
-        put(
-            "MU17BOMM0101101030300200000MUR",
-            Iban.builder()
-                .countryCode(CountryCode.MU)
-                .bankCode("BOMM01")
-                .branchCode("01")
-                .accountNumber("101030300200000MUR")
-                .build());
-        put(
-            "MD24AG000225100013104168",
-            Iban.builder()
-                .countryCode(CountryCode.MD)
-                .bankCode("AG")
-                .accountNumber("000225100013104168")
+                .countryCode(CountryCode.LV)
+                .bankCode("BANK")
+                .accountNumber("0000435195001")
                 .build());
         put(
             "MC5811222000010123456789030",
@@ -357,12 +404,28 @@ final class TestDataHelper {
                 .nationalCheckDigit("30")
                 .build());
         put(
+            "MD24AG000225100013104168",
+            Iban.builder()
+                .countryCode(CountryCode.MD)
+                .bankCode("AG")
+                .accountNumber("000225100013104168")
+                .build());
+        put(
             "ME25505000012345678951",
             Iban.builder()
                 .countryCode(CountryCode.ME)
                 .bankCode("505")
                 .accountNumber("0000123456789")
                 .nationalCheckDigit("51")
+                .build());
+        put(
+            "MF551234512345123456789AB13",
+            Iban.builder()
+                .countryCode(CountryCode.MF)
+                .bankCode("12345")
+                .branchCode("12345")
+                .accountNumber("123456789AB")
+                .nationalCheckDigit("13")
                 .build());
         put(
             "MG5791389127383694554421212",
@@ -372,6 +435,57 @@ final class TestDataHelper {
                 .branchCode("12738")
                 .accountNumber("36945544212")
                 .nationalCheckDigit("12")
+                .build());
+        put(
+            "MK07250120000058984",
+            Iban.builder()
+                .countryCode(CountryCode.MK)
+                .bankCode("250")
+                .accountNumber("1200000589")
+                .nationalCheckDigit("84")
+                .build());
+        put(
+            "MQ221234512345123456789AB13",
+            Iban.builder()
+                .countryCode(CountryCode.MQ)
+                .bankCode("12345")
+                .branchCode("12345")
+                .accountNumber("123456789AB")
+                .nationalCheckDigit("13")
+                .build());
+        put(
+            "MR1300020001010000123456753",
+            Iban.builder()
+                .countryCode(CountryCode.MR)
+                .bankCode("00020")
+                .branchCode("00101")
+                .accountNumber("00001234567")
+                .nationalCheckDigit("53")
+                .build());
+        put(
+            "MT84MALT011000012345MTLCAST001S",
+            Iban.builder()
+                .countryCode(CountryCode.MT)
+                .bankCode("MALT")
+                .branchCode("01100")
+                .accountNumber("0012345MTLCAST001S")
+                .build());
+        put(
+            "MU17BOMM0101101030300200000MUR",
+            Iban.builder()
+                .countryCode(CountryCode.MU)
+                .bankCode("BOMM01")
+                .branchCode("01")
+                .accountNumber("101030300200000MUR")
+                .build());
+        put(
+            "NC551234512345123456789AB13",
+            Iban.builder()
+                .countryCode(CountryCode.NC)
+                .bankCode("12345")
+                .branchCode("12345")
+                .accountNumber("123456789AB")
+                .nationalCheckDigit("13")
                 .build());
         put(
             "NL91ABNA0417164300",
@@ -389,18 +503,20 @@ final class TestDataHelper {
                 .nationalCheckDigit("7")
                 .build());
         put(
+            "PF281234512345123456789AB13",
+            Iban.builder()
+                .countryCode(CountryCode.PF)
+                .bankCode("12345")
+                .branchCode("12345")
+                .accountNumber("123456789AB")
+                .nationalCheckDigit("13")
+                .build());
+        put(
             "PK36SCBL0000001123456702",
             Iban.builder()
                 .countryCode(CountryCode.PK)
                 .bankCode("SCBL")
                 .accountNumber("0000001123456702")
-                .build());
-        put(
-            "PS92PALS000000000400123456702",
-            Iban.builder()
-                .countryCode(CountryCode.PS)
-                .bankCode("PALS")
-                .accountNumber("000000000400123456702")
                 .build());
         put(
             "PL61109010140000071219812874",
@@ -412,6 +528,13 @@ final class TestDataHelper {
                 .nationalCheckDigit("4")
                 .build());
         put(
+            "PS92PALS000000000400123456702",
+            Iban.builder()
+                .countryCode(CountryCode.PS)
+                .bankCode("PALS")
+                .accountNumber("000000000400123456702")
+                .build());
+        put(
             "PT50000201231234567890154",
             Iban.builder()
                 .countryCode(CountryCode.PT)
@@ -421,13 +544,6 @@ final class TestDataHelper {
                 .nationalCheckDigit("54")
                 .build());
         put(
-            "RO49AAAA1B31007593840000",
-            Iban.builder()
-                .countryCode(CountryCode.RO)
-                .bankCode("AAAA")
-                .accountNumber("1B31007593840000")
-                .build());
-        put(
             "QA58DOHB00001234567890ABCDEFG",
             Iban.builder()
                 .countryCode(CountryCode.QA)
@@ -435,20 +551,20 @@ final class TestDataHelper {
                 .accountNumber("00001234567890ABCDEFG")
                 .build());
         put(
-            "SM86U0322509800000000270100",
+            "RE131234512345123456789AB13",
             Iban.builder()
-                .countryCode(CountryCode.SM)
-                .bankCode("03225")
-                .branchCode("09800")
-                .accountNumber("000000270100")
-                .nationalCheckDigit("U")
+                .countryCode(CountryCode.RE)
+                .bankCode("12345")
+                .branchCode("12345")
+                .accountNumber("123456789AB")
+                .nationalCheckDigit("13")
                 .build());
         put(
-            "SA0380000000608010167519",
+            "RO49AAAA1B31007593840000",
             Iban.builder()
-                .countryCode(CountryCode.SA)
-                .bankCode("80")
-                .accountNumber("000000608010167519")
+                .countryCode(CountryCode.RO)
+                .bankCode("AAAA")
+                .accountNumber("1B31007593840000")
                 .build());
         put(
             "RS35260005601001611379",
@@ -460,11 +576,18 @@ final class TestDataHelper {
                 .nationalCheckDigit("79")
                 .build());
         put(
-            "SK3112000000198742637541",
+            "SA0380000000608010167519",
             Iban.builder()
-                .countryCode(CountryCode.SK)
-                .bankCode("1200")
-                .accountNumber("0000198742637541")
+                .countryCode(CountryCode.SA)
+                .bankCode("80")
+                .accountNumber("000000608010167519")
+                .build());
+        put(
+            "SE4550000000058398257466",
+            Iban.builder()
+                .countryCode(CountryCode.SE)
+                .bankCode("500")
+                .accountNumber("00000058398257466")
                 .build());
         put(
             "SI56263300012039086",
@@ -476,27 +599,37 @@ final class TestDataHelper {
                 .nationalCheckDigit("86")
                 .build());
         put(
-            "ES9121000418450200051332",
+            "SK3112000000198742637541",
             Iban.builder()
-                .countryCode(CountryCode.ES)
-                .bankCode("2100")
-                .branchCode("0418")
-                .accountNumber("0200051332")
-                .nationalCheckDigit("45")
+                .countryCode(CountryCode.SK)
+                .bankCode("1200")
+                .accountNumber("0000198742637541")
                 .build());
         put(
-            "SE4550000000058398257466",
+            "SM86U0322509800000000270100",
             Iban.builder()
-                .countryCode(CountryCode.SE)
-                .bankCode("500")
-                .accountNumber("00000058398257466")
+                .countryCode(CountryCode.SM)
+                .bankCode("03225")
+                .branchCode("09800")
+                .accountNumber("000000270100")
+                .nationalCheckDigit("U")
                 .build());
         put(
-            "CH9300762011623852957",
+            "TF891234512345123456789AB13",
             Iban.builder()
-                .countryCode(CountryCode.CH)
-                .bankCode("00762")
-                .accountNumber("011623852957")
+                .countryCode(CountryCode.TF)
+                .bankCode("12345")
+                .branchCode("12345")
+                .accountNumber("123456789AB")
+                .nationalCheckDigit("13")
+                .build());
+        put(
+            "TL380080012345678910157",
+            Iban.builder()
+                .countryCode(CountryCode.TL)
+                .bankCode("008")
+                .accountNumber("00123456789101")
+                .nationalCheckDigit("57")
                 .build());
         put(
             "TN5910006035183598478831",
@@ -515,67 +648,6 @@ final class TestDataHelper {
                 .nationalCheckDigit("0")
                 .build());
         put(
-            "AE070331234567890123456",
-            Iban.builder()
-                .countryCode(CountryCode.AE)
-                .bankCode("033")
-                .accountNumber("1234567890123456")
-                .build());
-        put(
-            "GB29NWBK60161331926819",
-            Iban.builder()
-                .countryCode(CountryCode.GB)
-                .bankCode("NWBK")
-                .branchCode("601613")
-                .accountNumber("31926819")
-                .build());
-        put(
-            "VG96VPVG0000012345678901",
-            Iban.builder()
-                .countryCode(CountryCode.VG)
-                .bankCode("VPVG")
-                .accountNumber("0000012345678901")
-                .build());
-        put(
-            "TL380080012345678910157",
-            Iban.builder()
-                .countryCode(CountryCode.TL)
-                .bankCode("008")
-                .accountNumber("00123456789101")
-                .nationalCheckDigit("57")
-                .build());
-        put(
-            "XK051000000000000053",
-            Iban.builder()
-                .countryCode(CountryCode.XK)
-                .bankCode("10")
-                .branchCode("00")
-                .accountNumber("0000000000")
-                .nationalCheckDigit("53")
-                .build());
-        put(
-            "IR200170000000000123456789",
-            Iban.builder()
-                .countryCode(CountryCode.IR)
-                .bankCode("017")
-                .accountNumber("0000000000123456789")
-                .build());
-        put(
-            "FO9754320388899944",
-            Iban.builder()
-                .countryCode(CountryCode.FO)
-                .bankCode("5432")
-                .accountNumber("038889994")
-                .nationalCheckDigit("4")
-                .build());
-        put(
-            "GL8964710001000206",
-            Iban.builder()
-                .countryCode(CountryCode.GL)
-                .bankCode("6471")
-                .accountNumber("0001000206")
-                .build());
-        put(
             "UA573543470006762462054925026",
             Iban.builder()
                 .countryCode(CountryCode.UA)
@@ -588,6 +660,40 @@ final class TestDataHelper {
                 .countryCode(CountryCode.VA)
                 .bankCode("001")
                 .accountNumber("123000012345678")
+                .build());
+        put(
+            "VG96VPVG0000012345678901",
+            Iban.builder()
+                .countryCode(CountryCode.VG)
+                .bankCode("VPVG")
+                .accountNumber("0000012345678901")
+                .build());
+        put(
+            "WF621234512345123456789AB13",
+            Iban.builder()
+                .countryCode(CountryCode.WF)
+                .bankCode("12345")
+                .branchCode("12345")
+                .accountNumber("123456789AB")
+                .nationalCheckDigit("13")
+                .build());
+        put(
+            "XK051000000000000053",
+            Iban.builder()
+                .countryCode(CountryCode.XK)
+                .bankCode("10")
+                .branchCode("00")
+                .accountNumber("0000000000")
+                .nationalCheckDigit("53")
+                .build());
+        put(
+            "YT021234512345123456789AB13",
+            Iban.builder()
+                .countryCode(CountryCode.YT)
+                .bankCode("12345")
+                .branchCode("12345")
+                .accountNumber("123456789AB")
+                .nationalCheckDigit("13")
                 .build());
       }
     };

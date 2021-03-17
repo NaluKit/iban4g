@@ -69,6 +69,16 @@ final class TestDataHelper {
           },
           {
             Iban.builder()
+                .countryCode(CountryCode.BA)
+                .bankCode("129")
+                .branchCode("007")
+                .accountNumber("94010284")
+                .nationalCheckDigit("94")
+                .build(),
+            "BA391290079401028494"
+          },
+          {
+            Iban.builder()
                 .countryCode(CountryCode.BE)
                 .bankCode("539")
                 .accountNumber("0075470")
@@ -77,14 +87,14 @@ final class TestDataHelper {
             "BE68539007547034"
           },
           {
-            Iban.builder()
-                .countryCode(CountryCode.BA)
-                .bankCode("129")
-                .branchCode("007")
-                .accountNumber("94010284")
-                .nationalCheckDigit("94")
+            new Iban.Builder()
+                .countryCode(CountryCode.BL)
+                .bankCode("12345")
+                .branchCode("12345")
+                .accountNumber("123456789AB")
+                .nationalCheckDigit("13")
                 .build(),
-            "BA391290079401028494"
+            "BL391234512345123456789AB13"
           },
           {
             Iban.builder()
@@ -211,12 +221,32 @@ final class TestDataHelper {
             "DE89370400440532013000"
           },
           {
+            new Iban.Builder()
+                .countryCode(CountryCode.GF)
+                .bankCode("12345")
+                .branchCode("12345")
+                .accountNumber("123456789AB")
+                .nationalCheckDigit("13")
+                .build(),
+            "GF121234512345123456789AB13"
+          },
+          {
             Iban.builder()
                 .countryCode(CountryCode.GI)
                 .bankCode("NWBK")
                 .accountNumber("000000007099453")
                 .build(),
             "GI75NWBK000000007099453"
+          },
+          {
+            new Iban.Builder()
+                .countryCode(CountryCode.GP)
+                .bankCode("12345")
+                .branchCode("12345")
+                .accountNumber("123456789AB")
+                .nationalCheckDigit("13")
+                .build(),
+            "GP791234512345123456789AB13"
           },
           {
             Iban.builder()
@@ -357,6 +387,26 @@ final class TestDataHelper {
             "LU280019400644750000"
           },
           {
+            new Iban.Builder()
+                .countryCode(CountryCode.MC)
+                .bankCode("11222")
+                .branchCode("00001")
+                .accountNumber("01234567890")
+                .nationalCheckDigit("30")
+                .build(),
+            "MC5811222000010123456789030"
+          },
+          {
+            new Iban.Builder()
+                .countryCode(CountryCode.MF)
+                .bankCode("12345")
+                .branchCode("12345")
+                .accountNumber("123456789AB")
+                .nationalCheckDigit("13")
+                .build(),
+            "MF551234512345123456789AB13"
+          },
+          {
             Iban.builder()
                 .countryCode(CountryCode.MK)
                 .bankCode("250")
@@ -364,6 +414,16 @@ final class TestDataHelper {
                 .nationalCheckDigit("84")
                 .build(),
             "MK07250120000058984"
+          },
+          {
+            new Iban.Builder()
+                .countryCode(CountryCode.MQ)
+                .bankCode("12345")
+                .branchCode("12345")
+                .accountNumber("123456789AB")
+                .nationalCheckDigit("13")
+                .build(),
+            "MQ221234512345123456789AB13"
           },
           {
             Iban.builder()
@@ -431,6 +491,16 @@ final class TestDataHelper {
             "MG5791389127383694554421212"
           },
           {
+            new Iban.Builder()
+                .countryCode(CountryCode.NC)
+                .bankCode("12345")
+                .branchCode("12345")
+                .accountNumber("123456789AB")
+                .nationalCheckDigit("13")
+                .build(),
+            "NC551234512345123456789AB13"
+          },
+          {
             Iban.builder()
                 .countryCode(CountryCode.NL)
                 .bankCode("ABNA")
@@ -446,6 +516,26 @@ final class TestDataHelper {
                 .nationalCheckDigit("7")
                 .build(),
             "NO9386011117947"
+          },
+          {
+            new Iban.Builder()
+                .countryCode(CountryCode.PF)
+                .bankCode("12345")
+                .branchCode("12345")
+                .accountNumber("123456789AB")
+                .nationalCheckDigit("13")
+                .build(),
+            "PF281234512345123456789AB13"
+          },
+          {
+            new Iban.Builder()
+                .countryCode(CountryCode.PM)
+                .bankCode("12345")
+                .branchCode("12345")
+                .accountNumber("123456789AB")
+                .nationalCheckDigit("13")
+                .build(),
+            "PM071234512345123456789AB13"
           },
           {
             Iban.builder()
@@ -482,6 +572,16 @@ final class TestDataHelper {
                 .nationalCheckDigit("54")
                 .build(),
             "PT50000201231234567890154"
+          },
+          {
+            new Iban.Builder()
+                .countryCode(CountryCode.RE)
+                .bankCode("12345")
+                .branchCode("12345")
+                .accountNumber("123456789AB")
+                .nationalCheckDigit("13")
+                .build(),
+            "RE131234512345123456789AB13"
           },
           {
             Iban.builder()
@@ -599,6 +699,16 @@ final class TestDataHelper {
             "CH9300762011623852957"
           },
           {
+            new Iban.Builder()
+                .countryCode(CountryCode.TF)
+                .bankCode("12345")
+                .branchCode("12345")
+                .accountNumber("123456789AB")
+                .nationalCheckDigit("13")
+                .build(),
+            "TF891234512345123456789AB13"
+          },
+          {
             Iban.builder()
                 .countryCode(CountryCode.TN)
                 .bankCode("10")
@@ -615,6 +725,16 @@ final class TestDataHelper {
                 .nationalCheckDigit("0")
                 .build(),
             "TR330006100519786457841326"
+          },
+          {
+            new Iban.Builder()
+                .countryCode(CountryCode.WF)
+                .bankCode("12345")
+                .branchCode("12345")
+                .accountNumber("123456789AB")
+                .nationalCheckDigit("13")
+                .build(),
+            "WF621234512345123456789AB13"
           },
           {
             Iban.builder()
@@ -700,6 +820,16 @@ final class TestDataHelper {
                 .accountNumber("123000012345678")
                 .build(),
             "VA59001123000012345678"
+          },
+          {
+            new Iban.Builder()
+                .countryCode(CountryCode.YT)
+                .bankCode("12345")
+                .branchCode("12345")
+                .accountNumber("123456789AB")
+                .nationalCheckDigit("13")
+                .build(),
+            "YT021234512345123456789AB13"
           }
         });
   }
