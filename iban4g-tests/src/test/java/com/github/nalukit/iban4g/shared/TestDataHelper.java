@@ -187,6 +187,15 @@ final class TestDataHelper {
           },
           {
             Iban.builder()
+                .countryCode(CountryCode.EG)
+                .bankCode("0019")
+                .branchCode("0005")
+                .accountNumber("00000000263180002")
+                .build(),
+            "EG380019000500000000263180002"
+          },
+          {
+            Iban.builder()
                 .countryCode(CountryCode.FI)
                 .bankCode("123456")
                 .accountNumber("0000078")
