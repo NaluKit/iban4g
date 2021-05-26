@@ -159,6 +159,13 @@ public class BbanStructure {
             BbanStructureEntry.nationalCheckDigit(1, 'n')));
 
     structures.put(
+        CountryCode.EG,
+        new BbanStructure(
+            BbanStructureEntry.bankCode(4, 'n'),
+            BbanStructureEntry.branchCode(4, 'n'),
+            BbanStructureEntry.accountNumber(17, 'n')));
+
+    structures.put(
         CountryCode.ES,
         new BbanStructure(
             BbanStructureEntry.bankCode(4, 'n'),

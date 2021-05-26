@@ -178,6 +178,14 @@ final class TestDataHelper {
                 .nationalCheckDigit("5")
                 .build());
         put(
+            "EG380019000500000000263180002",
+            Iban.builder()
+                .countryCode(CountryCode.EG)
+                .bankCode("0019")
+                .branchCode("0005")
+                .accountNumber("00000000263180002")
+                .build());
+        put(
             "ES9121000418450200051332",
             Iban.builder()
                 .countryCode(CountryCode.ES)
@@ -715,27 +723,25 @@ final class TestDataHelper {
   }
 
   public static Map<String, Iban> getNonStandardButValidIbans() {
-    Map<String, Iban> data =
-        new HashMap<String, Iban>() {
-          {
-            put(
-                "TR010012300882101517977799",
-                Iban.builder()
-                    .countryCode(CountryCode.TR)
-                    .bankCode("00123")
-                    .accountNumber("0882101517977799")
-                    .nationalCheckDigit("0")
-                    .build());
-            put(
-                "TR980012300882101517977799",
-                Iban.builder()
-                    .countryCode(CountryCode.TR)
-                    .bankCode("00123")
-                    .accountNumber("0882101517977799")
-                    .nationalCheckDigit("0")
-                    .build());
-          }
-        };
-    return data;
+    return new HashMap<String, Iban>() {
+      {
+        put(
+            "TR010012300882101517977799",
+            Iban.builder()
+                .countryCode(CountryCode.TR)
+                .bankCode("00123")
+                .accountNumber("0882101517977799")
+                .nationalCheckDigit("0")
+                .build());
+        put(
+            "TR980012300882101517977799",
+            Iban.builder()
+                .countryCode(CountryCode.TR)
+                .bankCode("00123")
+                .accountNumber("0882101517977799")
+                .nationalCheckDigit("0")
+                .build());
+      }
+    };
   }
 }
