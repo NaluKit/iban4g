@@ -68,7 +68,7 @@ public class IbanTest {
               .accountNumber("102345732012")
               .build();
       Iban iban2 =
-          new Iban.Builder()
+          Iban.builder()
               .countryCode(CountryCode.AT)
               .bankCode("1904")
               .accountNumber("102345732012")

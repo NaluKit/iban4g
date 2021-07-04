@@ -15,7 +15,15 @@ Documentation and most of the classes are copied from [iban4j](https://github.co
 #### Iban quick examples:
 
 ```java
- // How to generate Iban
+ // How to generate Iban using 'new')
+ Iban iban = new Iban.Builder()
+                 .countryCode(CountryCode.AT)
+                 .bankCode("19043")
+                 .accountNumber("00234573201")
+                 .build();
+
+
+// How to generate Iban without using 'new')
  Iban iban = Iban.builder()
                  .countryCode(CountryCode.AT)
                  .bankCode("19043")

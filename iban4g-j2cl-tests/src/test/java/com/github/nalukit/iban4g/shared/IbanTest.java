@@ -35,7 +35,7 @@ public class IbanTest {
   @Test
   public void testIbansWithSameDataShouldBeEqual() {
     Iban iban1 =
-        Iban.builder()
+        new Iban.Builder()
             .countryCode(CountryCode.AT)
             .bankCode("1904")
             .accountNumber("102345732012")
