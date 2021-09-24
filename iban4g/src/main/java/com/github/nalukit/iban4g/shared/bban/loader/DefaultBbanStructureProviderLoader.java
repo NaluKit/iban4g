@@ -13,9 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.nalukit.iban4g.shared.bban;
+package com.github.nalukit.iban4g.shared.bban.loader;
 
 import com.github.nalukit.iban4g.shared.CountryCode;
+import com.github.nalukit.iban4g.shared.bban.BbanStructure;
+import com.github.nalukit.iban4g.shared.bban.BbanStructureEntry;
+import com.github.nalukit.iban4g.shared.bban.BbanStructureProvider;
 
 /**
  * Class which represents bban structure

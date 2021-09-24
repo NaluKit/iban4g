@@ -1,6 +1,8 @@
 package com.github.nalukit.iban4g.shared.bban;
 
 import com.github.nalukit.iban4g.shared.CountryCode;
+import com.github.nalukit.iban4g.shared.bban.loader.BbanStructureLoadException;
+import com.github.nalukit.iban4g.shared.bban.loader.DefaultBbanStructureProviderLoader;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -28,8 +30,12 @@ public class BbanStructureProvider {
 
   public void addBbanStructure(CountryCode countryCode,
                                BbanStructure bbanStructure) {
-    this.structures.put(countryCode,
-                        bbanStructure);
+    if (this.forCountry(countryCode) == null) {
+      this.structures.put(countryCode,
+                          bbanStructure);
+    } else {
+      throw new BbanStructureLoadException("structure for country: >>" + countryCode.getAlpha2() + "<< already exists!");
+    }
   }
 
   /**
