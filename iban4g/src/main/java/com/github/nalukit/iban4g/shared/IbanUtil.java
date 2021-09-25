@@ -20,6 +20,7 @@ import static com.github.nalukit.iban4g.shared.IbanFormatException.IbanFormatVio
 import com.github.nalukit.iban4g.shared.bban.BbanEntryType;
 import com.github.nalukit.iban4g.shared.bban.BbanStructure;
 import com.github.nalukit.iban4g.shared.bban.BbanStructureEntry;
+import com.github.nalukit.iban4g.shared.bban.BbanStructureProvider;
 
 /** Iban Utility Class */
 public final class IbanUtil {
@@ -51,22 +52,19 @@ public final class IbanUtil {
    */
   public static void validate(final String iban, final IbanFormat format)
       throws IbanFormatException, InvalidCheckDigitException, UnsupportedCountryException {
-    switch (format) {
-      case Default:
-        final String ibanWithoutSpaces = iban.replace(" ", "");
-        validate(ibanWithoutSpaces);
-        if (!toFormattedString(ibanWithoutSpaces).equals(iban)) {
-          throw new IbanFormatException(
-              IBAN_FORMATTING,
-              StringUtils.format(
-                  "Iban must be formatted using 4 characters and space combination. "
-                      + "Instead of [%s]",
-                  iban));
-        }
-        break;
-      default:
-        validate(iban);
-        break;
+    if (format == IbanFormat.Default) {
+      final String ibanWithoutSpaces = iban.replace(" ", "");
+      validate(ibanWithoutSpaces);
+      if (!toFormattedString(ibanWithoutSpaces).equals(iban)) {
+        throw new IbanFormatException(
+            IBAN_FORMATTING,
+            StringUtils.format(
+                "Iban must be formatted using 4 characters and space combination. "
+                    + "Instead of [%s]",
+                iban));
+      }
+    } else {
+      validate(iban);
     }
   }
 
@@ -149,7 +147,8 @@ public final class IbanUtil {
     }
 
     // check if country is supported
-    final BbanStructure structure = BbanStructure.forCountry(CountryCode.getByCode(countryCode));
+    final BbanStructure structure =
+        BbanStructureProvider.get().forCountry(CountryCode.getByCode(countryCode));
     if (structure == null) {
       throw new UnsupportedCountryException(countryCode);
     }
@@ -241,7 +240,7 @@ public final class IbanUtil {
   }
 
   private static BbanStructure getBbanStructure(final CountryCode countryCode) {
-    return BbanStructure.forCountry(countryCode);
+    return BbanStructureProvider.get().forCountry(countryCode);
   }
 
   /**
@@ -373,7 +372,7 @@ public final class IbanUtil {
    * @return boolean true if country supports iban, false otherwise.
    */
   public static boolean isSupportedCountry(final CountryCode countryCode) {
-    return BbanStructure.forCountry(countryCode) != null;
+    return BbanStructureProvider.get().forCountry(countryCode) != null;
   }
 
   /**

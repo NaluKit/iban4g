@@ -15,31 +15,23 @@
  */
 package com.github.nalukit.iban4g.shared.bban;
 
-import java.util.*;
+import com.github.nalukit.iban4g.shared.CountryCode;
+import com.github.nalukit.iban4g.shared.bban.loader.BbanStructureLoadException;
+import org.junit.Assert;
+import org.junit.Test;
 
-/** Class which represents bban structure */
-public class BbanStructure {
+public class BbanStructureProviderTest {
 
-  private final BbanStructureEntry[] entries;
-
-  public BbanStructure(final BbanStructureEntry... entries) {
-    this.entries = entries;
-  }
-
-  public List<BbanStructureEntry> getEntries() {
-    return Collections.unmodifiableList(Arrays.asList(entries));
-  }
-
-  /**
-   * Returns the length of bban.
-   *
-   * @return int length
-   */
-  public int getBbanLength() {
-    int length = 0;
-    for (BbanStructureEntry entry : entries) {
-      length += entry.getLength();
+  @Test
+  public void addBbanStructure() {
+    try {
+      BbanStructureProvider.get()
+          .addBbanStructure(
+              CountryCode.DE,
+              new BbanStructure(
+                  BbanStructureEntry.bankCode(8, 'n'), BbanStructureEntry.accountNumber(10, 'n')));
+      Assert.fail("expected exception!");
+    } catch (BbanStructureLoadException e) {
     }
-    return length;
   }
 }

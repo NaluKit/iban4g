@@ -19,6 +19,7 @@ import static com.github.nalukit.iban4g.shared.IbanFormatException.IbanFormatVio
 
 import com.github.nalukit.iban4g.shared.bban.BbanStructure;
 import com.github.nalukit.iban4g.shared.bban.BbanStructureEntry;
+import com.github.nalukit.iban4g.shared.bban.BbanStructureProvider;
 import java.util.List;
 import java.util.Random;
 
@@ -60,22 +61,20 @@ public final class Iban {
    */
   public static Iban valueOf(final String iban, final IbanFormat format)
       throws IbanFormatException, InvalidCheckDigitException, UnsupportedCountryException {
-    switch (format) {
-      case Default:
-        final String ibanWithoutSpaces = iban.replace(" ", "");
-        final Iban ibanObj = valueOf(ibanWithoutSpaces);
-        if (ibanObj.toFormattedString().equals(iban)) {
-          return ibanObj;
-        }
-        throw new IbanFormatException(
-            IBAN_FORMATTING,
-            StringUtils.format(
-                "Iban must be formatted using 4 characters and space combination. "
-                    + "Instead of [%s]",
-                iban));
-      default:
-        return valueOf(iban);
+    if (format == IbanFormat.Default) {
+      final String ibanWithoutSpaces = iban.replace(" ", "");
+      final Iban ibanObj = valueOf(ibanWithoutSpaces);
+      if (ibanObj.toFormattedString().equals(iban)) {
+        return ibanObj;
+      }
+      throw new IbanFormatException(
+          IBAN_FORMATTING,
+          StringUtils.format(
+              "Iban must be formatted using 4 characters and space combination. "
+                  + "Instead of [%s]",
+              iban));
     }
+    return valueOf(iban);
   }
 
   /**
@@ -326,7 +325,7 @@ public final class Iban {
     public Iban buildRandom()
         throws IbanFormatException, IllegalArgumentException, UnsupportedCountryException {
       if (countryCode == null) {
-        List<CountryCode> countryCodes = BbanStructure.supportedCountries();
+        List<CountryCode> countryCodes = BbanStructureProvider.get().supportedCountries();
         this.countryCode(countryCodes.get(random.nextInt(countryCodes.size())));
       }
       fillMissingFieldsRandomly();
@@ -345,7 +344,7 @@ public final class Iban {
     }
 
     private void fillMissingFieldsRandomly() {
-      final BbanStructure structure = BbanStructure.forCountry(countryCode);
+      final BbanStructure structure = BbanStructureProvider.get().forCountry(countryCode);
 
       if (structure == null) {
         throw new UnsupportedCountryException(countryCode.toString());
@@ -441,7 +440,7 @@ public final class Iban {
             COUNTRY_CODE_NOT_NULL, "countryCode is required; it cannot be null");
       }
 
-      final BbanStructure structure = BbanStructure.forCountry(countryCode);
+      final BbanStructure structure = BbanStructureProvider.get().forCountry(countryCode);
       if (structure == null) {
         throw new UnsupportedCountryException(countryCode.toString());
       }
@@ -499,17 +498,13 @@ public final class Iban {
 
     /** Returns formatted iban string with default check digit. */
     private String formatIban() {
-      final StringBuilder sb = new StringBuilder();
-      sb.append(countryCode.getAlpha2());
-      sb.append(DEFAULT_CHECK_DIGIT);
-      sb.append(formatBban());
-      return sb.toString();
+      return countryCode.getAlpha2() + DEFAULT_CHECK_DIGIT + formatBban();
     }
 
     /** Returns formatted bban string. */
     private String formatBban() {
       final StringBuilder sb = new StringBuilder();
-      final BbanStructure structure = BbanStructure.forCountry(countryCode);
+      final BbanStructure structure = BbanStructureProvider.get().forCountry(countryCode);
 
       if (structure == null) {
         throw new UnsupportedCountryException(countryCode.toString());

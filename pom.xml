@@ -70,7 +70,7 @@
     <maven.flatten.plugin>1.2.2</maven.flatten.plugin>
     <maven.fmt.plugin>2.9</maven.fmt.plugin>
     <maven.install.plugin>3.0.0-M1</maven.install.plugin>
-    <maven.license.plugin>3.0</maven.license.plugin>
+    <maven.license.plugin>4.1</maven.license.plugin>
     <maven.surfire.plugin>3.0.0-M1</maven.surfire.plugin>
 
     <elemental2.version>1.1.0</elemental2.version>
