@@ -1,9 +1,23 @@
+/*
+ * Copyright © 2020 ${name}
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.github.nalukit.iban4g.shared.bban;
 
 import com.github.nalukit.iban4g.shared.CountryCode;
 import com.github.nalukit.iban4g.shared.bban.loader.BbanStructureLoadException;
 import com.github.nalukit.iban4g.shared.bban.loader.DefaultBbanStructureProviderLoader;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.EnumMap;
@@ -22,19 +36,17 @@ public class BbanStructureProvider {
   public static BbanStructureProvider get() {
     if (instance == null) {
       instance = new BbanStructureProvider();
-      DefaultBbanStructureProviderLoader.get()
-                                        .load();
+      DefaultBbanStructureProviderLoader.get().load();
     }
     return instance;
   }
 
-  public void addBbanStructure(CountryCode countryCode,
-                               BbanStructure bbanStructure) {
+  public void addBbanStructure(CountryCode countryCode, BbanStructure bbanStructure) {
     if (this.forCountry(countryCode) == null) {
-      this.structures.put(countryCode,
-                          bbanStructure);
+      this.structures.put(countryCode, bbanStructure);
     } else {
-      throw new BbanStructureLoadException("structure for country: >>" + countryCode.getAlpha2() + "<< already exists!");
+      throw new BbanStructureLoadException(
+          "structure for country: >>" + countryCode.getAlpha2() + "<< already exists!");
     }
   }
 
@@ -49,5 +61,4 @@ public class BbanStructureProvider {
   public List<CountryCode> supportedCountries() {
     return Collections.unmodifiableList(new ArrayList<>(structures.keySet()));
   }
-
 }

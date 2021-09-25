@@ -15,7 +15,6 @@
  */
 package com.github.nalukit.iban4g.shared.bban;
 
-import com.github.nalukit.iban4g.shared.CountryCode;
 import java.util.*;
 
 /** Class which represents bban structure */

@@ -53,14 +53,15 @@ public final class IbanUtil {
   public static void validate(final String iban, final IbanFormat format)
       throws IbanFormatException, InvalidCheckDigitException, UnsupportedCountryException {
     if (format == IbanFormat.Default) {
-      final String ibanWithoutSpaces = iban.replace(" ",
-                                                    "");
+      final String ibanWithoutSpaces = iban.replace(" ", "");
       validate(ibanWithoutSpaces);
       if (!toFormattedString(ibanWithoutSpaces).equals(iban)) {
-        throw new IbanFormatException(IBAN_FORMATTING,
-                                      StringUtils.format("Iban must be formatted using 4 characters and space combination. " +
-                                                         "Instead of [%s]",
-                                                         iban));
+        throw new IbanFormatException(
+            IBAN_FORMATTING,
+            StringUtils.format(
+                "Iban must be formatted using 4 characters and space combination. "
+                    + "Instead of [%s]",
+                iban));
       }
     } else {
       validate(iban);
@@ -146,7 +147,8 @@ public final class IbanUtil {
     }
 
     // check if country is supported
-    final BbanStructure structure = BbanStructureProvider.get().forCountry(CountryCode.getByCode(countryCode));
+    final BbanStructure structure =
+        BbanStructureProvider.get().forCountry(CountryCode.getByCode(countryCode));
     if (structure == null) {
       throw new UnsupportedCountryException(countryCode);
     }
@@ -395,9 +397,9 @@ public final class IbanUtil {
   }
 
   private static String extractBbanEntry(final String iban, final BbanEntryType entryType) {
-    final String           bban            = getBban(iban);
-    final BbanStructure structure       = getBbanStructure(iban);
-    int                    bbanEntryOffset = 0;
+    final String bban = getBban(iban);
+    final BbanStructure structure = getBbanStructure(iban);
+    int bbanEntryOffset = 0;
     for (final BbanStructureEntry entry : structure.getEntries()) {
       final int entryLength = entry.getLength();
       final String entryValue = bban.substring(bbanEntryOffset, bbanEntryOffset + entryLength);
