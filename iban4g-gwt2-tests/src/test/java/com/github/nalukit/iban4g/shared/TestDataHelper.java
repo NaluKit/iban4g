@@ -321,6 +321,14 @@ final class TestDataHelper {
                 .accountNumber("0000000000123456789")
                 .build());
         put(
+            "IQ98NBIQ850123456789012",
+            Iban.builder()
+                .countryCode(CountryCode.IQ)
+                .bankCode("NBIQ")
+                .branchCode("850")
+                .accountNumber("123456789012")
+                .build());
+        put(
             "IS140159260076545510730339",
             Iban.builder()
                 .countryCode(CountryCode.IS)

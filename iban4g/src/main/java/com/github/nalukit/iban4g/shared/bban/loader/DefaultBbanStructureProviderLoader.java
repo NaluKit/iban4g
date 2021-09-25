@@ -262,6 +262,13 @@ public class DefaultBbanStructureProviderLoader {
             BbanStructureEntry.accountNumber(8, 'n')));
 
     provider.addBbanStructure(
+        CountryCode.IQ,
+        new BbanStructure(
+            BbanStructureEntry.bankCode(4, 'a'),
+            BbanStructureEntry.branchCode(3, 'n'),
+            BbanStructureEntry.accountNumber(12, 'n')));
+
+    provider.addBbanStructure(
         CountryCode.IR,
         new BbanStructure(
             BbanStructureEntry.bankCode(3, 'n'), BbanStructureEntry.accountNumber(19, 'n')));
