@@ -14,29 +14,34 @@ Documentation and most of the classes are copied from [iban4j](https://github.co
 
 #### Iban quick examples:
 
-```java
- // How to generate Iban (using 'new')
- Iban iban = new Iban.Builder()
-                 .countryCode(CountryCode.AT)
-                 .bankCode("19043")
-                 .accountNumber("00234573201")
-                 .build();
+That's the way to generate an Iban using 'new':
+```
+Iban iban = new Iban.Builder()
+                .countryCode(CountryCode.AT)
+                .bankCode("19043")
+                .accountNumber("00234573201")
+                .build();
+```
+and that doing it without using 'new':
+```
+Iban iban = Iban.builder()
+                .countryCode(CountryCode.AT)
+                .bankCode("19043")
+                .accountNumber("00234573201")
+                .build();
+```
 
+Creating an Iban object from String:
+```
+Iban iban = Iban.valueOf("DE89370400440532013000");
+```
+and from formatted String:
+```
+Iban iban = Iban.valueOf("DE89 3704 0044 0532 0130 00", IbanFormat.Default);
+```
 
-// How to generate Iban (without using 'new')
- Iban iban = Iban.builder()
-                 .countryCode(CountryCode.AT)
-                 .bankCode("19043")
-                 .accountNumber("00234573201")
-                 .build();
-
-
- // How to create Iban object from String
- Iban iban = Iban.valueOf("DE89370400440532013000");
-
- // How to create Iban object from formatted String
- Iban iban = Iban.valueOf("DE89 3704 0044 0532 0130 00", IbanFormat.Default);
-
+Generating a random Iban:
+```
  // How to generate random Iban
  Iban iban = Iban.random(CountryCode.AT);
  Iban iban = Iban.random();
@@ -44,22 +49,23 @@ Documentation and most of the classes are copied from [iban4j](https://github.co
                  .countryCode(CountryCode.AT)
                  .bankCode("19043")
                  .buildRandom();
-
- // How to validate Iban 
- try {
-     IbanUtil.validate("AT611904300234573201");
-     IbanUtil.validate("DE89 3704 0044 0532 0130 00", IbanFormat.Default);
-     // valid
- } catch (IbanFormatException |
-          InvalidCheckDigitException |
-          UnsupportedCountryException e) {
-     // invalid
- }
+```
+Validating an Iban:
+```
+try {
+    IbanUtil.validate("AT611904300234573201");
+    IbanUtil.validate("DE89 3704 0044 0532 0130 00", IbanFormat.Default);
+    // valid
+} catch (IbanFormatException |
+         InvalidCheckDigitException |
+         UnsupportedCountryException e) {
+    // invalid
+}
 ```
 
 #### Bic quick examples:
 
-```java
+```
  //How to create Bic object from String
  Bic bic = Bic.valueOf("DEUTDEFF");
 
