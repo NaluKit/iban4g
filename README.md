@@ -14,7 +14,7 @@ Documentation and most of the classes are copied from [iban4j](https://github.co
 
 #### Iban quick examples:
 
-That's the way to generate an Iban using 'new':
+That's the way how to generate an Iban using 'new':
 ```
 Iban iban = new Iban.Builder()
                 .countryCode(CountryCode.AT)
