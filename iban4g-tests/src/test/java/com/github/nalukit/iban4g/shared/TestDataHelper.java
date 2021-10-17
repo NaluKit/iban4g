@@ -285,22 +285,22 @@ final class TestDataHelper {
             "HU42117730161111101800000000"
           },
           {
-              Iban.builder()
-                  .countryCode(CountryCode.IE)
-                  .bankCode("AIBK")
-                  .branchCode("931152")
-                  .accountNumber("12345678")
-                  .build(),
-              "IE29AIBK93115212345678"
+            Iban.builder()
+                .countryCode(CountryCode.IE)
+                .bankCode("AIBK")
+                .branchCode("931152")
+                .accountNumber("12345678")
+                .build(),
+            "IE29AIBK93115212345678"
           },
           {
-              Iban.builder()
-                  .countryCode(CountryCode.IL)
-                  .bankCode("010")
-                  .branchCode("800")
-                  .accountNumber("0000099999999")
-                  .build(),
-              "IL620108000000099999999"
+            Iban.builder()
+                .countryCode(CountryCode.IL)
+                .bankCode("010")
+                .branchCode("800")
+                .accountNumber("0000099999999")
+                .build(),
+            "IL620108000000099999999"
           },
           {
             Iban.builder()
@@ -311,7 +311,7 @@ final class TestDataHelper {
                 .accountNumber("123456789012")
                 .build(),
             "IQ98NBIQ850123456789012"
-          }          ,
+          },
           {
             Iban.builder()
                 .countryCode(CountryCode.IS)
