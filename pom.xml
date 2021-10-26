@@ -6,7 +6,7 @@
   <groupId>com.github.nalukit</groupId>
   <artifactId>iban4g-parent</artifactId>
 
-  <version>2.0.4</version>
+  <version>dev</version>
 
   <packaging>pom</packaging>
 
@@ -102,6 +102,8 @@
             <java>SLASHSTAR_STYLE</java>
           </mapping>
           <excludes>
+            <exclude>**/war/**</exclude>
+            <exclude>**/gwt-unitCache/**</exclude>
             <exclude>**/README.md</exclude>
             <exclude>**/LICENSE</exclude>
             <exclude>**/LICENSE.header</exclude>
@@ -110,8 +112,6 @@
             <exclude>**/src/main/resources/**</exclude>
             <exclude>**/pom.xml</exclude>
             <exclude>**/.flattened-pom.xml</exclude>
-            <exclude>**/war</exclude>
-            <exclude>**/gwt-unitcache</exclude>
           </excludes>
           <properties>
             <year>${project.inceptionYear}</year>
