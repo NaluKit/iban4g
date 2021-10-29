@@ -107,7 +107,7 @@ try {
 Please use the [Nalu Gitter room](https://gitter.im/Nalukit42/Lobby).
 
 ## Notes
-In case you find a bug, please open an issue or post it inside the [Nalu Gitter room](https://gitter.im/Nalukit42/Lobby).
+In case you find a bug, please open an issue.
 
 ## License
 Copyright 2015 Artur Mkrtchyan
