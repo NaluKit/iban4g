@@ -14,7 +14,7 @@ Documentation and most of the classes are copied from [iban4j](https://github.co
 
 #### Iban quick examples:
 
-That's the way how to generate an Iban using 'new':
+That's the way how to generate an Iban using the 'new' keyword:
 ```
 Iban iban = new Iban.Builder()
                 .countryCode(CountryCode.AT)
@@ -22,7 +22,7 @@ Iban iban = new Iban.Builder()
                 .accountNumber("00234573201")
                 .build();
 ```
-and that doing it without using 'new':
+and that is the way to generate an IBAN without using the 'new' keyword:
 ```
 Iban iban = Iban.builder()
                 .countryCode(CountryCode.AT)
