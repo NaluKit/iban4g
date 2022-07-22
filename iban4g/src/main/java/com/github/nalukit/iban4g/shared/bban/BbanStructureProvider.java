@@ -41,6 +41,12 @@ public class BbanStructureProvider {
     return instance;
   }
 
+  /**
+   * Adds the BBAN structure for the given country code to the list of BBAN structures,
+   *
+   * @param countryCode country code
+   * @param bbanStructure BBAN structure of the country
+   */
   public void addBbanStructure(CountryCode countryCode, BbanStructure bbanStructure) {
     if (this.forCountry(countryCode) == null) {
       this.structures.put(countryCode, bbanStructure);
@@ -51,6 +57,8 @@ public class BbanStructureProvider {
   }
 
   /**
+   * Returns the BBAN structure for the requesting country code
+   *
    * @param countryCode the country code.
    * @return BbanStructure for specified country or null if country is not supported.
    */
@@ -58,6 +66,11 @@ public class BbanStructureProvider {
     return this.structures.get(countryCode);
   }
 
+  /**
+   * Get a list of ths supported countries.
+   *
+   * @return list of supported countries
+   */
   public List<CountryCode> supportedCountries() {
     return Collections.unmodifiableList(new ArrayList<>(structures.keySet()));
   }
