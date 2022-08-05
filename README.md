@@ -84,7 +84,7 @@ try {
 <dependency>
   <groupId>com.github.nalukit</groupId>
   <artifactId>iban4g</artifactId>
-  <version>HEAD-SNAPSHOT</version>
+  <version>2.1.0</version>
 </dependency>
 ```
 
