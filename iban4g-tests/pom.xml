@@ -12,7 +12,7 @@
   <version>${revision}</version>
   <packaging>jar</packaging>
 
-  <name>IBAN4G JUnit Tests</name>
+  <name>iban4g JUnit Tests</name>
   <description>Test cases for the JUnit tests</description>
 
   <properties>

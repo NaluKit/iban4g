@@ -10,7 +10,7 @@
 
   <packaging>pom</packaging>
 
-  <name>IBAN4G</name>
+  <name>iban4g</name>
   <description>A library for International Bank Account Number (IBAN) generation to use with Java, GWT or J2CL.</description>
   <url>https://github.com/nalukit/iban4g</url>
 
@@ -29,8 +29,8 @@
     <developer>
       <name>Frank Hossfeld</name>
       <id>frankhossfeld</id>
-      <email>hossfeld@hossfeld-solutions.de</email>
-      <organization>Hossfeld Solutions GmbH</organization>
+      <email>contact@nalu-solutions.de</email>
+      <organization>Nalu Solutions GmbH</organization>
       <roles>
         <role>Java Developer</role>
       </roles>

@@ -11,7 +11,7 @@
   <artifactId>iban4g-j2cl-tests</artifactId>
   <version>${revision}</version>
 
-  <name>IBAN4G J2CL Tests</name>
+  <name>iban4g J2CL Tests</name>
   <description>Test cases for the J2Cl tests</description>
 
   <properties>
