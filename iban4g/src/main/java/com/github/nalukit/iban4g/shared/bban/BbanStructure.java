@@ -15,7 +15,9 @@
  */
 package com.github.nalukit.iban4g.shared.bban;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 /** Class which represents bban structure */
 public class BbanStructure {

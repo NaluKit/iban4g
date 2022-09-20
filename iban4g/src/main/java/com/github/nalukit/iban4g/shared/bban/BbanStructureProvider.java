@@ -27,7 +27,7 @@ public class BbanStructureProvider {
 
   private static BbanStructureProvider instance;
 
-  private EnumMap<CountryCode, BbanStructure> structures;
+  private final EnumMap<CountryCode, BbanStructure> structures;
 
   private BbanStructureProvider() {
     this.structures = new EnumMap<>(CountryCode.class);
