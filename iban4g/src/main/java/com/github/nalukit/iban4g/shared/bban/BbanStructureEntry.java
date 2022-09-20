@@ -39,8 +39,7 @@ public class BbanStructureEntry {
     }
     charByCharacterType.put(EntryCharacterType.a, charTypeA.toString().toCharArray());
 
-    charByCharacterType.put(
-        EntryCharacterType.c, (charTypeN.toString() + charTypeA.toString()).toCharArray());
+    charByCharacterType.put(EntryCharacterType.c, (charTypeN.toString() + charTypeA).toCharArray());
   }
 
   private final BbanEntryType entryType;

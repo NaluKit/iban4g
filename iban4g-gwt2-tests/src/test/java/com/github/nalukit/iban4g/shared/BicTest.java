@@ -28,7 +28,7 @@ public class BicTest extends GWTTestCase {
   public void testBicConstructionWithInvalidCountryCodeShouldThrowException() {
     try {
       Bic.valueOf("DEUTAAFF500");
-      assertFalse("UnsupportedCountryException expected", true);
+      fail("UnsupportedCountryException expected");
     } catch (UnsupportedCountryException e) {
     }
   }
@@ -88,7 +88,7 @@ public class BicTest extends GWTTestCase {
   public void testBicWithoutBrnachCodeShouldReturnNull() {
     Bic bic = Bic.valueOf("DEUTDEFF");
 
-    assertEquals(bic.getBranchCode(), null);
+    assertNull(bic.getBranchCode());
   }
 
   public void testBicShouldReturnLocationCode() {

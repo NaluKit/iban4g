@@ -15,20 +15,28 @@
  */
 package com.github.nalukit.iban4g.shared;
 
-import org.gwtproject.regexp.shared.RegExp;
-import org.gwtproject.regexp.shared.SplitResult;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StringUtils {
 
   public static String format(final String format, final Object... args) {
-    final RegExp regex = RegExp.compile("%[a-z]");
-    final SplitResult split = regex.split(format);
-    final StringBuffer msg = new StringBuffer();
-    for (int pos = 0; pos < split.length() - 1; ++pos) {
-      msg.append(split.get(pos));
+    String value = format;
+    List<String> splits = new ArrayList<>();
+    while (value.contains("%s")) {
+      int pos = value.indexOf("%s");
+      String split = value.substring(0, pos);
+      splits.add(split);
+      value = value.substring(pos + 2);
+    }
+    splits.add(value);
+
+    final StringBuilder msg = new StringBuilder();
+    for (int pos = 0; pos < splits.size() - 1; ++pos) {
+      msg.append(splits.get(pos));
       msg.append(args[pos].toString());
     }
-    msg.append(split.get(split.length() - 1));
+    msg.append(splits.get(splits.size() - 1));
     return msg.toString();
   }
 }

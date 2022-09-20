@@ -73,7 +73,7 @@ public class BicUtil {
     if (bic.length() != BIC8_LENGTH && bic.length() != BIC11_LENGTH) {
       throw new BicFormatException(
           BIC_LENGTH_8_OR_11,
-          StringUtils.format("Bic length must be %d or %d", BIC8_LENGTH, BIC11_LENGTH));
+          StringUtils.format("Bic length must be %s or %s", BIC8_LENGTH, BIC11_LENGTH));
     }
   }
 

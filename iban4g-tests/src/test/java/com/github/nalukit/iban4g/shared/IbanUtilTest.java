@@ -296,8 +296,7 @@ public class IbanUtilTest {
 
     @Parameterized.Parameters
     public static Collection<Object[]> ibanParameters() {
-      final Collection<Object[]> data =
-          new ArrayList<Object[]>((Collection<? extends Object[]>) TestDataHelper.getIbanData());
+      final Collection<Object[]> data = new ArrayList<Object[]>(TestDataHelper.getIbanData());
       data.addAll(nonStandardButValidIbans());
       return data;
     }

@@ -54,21 +54,11 @@
   <inceptionYear>2020</inceptionYear>
 
   <properties>
-    <gwt.regexp.version>1.0.0-RC1</gwt.regexp.version>
-
-    <maven.gwt.plugin>1.0.0</maven.gwt.plugin>
+    <maven.gwt.plugin>1.0.1</maven.gwt.plugin>
     <maven.gpg.plugin>1.6</maven.gpg.plugin>
     <maven.javadoc.plugin>3.2.0</maven.javadoc.plugin>
     <maven.source.plugin>3.2.1</maven.source.plugin>
   </properties>
-
-  <dependencies>
-    <dependency>
-      <groupId>org.gwtproject.regexp</groupId>
-      <artifactId>gwt-regexp</artifactId>
-      <version>${gwt.regexp.version}</version>
-    </dependency>
-  </dependencies>
 
   <build>
     <plugins>
@@ -86,6 +76,14 @@
         <artifactId>maven-deploy-plugin</artifactId>
         <configuration>
           <skip>false</skip>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
         </configuration>
       </plugin>
     </plugins>

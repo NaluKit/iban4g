@@ -187,7 +187,7 @@ public final class IbanUtil {
           Integer.toString(bbanLength),
           Integer.toString(expectedBbanLength),
           StringUtils.format(
-              "[%s] length is %d, expected BBAN length is: %d",
+              "[%s] length is %s, expected BBAN length is: %s",
               bban, bbanLength, expectedBbanLength));
     }
   }
@@ -314,7 +314,7 @@ public final class IbanUtil {
               null,
               null,
               reformattedIban.charAt(i),
-              StringUtils.format("Invalid Character[%d] = '%d'", i, numericValue));
+              StringUtils.format("Invalid Character[%s] = '%s'", i, numericValue));
         }
         total = (numericValue > 9 ? total * 100 : total * 10) + numericValue;
 

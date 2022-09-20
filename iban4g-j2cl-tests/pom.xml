@@ -17,7 +17,7 @@
   <properties>
     <gwt.regexp.version>1.0.0-RC1</gwt.regexp.version>
 
-    <maven.j2cl.plugin>0.16-SNAPSHOT</maven.j2cl.plugin>
+    <maven.j2cl.plugin>0.20</maven.j2cl.plugin>
 
     <!-- CI -->
     <vertispan.j2cl.repo.url>https://repo.vertispan.com/j2cl/</vertispan.j2cl.repo.url>
