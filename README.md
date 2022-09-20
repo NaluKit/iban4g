@@ -90,7 +90,7 @@ try {
 
 #### Module dependency:
 
-Only in case you are using iban4g with GWT!)
+(Only in case you are using iban4g with GWT!)
 
 ```xml
 <inherits name="com.github.nalukit.iban4g.Iban4g" />
