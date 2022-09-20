@@ -58,7 +58,7 @@
   </modules>
 
   <properties>
-    <revision>HEAD-SNAPSHOT</revision>
+    <revision>2.2.0</revision>
 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
