@@ -10,7 +10,7 @@
 
   <packaging>pom</packaging>
 
-  <name>iban4g</name>
+  <name>iban4g parent</name>
   <description>A library for International Bank Account Number (IBAN) generation to use with Java, GWT or J2CL.</description>
   <url>https://github.com/nalukit/iban4g</url>
 
