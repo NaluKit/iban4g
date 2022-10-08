@@ -17,6 +17,7 @@ package com.github.nalukit.iban4g.shared;
 
 import com.google.gwt.junit.client.GWTTestCase;
 import java.util.Map;
+import java.util.Random;
 import org.junit.Test;
 
 public class IbanTest extends GWTTestCase {
@@ -501,6 +502,48 @@ public class IbanTest extends GWTTestCase {
     for (int i = 0; i < 100; i++) {
       Iban.builder().buildRandom();
       Iban.random();
+    }
+  }
+
+  @Test
+  public void ibanConstructionSeeded() {
+    assertIbanUtilRandomWithSeedEquals("SA48 87XQ 4EAA SPP1 RIYK UO5K", 1);
+    assertIbanUtilRandomWithSeedEquals("IS40 2079 0697 8464 4467 9018 79", 2);
+    assertIbanUtilRandomWithSeedEquals("TF21 0018 2949 15A5 AXAO LMJ7 C55", 3);
+  }
+
+  private static void assertIbanUtilRandomWithSeedEquals(String expected, int seed) {
+    Iban generated = Iban.random(new Random(seed));
+    assertEquals(
+        "expect that creating an IBAN with seed '" + seed + "' is deterministic",
+        expected,
+        generated.toFormattedString());
+  }
+
+  @Test
+  public void ibanBuilderConstructionSeeded() {
+    assertIbanBuilderRandomWithSeedEquals("SA48 87XQ 4EAA SPP1 RIYK UO5K", 1);
+    assertIbanBuilderRandomWithSeedEquals("IS40 2079 0697 8464 4467 9018 79", 2);
+    assertIbanBuilderRandomWithSeedEquals("TF21 0018 2949 15A5 AXAO LMJ7 C55", 3);
+  }
+
+  private static void assertIbanBuilderRandomWithSeedEquals(String expected, int seed) {
+    Iban generated = Iban.builder().random(new Random(seed)).buildRandom();
+    assertEquals(
+        "expect that creating an IBAN with seed '" + seed + "' is deterministic",
+        expected,
+        generated.toFormattedString());
+  }
+
+  @Test
+  public void ibanSeededExpectUtilAndBuilderGenerateTheSame() {
+    for (int i = 0; i < 100; i++) {
+      Iban util = Iban.random(new Random(i));
+      Iban builder = Iban.builder().random(new Random(i)).buildRandom();
+      assertEquals(
+          "expect that the same random IBAN is generated from both util and builder methods",
+          util,
+          builder);
     }
   }
 

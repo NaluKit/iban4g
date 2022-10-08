@@ -45,7 +45,6 @@ public class BbanStructureEntry {
   private final BbanEntryType entryType;
   private final EntryCharacterType characterType;
   private final int length;
-  private final Random random = new Random();
 
   private BbanStructureEntry(
       final BbanEntryType entryType, final EntryCharacterType characterType, final int length) {
@@ -111,6 +110,10 @@ public class BbanStructureEntry {
   }
 
   public String getRandom() {
+    return this.getRandom(new Random());
+  }
+
+  public String getRandom(Random random) {
     StringBuilder s = new StringBuilder();
     char[] charChoices = charByCharacterType.get(characterType);
     if (charChoices == null) {
@@ -133,5 +136,17 @@ public class BbanStructureEntry {
     n, // Digits (numeric characters 0 to 9 only)
     a, // Upper case letters (alphabetic characters A-Z only)
     c // upper and lower case alphanumeric characters (A-Z, a-z and 0-9)
+  }
+
+  @Override
+  public String toString() {
+    return "BbanStructureEntry{"
+        + "entryType="
+        + entryType
+        + ", characterType="
+        + characterType
+        + ", length="
+        + length
+        + '}';
   }
 }
