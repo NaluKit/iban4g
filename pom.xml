@@ -53,7 +53,7 @@
   <modules>
     <module>iban4g</module>
     <module>iban4g-tests</module>
-    <module>iban4g-gwt2-tests</module>
+<!--    <module>iban4g-gwt2-tests</module>-->
 <!--    <module>iban4g-j2cl-tests</module>-->
   </modules>
 

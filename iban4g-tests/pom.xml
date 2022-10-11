@@ -59,7 +59,6 @@
             <include>**/*TestCase.java</include>
             <include>**/*Benchmark.java</include>
           </includes>
-          <skipTests>true</skipTests>
         </configuration>
       </plugin>
       <plugin>
