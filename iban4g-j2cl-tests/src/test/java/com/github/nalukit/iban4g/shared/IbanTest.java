@@ -19,6 +19,7 @@ import static junit.framework.TestCase.*;
 
 import com.google.j2cl.junit.apt.J2clTestInput;
 import java.util.Map;
+import java.util.Random;
 import org.junit.Test;
 
 @J2clTestInput(IbanTest.class)
@@ -495,7 +496,7 @@ public class IbanTest {
   }
 
   @Test
-  public void testIbanContrucstionRandom() {
+  public void testIbanConstructionRandom() {
     for (int i = 0; i < 100; i++) {
       Iban.builder().buildRandom();
       Iban.random();
@@ -503,7 +504,49 @@ public class IbanTest {
   }
 
   @Test
-  public void testIbanContrucstionRandomAcctRetainsSpecifiedCountry() {
+  public void ibanConstructionSeeded() {
+    assertIbanUtilRandomWithSeedEquals("TR77 8734 4EAA SPP1 RIYK UO5K 8M", 1);
+    assertIbanUtilRandomWithSeedEquals("CH33 2079 06R7 O22Y UE87 R", 2);
+    assertIbanUtilRandomWithSeedEquals("BE95 0018 2949 1527", 3);
+  }
+
+  private static void assertIbanUtilRandomWithSeedEquals(String expected, int seed) {
+    Iban generated = Iban.random(new Random(seed));
+    assertEquals(
+        "expect that creating an IBAN with seed '" + seed + "' is deterministic",
+        expected,
+        generated.toFormattedString());
+  }
+
+  @Test
+  public void ibanBuilderConstructionSeeded() {
+    assertIbanBuilderRandomWithSeedEquals("TR77 8734 4EAA SPP1 RIYK UO5K 8M", 1);
+    assertIbanBuilderRandomWithSeedEquals("CH33 2079 06R7 O22Y UE87 R", 2);
+    assertIbanBuilderRandomWithSeedEquals("BE95 0018 2949 1527", 3);
+  }
+
+  private static void assertIbanBuilderRandomWithSeedEquals(String expected, int seed) {
+    Iban generated = Iban.builder().random(new Random(seed)).buildRandom();
+    assertEquals(
+        "expect that creating an IBAN with seed '" + seed + "' is deterministic",
+        expected,
+        generated.toFormattedString());
+  }
+
+  @Test
+  public void ibanSeededExpectUtilAndBuilderGenerateTheSame() {
+    for (int i = 0; i < 100; i++) {
+      Iban util = Iban.random(new Random(i));
+      Iban builder = Iban.builder().random(new Random(i)).buildRandom();
+      assertEquals(
+          "expect that the same random IBAN is generated from both util and builder methods",
+          util,
+          builder);
+    }
+  }
+
+  @Test
+  public void testIbanConstructionRandomAcctRetainsSpecifiedCountry() {
     Iban iban = Iban.builder().countryCode(CountryCode.AT).buildRandom();
     assertEquals(CountryCode.AT, iban.getCountryCode());
 
@@ -512,44 +555,44 @@ public class IbanTest {
   }
 
   @Test
-  public void testIbanContrucstionRandomRetainsSpecifiedBankCode() {
+  public void testIbanConstructionRandomRetainsSpecifiedBankCode() {
     Iban iban = Iban.builder().countryCode(CountryCode.AT).bankCode("12345").buildRandom();
     assertEquals("12345", iban.getBankCode());
   }
 
   @Test
-  public void testIbanContrucstionRandomDoesNotOverwriteBankAccount() {
+  public void testIbanConstructionRandomDoesNotOverwriteBankAccount() {
     Iban iban =
         Iban.builder().countryCode(CountryCode.AT).accountNumber("12345678901").buildRandom();
     assertEquals("12345678901", iban.getAccountNumber());
   }
 
   @Test
-  public void testIbanContrucstionRandomDoesNotOverwriteBranchCode() {
+  public void testIbanConstructionRandomDoesNotOverwriteBranchCode() {
     Iban iban = Iban.builder().countryCode(CountryCode.AL).branchCode("1234").buildRandom();
     assertEquals("1234", iban.getBranchCode());
   }
 
   @Test
-  public void testIbanContrucstionRandomDoesNotOverwriteNationalCheckDigit() {
+  public void testIbanConstructionRandomDoesNotOverwriteNationalCheckDigit() {
     Iban iban = Iban.builder().countryCode(CountryCode.AL).nationalCheckDigit("1").buildRandom();
     assertEquals("1", iban.getNationalCheckDigit());
   }
 
   @Test
-  public void testIbanContrucstionRandomDoesNotOverwriteAccountType() {
+  public void testIbanConstructionRandomDoesNotOverwriteAccountType() {
     Iban iban = Iban.builder().countryCode(CountryCode.BR).accountType("A").buildRandom();
     assertEquals("A", iban.getAccountType());
   }
 
   @Test
-  public void testIbanContrucstionRandomDoesNotOverwriteOwnerAccountType() {
+  public void testIbanConstructionRandomDoesNotOverwriteOwnerAccountType() {
     Iban iban = Iban.builder().countryCode(CountryCode.BR).ownerAccountType("C").buildRandom();
     assertEquals("C", iban.getOwnerAccountType());
   }
 
   @Test
-  public void testIbanContrucstionRandomDoesNotOverwriteIdentificationNumber() {
+  public void testIbanConstructionRandomDoesNotOverwriteIdentificationNumber() {
     Iban iban =
         Iban.builder().countryCode(CountryCode.IS).identificationNumber("1234567890").buildRandom();
     assertEquals("1234567890", iban.getIdentificationNumber());
