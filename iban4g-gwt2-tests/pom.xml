@@ -16,10 +16,10 @@
   <description>Test cases for the GWT 2 tests</description>
 
   <properties>
-    <maven.gwt.plugin>1.0.0</maven.gwt.plugin>
+    <maven.gwt.plugin>1.0.1</maven.gwt.plugin>
 
     <gwt.version>2.10.0</gwt.version>
-    <junit.version>4.13.1</junit.version>
+    <junit.version>4.13.2</junit.version>
   </properties>
 
   <dependencies>

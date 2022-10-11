@@ -16,7 +16,7 @@
   <description>Test cases for the JUnit tests</description>
 
   <properties>
-    <junit.version>4.13.1</junit.version>
+    <junit.version>4.13.2</junit.version>
     <junit-benchmark.version>0.7.2</junit-benchmark.version>
   </properties>
 
