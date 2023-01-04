@@ -711,6 +711,38 @@ final class TestDataHelper {
                 .accountNumber("123456789AB")
                 .nationalCheckDigit("13")
                 .build());
+        put(
+            "AX7898765400020335",
+            Iban.builder()
+                .countryCode(CountryCode.AX)
+                .bankCode("987654")
+                .accountNumber("0002033")
+                .nationalCheckDigit("5")
+                .build());
+        put(
+            "IM20HBUK40127612345678",
+            Iban.builder()
+                .countryCode(CountryCode.IM)
+                .bankCode("HBUK")
+                .branchCode("401276")
+                .accountNumber("12345678")
+                .build());
+        put(
+            "GG65INGB23885912345678",
+            Iban.builder()
+                .countryCode(CountryCode.GG)
+                .bankCode("INGB")
+                .branchCode("238859")
+                .accountNumber("12345678")
+                .build());
+        put(
+            "JE51DEUT40508112345678",
+            Iban.builder()
+                .countryCode(CountryCode.JE)
+                .bankCode("DEUT")
+                .branchCode("405081")
+                .accountNumber("12345678")
+                .build());
       }
     };
   }

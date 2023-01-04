@@ -18,7 +18,6 @@ package com.github.nalukit.iban4g.shared.bban;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import java.nio.CharBuffer;
 import java.util.Objects;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -148,15 +147,14 @@ public class BbanStructureEntryTest {
 
     String distinctChars = getDistinctSortedChars(generated);
 
-    assertEquals(
-        "0123456789"
-            //                + "abcdefghijklmnopqrstuvwxyz"
-            + "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-        distinctChars);
+    assertEquals("0123456789" + "ABCDEFGHIJKLMNOPQRSTUVWXYZ", distinctChars);
   }
 
   private static String getDistinctSortedChars(String s) {
-    Stream<Character> chars = CharBuffer.wrap(s.toCharArray()).chars().mapToObj(ch -> (char) ch);
-    return chars.distinct().sorted().map(Objects::toString).collect(Collectors.joining(""));
+    return Stream.of(s.split("(?!^)"))
+        .distinct()
+        .sorted()
+        .map(Objects::toString)
+        .collect(Collectors.joining(""));
   }
 }

@@ -62,6 +62,8 @@ public class DefaultBbanStructureProviderLoader {
         new BbanStructure(
             BbanStructureEntry.bankCode(5, 'n'), BbanStructureEntry.accountNumber(11, 'n')));
 
+    provider.addBbanStructure(CountryCode.AX, this.defaultFinlandStructure());
+
     provider.addBbanStructure(
         CountryCode.AZ,
         new BbanStructure(
@@ -180,26 +182,18 @@ public class DefaultBbanStructureProviderLoader {
             BbanStructureEntry.accountNumber(9, 'n'),
             BbanStructureEntry.nationalCheckDigit(1, 'n')));
 
-    provider.addBbanStructure(
-        CountryCode.FI,
-        new BbanStructure(
-            BbanStructureEntry.bankCode(6, 'n'),
-            BbanStructureEntry.accountNumber(7, 'n'),
-            BbanStructureEntry.nationalCheckDigit(1, 'n')));
+    provider.addBbanStructure(CountryCode.FI, this.defaultFinlandStructure());
 
     provider.addBbanStructure(CountryCode.FR, this.defaultFrenchStructure());
 
-    provider.addBbanStructure(
-        CountryCode.GB,
-        new BbanStructure(
-            BbanStructureEntry.bankCode(4, 'a'),
-            BbanStructureEntry.branchCode(6, 'n'),
-            BbanStructureEntry.accountNumber(8, 'n')));
+    provider.addBbanStructure(CountryCode.GB, this.defaultUnitedKingdomStructure());
 
     provider.addBbanStructure(
         CountryCode.GE,
         new BbanStructure(
             BbanStructureEntry.bankCode(2, 'a'), BbanStructureEntry.accountNumber(16, 'n')));
+
+    provider.addBbanStructure(CountryCode.GG, this.defaultUnitedKingdomStructure());
 
     provider.addBbanStructure(CountryCode.GF, this.defaultFrenchStructure());
 
@@ -254,12 +248,7 @@ public class DefaultBbanStructureProviderLoader {
             BbanStructureEntry.branchCode(3, 'n'),
             BbanStructureEntry.accountNumber(13, 'n')));
 
-    provider.addBbanStructure(
-        CountryCode.IM,
-        new BbanStructure(
-            BbanStructureEntry.bankCode(4, 'n'),
-            BbanStructureEntry.branchCode(6, 'n'),
-            BbanStructureEntry.accountNumber(8, 'n')));
+    provider.addBbanStructure(CountryCode.IM, this.defaultUnitedKingdomStructure());
 
     provider.addBbanStructure(
         CountryCode.IQ,
@@ -289,12 +278,7 @@ public class DefaultBbanStructureProviderLoader {
             BbanStructureEntry.branchCode(5, 'n'),
             BbanStructureEntry.accountNumber(12, 'c')));
 
-    provider.addBbanStructure(
-        CountryCode.JE,
-        new BbanStructure(
-            BbanStructureEntry.bankCode(4, 'a'),
-            BbanStructureEntry.branchCode(6, 'n'),
-            BbanStructureEntry.accountNumber(8, 'n')));
+    provider.addBbanStructure(CountryCode.JE, this.defaultUnitedKingdomStructure());
 
     provider.addBbanStructure(
         CountryCode.JO,
@@ -343,7 +327,13 @@ public class DefaultBbanStructureProviderLoader {
         new BbanStructure(
             BbanStructureEntry.bankCode(4, 'a'), BbanStructureEntry.accountNumber(13, 'c')));
 
-    provider.addBbanStructure(CountryCode.MC, this.defaultFrenchStructure());
+    provider.addBbanStructure(
+        CountryCode.MC,
+        new BbanStructure(
+            BbanStructureEntry.bankCode(5, 'n'),
+            BbanStructureEntry.branchCode(5, 'n'),
+            BbanStructureEntry.accountNumber(11, 'c'),
+            BbanStructureEntry.nationalCheckDigit(2, 'n')));
 
     provider.addBbanStructure(
         CountryCode.MD,
@@ -564,7 +554,7 @@ public class DefaultBbanStructureProviderLoader {
   }
 
   /* French sub-territories may use their own */
-  /*  country code (BL,RE,NC,...) or FR for   */
+  /* country code (BL,RE,NC,...) or FR for    */
   /* their IBAN. Structure is the same, only  */
   /* the IBAN checksum differ.                */
   private BbanStructure defaultFrenchStructure() {
@@ -573,5 +563,27 @@ public class DefaultBbanStructureProviderLoader {
         BbanStructureEntry.branchCode(5, 'n'),
         BbanStructureEntry.accountNumber(11, 'c'),
         BbanStructureEntry.nationalCheckDigit(2, 'n'));
+  }
+
+  /* Finland sub-territorie may use           */
+  /* its own country code (AX)                */
+  /* or FI for their IBAN. Structure is the   */
+  /* same, only the IBAN checksum differ.     */
+  private BbanStructure defaultFinlandStructure() {
+    return new BbanStructure(
+        BbanStructureEntry.bankCode(6, 'n'),
+        BbanStructureEntry.accountNumber(7, 'n'),
+        BbanStructureEntry.nationalCheckDigit(1, 'n'));
+  }
+
+  /* Great Britain sub-territories may use    */
+  /* their own country code (IM, GG, JE,...)  */
+  /* or GB for their IBAN. Structure is the   */
+  /* same, only the IBAN checksum differ.     */
+  private BbanStructure defaultUnitedKingdomStructure() {
+    return new BbanStructure(
+        BbanStructureEntry.bankCode(4, 'a'),
+        BbanStructureEntry.branchCode(6, 'n'),
+        BbanStructureEntry.accountNumber(8, 'n'));
   }
 }

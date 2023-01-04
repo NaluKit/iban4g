@@ -27,6 +27,15 @@ final class TestDataHelper {
         new Object[][] {
           {
             Iban.builder()
+                .countryCode(CountryCode.AD)
+                .bankCode("0001")
+                .branchCode("2030")
+                .accountNumber("200359100100")
+                .build(),
+            "AD1200012030200359100100"
+          },
+          {
+            Iban.builder()
                 .countryCode(CountryCode.AL)
                 .bankCode("212")
                 .branchCode("1100")
@@ -37,20 +46,20 @@ final class TestDataHelper {
           },
           {
             Iban.builder()
-                .countryCode(CountryCode.AD)
-                .bankCode("0001")
-                .branchCode("2030")
-                .accountNumber("200359100100")
-                .build(),
-            "AD1200012030200359100100"
-          },
-          {
-            Iban.builder()
                 .countryCode(CountryCode.AT)
                 .bankCode("19043")
                 .accountNumber("00234573201")
                 .build(),
             "AT611904300234573201"
+          },
+          {
+            Iban.builder()
+                .countryCode(CountryCode.AX)
+                .bankCode("987654")
+                .accountNumber("0002033")
+                .nationalCheckDigit("5")
+                .build(),
+            "AX7898765400020335"
           },
           {
             Iban.builder()
@@ -88,7 +97,7 @@ final class TestDataHelper {
             "BE68539007547034"
           },
           {
-            new Iban.Builder()
+            Iban.builder()
                 .countryCode(CountryCode.BL)
                 .bankCode("12345")
                 .branchCode("12345")
@@ -231,7 +240,7 @@ final class TestDataHelper {
             "DE89370400440532013000"
           },
           {
-            new Iban.Builder()
+            Iban.builder()
                 .countryCode(CountryCode.GF)
                 .bankCode("12345")
                 .branchCode("12345")
@@ -242,6 +251,15 @@ final class TestDataHelper {
           },
           {
             Iban.builder()
+                .countryCode(CountryCode.GG)
+                .bankCode("INGB")
+                .branchCode("238859")
+                .accountNumber("12345678")
+                .build(),
+            "GG65INGB23885912345678"
+          },
+          {
+            Iban.builder()
                 .countryCode(CountryCode.GI)
                 .bankCode("NWBK")
                 .accountNumber("000000007099453")
@@ -249,7 +267,7 @@ final class TestDataHelper {
             "GI75NWBK000000007099453"
           },
           {
-            new Iban.Builder()
+            Iban.builder()
                 .countryCode(CountryCode.GP)
                 .bankCode("12345")
                 .branchCode("12345")
@@ -305,6 +323,15 @@ final class TestDataHelper {
           },
           {
             Iban.builder()
+                .countryCode(CountryCode.IM)
+                .bankCode("HBUK")
+                .branchCode("401276")
+                .accountNumber("12345678")
+                .build(),
+            "IM20HBUK40127612345678"
+          },
+          {
+            Iban.builder()
                 .countryCode(CountryCode.IQ)
                 .nationalCheckDigit("98")
                 .bankCode("NBIQ")
@@ -332,6 +359,15 @@ final class TestDataHelper {
                 .accountNumber("000000123456")
                 .build(),
             "IT60X0542811101000000123456"
+          },
+          {
+            Iban.builder()
+                .countryCode(CountryCode.JE)
+                .bankCode("DEUT")
+                .branchCode("405081")
+                .accountNumber("12345678")
+                .build(),
+            "JE51DEUT40508112345678"
           },
           {
             Iban.builder()
@@ -407,7 +443,7 @@ final class TestDataHelper {
             "LU280019400644750000"
           },
           {
-            new Iban.Builder()
+            Iban.builder()
                 .countryCode(CountryCode.MC)
                 .bankCode("11222")
                 .branchCode("00001")
@@ -417,7 +453,7 @@ final class TestDataHelper {
             "MC5811222000010123456789030"
           },
           {
-            new Iban.Builder()
+            Iban.builder()
                 .countryCode(CountryCode.MF)
                 .bankCode("12345")
                 .branchCode("12345")
@@ -436,7 +472,7 @@ final class TestDataHelper {
             "MK07250120000058984"
           },
           {
-            new Iban.Builder()
+            Iban.builder()
                 .countryCode(CountryCode.MQ)
                 .bankCode("12345")
                 .branchCode("12345")
@@ -511,7 +547,7 @@ final class TestDataHelper {
             "MG5791389127383694554421212"
           },
           {
-            new Iban.Builder()
+            Iban.builder()
                 .countryCode(CountryCode.NC)
                 .bankCode("12345")
                 .branchCode("12345")
@@ -538,7 +574,7 @@ final class TestDataHelper {
             "NO9386011117947"
           },
           {
-            new Iban.Builder()
+            Iban.builder()
                 .countryCode(CountryCode.PF)
                 .bankCode("12345")
                 .branchCode("12345")
@@ -548,7 +584,7 @@ final class TestDataHelper {
             "PF281234512345123456789AB13"
           },
           {
-            new Iban.Builder()
+            Iban.builder()
                 .countryCode(CountryCode.PM)
                 .bankCode("12345")
                 .branchCode("12345")
@@ -594,7 +630,7 @@ final class TestDataHelper {
             "PT50000201231234567890154"
           },
           {
-            new Iban.Builder()
+            Iban.builder()
                 .countryCode(CountryCode.RE)
                 .bankCode("12345")
                 .branchCode("12345")
@@ -719,7 +755,7 @@ final class TestDataHelper {
             "CH9300762011623852957"
           },
           {
-            new Iban.Builder()
+            Iban.builder()
                 .countryCode(CountryCode.TF)
                 .bankCode("12345")
                 .branchCode("12345")
@@ -747,7 +783,7 @@ final class TestDataHelper {
             "TR330006100519786457841326"
           },
           {
-            new Iban.Builder()
+            Iban.builder()
                 .countryCode(CountryCode.WF)
                 .bankCode("12345")
                 .branchCode("12345")
@@ -842,7 +878,7 @@ final class TestDataHelper {
             "VA59001123000012345678"
           },
           {
-            new Iban.Builder()
+            Iban.builder()
                 .countryCode(CountryCode.YT)
                 .bankCode("12345")
                 .branchCode("12345")
