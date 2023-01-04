@@ -507,9 +507,9 @@ public class IbanTest extends GWTTestCase {
 
   @Test
   public void ibanConstructionSeeded() {
-    assertIbanUtilRandomWithSeedEquals("SA48 87XQ 4EAA SPP1 RIYK UO5K", 1);
-    assertIbanUtilRandomWithSeedEquals("IS40 2079 0697 8464 4467 9018 79", 2);
-    assertIbanUtilRandomWithSeedEquals("TF21 0018 2949 15A5 AXAO LMJ7 C55", 3);
+    assertIbanUtilRandomWithSeedEquals("FR87 8734 4468 89P1 RIYK UO5K 809", 1);
+    assertIbanUtilRandomWithSeedEquals("FI79 2079 0697 8464 44", 2);
+    assertIbanUtilRandomWithSeedEquals("FO71 0018 2949 1527 41", 3);
   }
 
   private static void assertIbanUtilRandomWithSeedEquals(String expected, int seed) {
@@ -522,9 +522,9 @@ public class IbanTest extends GWTTestCase {
 
   @Test
   public void ibanBuilderConstructionSeeded() {
-    assertIbanBuilderRandomWithSeedEquals("SA48 87XQ 4EAA SPP1 RIYK UO5K", 1);
-    assertIbanBuilderRandomWithSeedEquals("IS40 2079 0697 8464 4467 9018 79", 2);
-    assertIbanBuilderRandomWithSeedEquals("TF21 0018 2949 15A5 AXAO LMJ7 C55", 3);
+    assertIbanBuilderRandomWithSeedEquals("FR87 8734 4468 89P1 RIYK UO5K 809", 1);
+    assertIbanBuilderRandomWithSeedEquals("FI79 2079 0697 8464 44", 2);
+    assertIbanBuilderRandomWithSeedEquals("FO71 0018 2949 1527 41", 3);
   }
 
   private static void assertIbanBuilderRandomWithSeedEquals(String expected, int seed) {
