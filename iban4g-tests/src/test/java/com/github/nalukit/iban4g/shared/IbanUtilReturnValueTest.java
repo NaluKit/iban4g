@@ -18,7 +18,7 @@ package com.github.nalukit.iban4g.shared;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
-import static org.hamcrest.core.StringContains.containsString;
+import static org.junit.Assert.assertFalse;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,7 +34,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 @RunWith(Enclosed.class)
-public class IbanUtilTest {
+public class IbanUtilReturnValueTest {
 
   @RunWith(Parameterized.class)
   public static class ValidCheckDigitCalculationTest {
@@ -47,15 +47,15 @@ public class IbanUtilTest {
       this.expectedIbanString = expectedIbanString;
     }
 
+    @Parameterized.Parameters
+    public static Collection<Object[]> ibanParameters() {
+      return TestDataHelper.getIbanData();
+    }
+
     @Test
     public void checkDigitCalculationWithCountryCodeAndBbanShouldReturnCheckDigit() {
       String checkDigit = IbanUtil.calculateCheckDigit(iban);
       assertThat(checkDigit, is(equalTo(expectedIbanString.substring(2, 4))));
-    }
-
-    @Parameterized.Parameters
-    public static Collection<Object[]> ibanParameters() {
-      return TestDataHelper.getIbanData();
     }
   }
 
@@ -68,15 +68,15 @@ public class IbanUtilTest {
       this.invalidCharacter = invalidCharacter;
     }
 
+    @Parameterized.Parameters
+    public static Collection<Character[]> invalidCharacters() {
+      return Arrays.asList(new Character[][] {{'\u216C'}, {'+'}});
+    }
+
     @Test(expected = IbanFormatException.class)
     public void checkDigitCalculationWithNonNumericBbanShouldThrowException() {
 
       IbanUtil.calculateCheckDigit("AT000159260" + invalidCharacter + "076545510730339");
-    }
-
-    @Parameterized.Parameters
-    public static Collection<Character[]> invalidCharacters() {
-      return Arrays.asList(new Character[][] {{'\u216C'}, {'+'}});
     }
   }
 
@@ -114,169 +114,116 @@ public class IbanUtilTest {
 
     @Test
     public void ibanValidationWithNullShouldThrowException() {
-      expectedException.expect(IbanFormatException.class);
-      expectedException.expectMessage(containsString("Null can't be a valid Iban"));
-      expectedException.expect(
-          new IbanFormatViolationMatcher(IbanFormatException.IbanFormatViolation.IBAN_NOT_NULL));
-      IbanUtil.validate(null);
+      Iban4gConfig.INSTANCE.setReturnMethod(Iban4gConfig.ReturnMethod.RETURN_VALUE);
+      assertFalse(IbanUtil.validate(null));
     }
 
     @Test
     public void ibanValidationWithEmptyShouldThrowException() {
-      expectedException.expect(IbanFormatException.class);
-      expectedException.expectMessage(containsString("Empty string can't be a valid Iban"));
-      expectedException.expect(
-          new IbanFormatViolationMatcher(IbanFormatException.IbanFormatViolation.IBAN_NOT_EMPTY));
-      IbanUtil.validate("");
+      Iban4gConfig.INSTANCE.setReturnMethod(Iban4gConfig.ReturnMethod.RETURN_VALUE);
+      assertFalse(IbanUtil.validate(""));
     }
 
     @Test
     public void ibanValidationWithOneCharStringShouldThrowException() {
-      expectedException.expect(IbanFormatException.class);
-      expectedException.expectMessage(containsString("Iban must contain 2 char country code."));
-      expectedException.expect(
-          new IbanFormatViolationMatcher(
-              IbanFormatException.IbanFormatViolation.COUNTRY_CODE_TWO_LETTERS));
-      expectedException.expect(new IbanFormatExceptionActualValueMatcher("A"));
-      IbanUtil.validate("A");
+      Iban4gConfig.INSTANCE.setReturnMethod(Iban4gConfig.ReturnMethod.RETURN_VALUE);
+      assertFalse(IbanUtil.validate("A"));
     }
 
     @Test
     public void ibanValidationWithCountryCodeOnlyShouldThrowException() {
-      expectedException.expect(IbanFormatException.class);
-      expectedException.expectMessage(containsString("Iban must contain 2 digit check digit."));
-      expectedException.expect(
-          new IbanFormatViolationMatcher(
-              IbanFormatException.IbanFormatViolation.CHECK_DIGIT_TWO_DIGITS));
-      expectedException.expect(new IbanFormatExceptionActualValueMatcher(""));
-      IbanUtil.validate("AT");
+      Iban4gConfig.INSTANCE.setReturnMethod(Iban4gConfig.ReturnMethod.RETURN_VALUE);
+      assertFalse(IbanUtil.validate("AT"));
     }
 
     @Test
     public void ibanValidationWithNonDigitCheckDigitShouldThrowException() {
-      expectedException.expect(IbanFormatException.class);
-      expectedException.expectMessage(
-          containsString("Iban's check digit should contain only digits."));
-      expectedException.expect(
-          new IbanFormatViolationMatcher(
-              IbanFormatException.IbanFormatViolation.CHECK_DIGIT_ONLY_DIGITS));
-      expectedException.expect(new IbanFormatExceptionActualValueMatcher("4T"));
-      IbanUtil.validate("AT4T");
+      Iban4gConfig.INSTANCE.setReturnMethod(Iban4gConfig.ReturnMethod.RETURN_VALUE);
+      assertFalse(IbanUtil.validate("AT4T"));
     }
 
     @Test
     public void ibanValidationWithCountryCodeAndCheckDigitOnlyShouldThrowException() {
-      expectedException.expect(IbanFormatException.class);
-      //      expectedException.expect(new
-      // IbanFormatViolationMatcher(IbanFormatException.IbanFormatViolation.BBAN_LENGTH));
-      //      expectedException.expect(new IbanFormatExceptionActualValueMatcher(0));
-      //      expectedException.expect(new IbanFormatExceptionExpectedValueMatcher(16));
-      IbanUtil.validate("AT48");
+      Iban4gConfig.INSTANCE.setReturnMethod(Iban4gConfig.ReturnMethod.RETURN_VALUE);
+      assertFalse(IbanUtil.validate("AT48"));
     }
 
     @Test
     public void ibanValidationWithLowercaseCountryShouldThrowException() {
-      expectedException.expect(IbanFormatException.class);
-      expectedException.expectMessage(
-          containsString("Iban country code must contain upper case letters"));
-      expectedException.expect(
-          new IbanFormatViolationMatcher(
-              IbanFormatException.IbanFormatViolation.COUNTRY_CODE_UPPER_CASE_LETTERS));
-      expectedException.expect(new IbanFormatExceptionActualValueMatcher("at"));
-      IbanUtil.validate("at611904300234573201");
+      Iban4gConfig.INSTANCE.setReturnMethod(Iban4gConfig.ReturnMethod.RETURN_VALUE);
+      assertFalse(IbanUtil.validate("at611904300234573201"));
     }
 
     @Test
     public void ibanValidationWithEmptyCountryShouldThrowException() {
-      expectedException.expect(IbanFormatException.class);
-      expectedException.expectMessage(
-          containsString("Iban country code must contain upper case letters"));
-      expectedException.expect(
-          new IbanFormatViolationMatcher(
-              IbanFormatException.IbanFormatViolation.COUNTRY_CODE_UPPER_CASE_LETTERS));
-      expectedException.expect(new IbanFormatExceptionActualValueMatcher(" _"));
-      IbanUtil.validate(" _611904300234573201");
+      Iban4gConfig.INSTANCE.setReturnMethod(Iban4gConfig.ReturnMethod.RETURN_VALUE);
+      assertFalse(IbanUtil.validate(" _611904300234573201"));
     }
 
-    @Test(expected = UnsupportedCountryException.class)
+    @Test()
     public void ibanValidationWithNonSupportedCountryShouldThrowException() {
-      IbanUtil.validate("AM611904300234573201");
+      Iban4gConfig.INSTANCE.setReturnMethod(Iban4gConfig.ReturnMethod.RETURN_VALUE);
+      assertFalse(IbanUtil.validate("AM611904300234573201"));
     }
 
     @Test
     public void ibanValidationWithNonExistingCountryShouldThrowException() {
-      expectedException.expect(IbanFormatException.class);
-      expectedException.expectMessage(containsString("Iban contains non existing country code."));
-      expectedException.expect(
-          new IbanFormatViolationMatcher(
-              IbanFormatException.IbanFormatViolation.COUNTRY_CODE_EXISTS));
-      IbanUtil.validate("JJ611904300234573201");
+      Iban4gConfig.INSTANCE.setReturnMethod(Iban4gConfig.ReturnMethod.RETURN_VALUE);
+      assertFalse(IbanUtil.validate("JJ611904300234573201"));
     }
 
     @Test
     public void ibanValidationWithInvalidCheckDigitShouldThrowException() {
-      expectedException.expect(InvalidCheckDigitException.class);
-      expectedException.expectMessage("invalid check digit: 62");
-      expectedException.expectMessage("expected check digit is: 61");
-      expectedException.expectMessage("AT621904300234573201");
-      IbanUtil.validate("AT621904300234573201");
+      Iban4gConfig.INSTANCE.setReturnMethod(Iban4gConfig.ReturnMethod.RETURN_VALUE);
+      assertFalse(IbanUtil.validate("AT621904300234573201"));
     }
 
     @Test
     public void ibanValidationWithSpaceShouldThrowException() {
-      expectedException.expect(IbanFormatException.class);
-      expectedException.expectMessage("length is 17");
-      expectedException.expectMessage("expected BBAN length is: 16");
-      IbanUtil.validate("AT61 1904300234573201");
+      Iban4gConfig.INSTANCE.setReturnMethod(Iban4gConfig.ReturnMethod.RETURN_VALUE);
+      assertFalse(IbanUtil.validate("AT61 1904300234573201"));
     }
 
     @Test
     public void ibanValidationWithInvalidLengthShouldThrowException() {
-      expectedException.expect(IbanFormatException.class);
-      IbanUtil.validate("AT621904300");
+      Iban4gConfig.INSTANCE.setReturnMethod(Iban4gConfig.ReturnMethod.RETURN_VALUE);
+      assertFalse(IbanUtil.validate("AT621904300"));
     }
 
     @Test
     public void ibanValidationWithInvalidBbanLengthShouldThrowException() {
-      expectedException.expect(IbanFormatException.class);
-      expectedException.expectMessage(containsString("expected BBAN length is:"));
-      IbanUtil.validate("AT61190430023457320");
+      Iban4gConfig.INSTANCE.setReturnMethod(Iban4gConfig.ReturnMethod.RETURN_VALUE);
+      assertFalse(IbanUtil.validate("AT61190430023457320"));
     }
 
     @Test
     public void ibanValidationWithInvalidBankCodeShouldThrowException() {
-      expectedException.expect(IbanFormatException.class);
-      expectedException.expectMessage(containsString("must contain only digits"));
-      IbanUtil.validate("AT611C04300234573201");
+      Iban4gConfig.INSTANCE.setReturnMethod(Iban4gConfig.ReturnMethod.RETURN_VALUE);
+      assertFalse(IbanUtil.validate("AT611C04300234573201"));
     }
 
     @Test
     public void ibanValidationWithInvalidAccountNumberShouldThrowException() {
-      expectedException.expect(IbanFormatException.class);
-      expectedException.expectMessage(containsString("must contain only digits"));
-      IbanUtil.validate("DE8937040044053201300A");
+      Iban4gConfig.INSTANCE.setReturnMethod(Iban4gConfig.ReturnMethod.RETURN_VALUE);
+      assertFalse(IbanUtil.validate("DE8937040044053201300A"));
     }
 
     @Test
     public void ibanValidationWithInvalidNationalCheckDigitShouldThrowException() {
-      expectedException.expect(IbanFormatException.class);
-      expectedException.expectMessage(containsString("must contain only upper case letters"));
-      IbanUtil.validate("IT6010542811101000000123456");
+      Iban4gConfig.INSTANCE.setReturnMethod(Iban4gConfig.ReturnMethod.RETURN_VALUE);
+      assertFalse(IbanUtil.validate("IT6010542811101000000123456"));
     }
 
     @Test
     public void unformattedIbanValidationWithDefaultFormattingShouldThrowException() {
-      expectedException.expect(IbanFormatException.class);
-      expectedException.expectMessage(
-          containsString("Iban must be formatted using 4 characters and space"));
-      IbanUtil.validate("AT611904300234573201", IbanFormat.Default);
+      Iban4gConfig.INSTANCE.setReturnMethod(Iban4gConfig.ReturnMethod.RETURN_VALUE);
+      assertFalse(IbanUtil.validate("AT611904300234573201", IbanFormat.Default));
     }
 
     @Test
     public void formattedIbanValidationWithNoneFormattingShouldThrowException() {
-      expectedException.expect(IbanFormatException.class);
-      expectedException.expectMessage(containsString("expected BBAN length is: 16"));
-      IbanUtil.validate("AT61 1904 3002 3457 3201", IbanFormat.None);
+      Iban4gConfig.INSTANCE.setReturnMethod(Iban4gConfig.ReturnMethod.RETURN_VALUE);
+      assertFalse(IbanUtil.validate("AT61 1904 3002 3457 3201", IbanFormat.None));
     }
   }
 
@@ -287,11 +234,6 @@ public class IbanUtilTest {
 
     public ValidIbanValidationTest(Iban iban, String ibanString) {
       this.ibanString = ibanString;
-    }
-
-    @Test
-    public void ibanValidationWithValidIbanShouldNotThrowException() {
-      IbanUtil.validate(ibanString);
     }
 
     @Parameterized.Parameters
@@ -329,6 +271,11 @@ public class IbanUtilTest {
 
       return data;
     }
+
+    @Test
+    public void ibanValidationWithValidIbanShouldNotThrowException() {
+      IbanUtil.validate(ibanString);
+    }
   }
 
   @RunWith(Parameterized.class)
@@ -342,15 +289,15 @@ public class IbanUtilTest {
       this.expectedIbanString = expectedIbanString;
     }
 
+    @Parameterized.Parameters
+    public static Collection<Object[]> ibanParameters() {
+      return TestDataHelper.getIbanData();
+    }
+
     @Test
     public void getIbanLengthShouldReturnValidLength() {
       assertThat(
           IbanUtil.getIbanLength(iban.getCountryCode()), is(equalTo(expectedIbanString.length())));
-    }
-
-    @Parameterized.Parameters
-    public static Collection<Object[]> ibanParameters() {
-      return TestDataHelper.getIbanData();
     }
   }
 
