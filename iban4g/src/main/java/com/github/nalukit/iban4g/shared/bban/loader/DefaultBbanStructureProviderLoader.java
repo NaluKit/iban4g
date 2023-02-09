@@ -126,6 +126,13 @@ public class DefaultBbanStructureProviderLoader {
             BbanStructureEntry.bankCode(4, 'n'), BbanStructureEntry.accountNumber(14, 'n')));
 
     provider.addBbanStructure(
+        CountryCode.CV,
+        new BbanStructure(
+            BbanStructureEntry.bankCode(4, 'n'),
+            BbanStructureEntry.branchCode(4, 'n'),
+            BbanStructureEntry.accountNumber(13, 'c')));
+
+    provider.addBbanStructure(
         CountryCode.CY,
         new BbanStructure(
             BbanStructureEntry.bankCode(3, 'n'),

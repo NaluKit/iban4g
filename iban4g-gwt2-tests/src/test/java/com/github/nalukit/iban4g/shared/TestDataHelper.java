@@ -289,6 +289,14 @@ final class TestDataHelper {
                 .accountNumber("1863000160")
                 .build());
         put(
+            "CV64000500000020108215144",
+            Iban.builder()
+                .countryCode(CountryCode.CV)
+                .bankCode("0005")
+                .branchCode("0000")
+                .accountNumber("0020108215144")
+                .build());
+        put(
             "HU42117730161111101800000000",
             Iban.builder()
                 .countryCode(CountryCode.HU)
