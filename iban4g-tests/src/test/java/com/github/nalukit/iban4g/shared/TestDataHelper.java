@@ -154,6 +154,15 @@ final class TestDataHelper {
           },
           {
             Iban.builder()
+                .countryCode(CountryCode.CV)
+                .bankCode("0005")
+                .branchCode("0000")
+                .accountNumber("0020108215144")
+                .build(),
+            "CV64000500000020108215144"
+          },
+          {
+            Iban.builder()
                 .countryCode(CountryCode.CY)
                 .bankCode("002")
                 .branchCode("00128")
