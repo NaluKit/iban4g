@@ -459,6 +459,13 @@ public class DefaultBbanStructureProviderLoader {
             BbanStructureEntry.nationalCheckDigit(2, 'n')));
 
     provider.addBbanStructure(
+        CountryCode.RU,
+        new BbanStructure(
+            BbanStructureEntry.bankCode(9, 'n'),
+            BbanStructureEntry.branchCode(5, 'n'),
+            BbanStructureEntry.accountNumber(15, 'c')));
+
+    provider.addBbanStructure(
         CountryCode.SA,
         new BbanStructure(
             BbanStructureEntry.bankCode(2, 'n'), BbanStructureEntry.accountNumber(18, 'c')));
