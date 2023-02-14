@@ -895,6 +895,15 @@ final class TestDataHelper {
                 .nationalCheckDigit("13")
                 .build(),
             "YT021234512345123456789AB13"
+          },
+          {
+            Iban.builder()
+                .countryCode(CountryCode.RU)
+                .bankCode("044525600")
+                .branchCode("40702")
+                .accountNumber("810412345678901")
+                .build(),
+            "RU0204452560040702810412345678901"
           }
         });
   }

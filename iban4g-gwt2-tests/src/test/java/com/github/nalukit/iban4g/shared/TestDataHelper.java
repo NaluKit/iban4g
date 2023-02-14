@@ -751,6 +751,14 @@ final class TestDataHelper {
                 .branchCode("405081")
                 .accountNumber("12345678")
                 .build());
+        put(
+            "RU0204452560040702810412345678901",
+            Iban.builder()
+                .countryCode(CountryCode.RU)
+                .bankCode("044525600")
+                .branchCode("40702")
+                .accountNumber("810412345678901")
+                .build());
       }
     };
   }
