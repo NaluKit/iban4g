@@ -904,6 +904,15 @@ final class TestDataHelper {
                 .accountNumber("810412345678901")
                 .build(),
             "RU0204452560040702810412345678901"
+          },
+          {
+            Iban.builder()
+                .countryCode(CountryCode.GA)
+                .bankCode("40001")
+                .branchCode("09080")
+                .accountNumber("0008120005890")
+                .build(),
+            "GA2140001090800008120005890"
           }
         });
   }
