@@ -193,6 +193,13 @@ public class DefaultBbanStructureProviderLoader {
 
     provider.addBbanStructure(CountryCode.FR, this.defaultFrenchStructure());
 
+    provider.addBbanStructure(
+        CountryCode.GA,
+        new BbanStructure(
+            BbanStructureEntry.bankCode(5, 'n'),
+            BbanStructureEntry.branchCode(5, 'n'),
+            BbanStructureEntry.accountNumber(13, 'n')));
+
     provider.addBbanStructure(CountryCode.GB, this.defaultUnitedKingdomStructure());
 
     provider.addBbanStructure(
