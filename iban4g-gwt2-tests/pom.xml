@@ -48,7 +48,6 @@
       <groupId>com.github.nalukit</groupId>
       <artifactId>iban4g</artifactId>
       <version>${revision}</version>
-      <scope>test</scope>
     </dependency>
   </dependencies>
 
