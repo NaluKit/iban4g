@@ -61,6 +61,31 @@
   </properties>
 
   <build>
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/iban4g/**</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>**/META-INF/**</include>
+          <include>**/iban4g/**</include>
+          <include>**/*.gwt.xml</include>
+          <include>**/*.html</include>
+          <include>**/public/**</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>**/*.properties</include>
+        </includes>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
     <plugins>
       <plugin>
         <groupId>net.ltgt.gwt.maven</groupId>
