@@ -5,12 +5,11 @@
 
   <groupId>com.github.nalukit</groupId>
   <artifactId>iban4g-parent</artifactId>
-
-  <version>dev</version>
-
+  <version>${revision}</version>
   <packaging>pom</packaging>
 
   <name>iban4g parent</name>
+
   <description>A library for International Bank Account Number (IBAN) generation to use with Java, GWT or J2CL.</description>
   <url>https://github.com/nalukit/iban4g</url>
 

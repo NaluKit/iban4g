@@ -6,7 +6,7 @@
   <parent>
     <groupId>com.github.nalukit</groupId>
     <artifactId>iban4g-parent</artifactId>
-    <version>dev</version>
+    <version>${revision}</version>
   </parent>
   <artifactId>iban4g-tests</artifactId>
   <version>${revision}</version>
