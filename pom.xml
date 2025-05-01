@@ -74,33 +74,65 @@
   </modules>
 
   <properties>
-    <revision>2.2.2</revision>
+    <revision>2.2.3</revision>
+
+    <elemental2.version>1.1.0</elemental2.version>
 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
 
-    <maven.compiler.plugin>3.8.1</maven.compiler.plugin>
-    <maven.deploy.plugin>3.0.0-M1</maven.deploy.plugin>
-    <maven.flatten.plugin>1.2.2</maven.flatten.plugin>
-    <maven.install.plugin>3.0.0-M1</maven.install.plugin>
-    <maven.license.plugin>4.1</maven.license.plugin>
-    <maven.surfire.plugin>3.0.0-M1</maven.surfire.plugin>
-
-    <elemental2.version>1.1.0</elemental2.version>
-
+    <plugin.version.compiler>3.14.0</plugin.version.compiler>
+    <plugin.version.deploy>3.1.1</plugin.version.deploy>
+    <plugin.version.flatten>1.2.2</plugin.version.flatten>
+    <plugin.version.gpg>3.1.0</plugin.version.gpg>
+    <plugin.version.javadoc>3.6.3</plugin.version.javadoc>
+    <plugin.version.license>5.0.0</plugin.version.license>
+    <plugin.version.source>3.3.0</plugin.version.source>
+    <plugin.version.surfire>3.2.3</plugin.version.surfire>
     <plugin.version.versions>2.18.0</plugin.version.versions>
+
+    <java.doc.executable>${java.home}/bin/javadoc</java.doc.executable>
   </properties>
 
   <build>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>${plugin.version.javadoc}</version>
+        <configuration>
+          <javadocExecutable>${java.doc.executable}</javadocExecutable>
+        </configuration>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>${plugin.version.source}</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
         <groupId>com.mycila</groupId>
         <artifactId>license-maven-plugin</artifactId>
-        <version>${maven.license.plugin}</version>
+        <version>${plugin.version.license}</version>
         <configuration>
-          <header>LICENSE.header</header>
+          <header>com/mycila/maven/plugin/license/templates/APACHE-2.txt</header>
           <encoding>${project.build.sourceEncoding}</encoding>
           <skipExistingHeaders>true</skipExistingHeaders>
           <mapping>
@@ -111,7 +143,6 @@
             <exclude>**/gwt-unitCache/**</exclude>
             <exclude>**/README.md</exclude>
             <exclude>**/LICENSE</exclude>
-            <exclude>**/LICENSE.header</exclude>
             <exclude>**/AUTHORS</exclude>
             <exclude>**/src/test/resources/**</exclude>
             <exclude>**/src/main/resources/**</exclude>
@@ -132,7 +163,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>flatten-maven-plugin</artifactId>
-        <version>${maven.flatten.plugin}</version>
+        <version>${plugin.version.flatten}</version>
         <configuration>
           <flattenMode>oss</flattenMode>
         </configuration>
@@ -156,7 +187,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-deploy-plugin</artifactId>
-        <version>${maven.deploy.plugin}</version>
+        <version>${plugin.version.deploy}</version>
         <configuration>
           <skip>true</skip>
         </configuration>
@@ -167,7 +198,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>${maven.compiler.plugin}</version>
+          <version>${plugin.version.compiler}</version>
           <configuration>
             <source>${maven.compiler.source}</source>
             <target>${maven.compiler.target}</target>
@@ -179,6 +210,26 @@
 
   <reporting>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>${plugin.version.javadoc}</version>
+        <configuration>
+          <detectLinks>true</detectLinks>
+          <links>
+            <link>http://www.gwtproject.org/javadoc/latest/</link>
+          </links>
+          <javadocExecutable>${java.home}/../bin/javadoc</javadocExecutable>
+        </configuration>
+        <reportSets>
+          <reportSet>
+            <id>aggregate</id>
+            <reports>
+              <report>aggregate</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>versions-maven-plugin</artifactId>
@@ -210,16 +261,75 @@
     </plugins>
   </reporting>
 
-  <dependencyManagement>
-    <dependencies>
-      <!-- Internal dependencies -->
-      <dependency>
-        <groupId>${project.groupId}</groupId>
-        <artifactId>iban4j</artifactId>
-        <version>${revision}</version>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
+  <profiles>
+    <profile>
+      <id>release</id>
+      <modules>
+        <module>iban4g</module>
+      </modules>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>${plugin.version.gpg}</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <gpgArguments>
+                <arg>--pinentry-mode</arg>
+                <arg>loopback</arg>
+              </gpgArguments>
+            </configuration>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>${plugin.version.javadoc}</version>
+            <configuration>
+              <javadocExecutable>${java.doc.executable}</javadocExecutable>
+            </configuration>
+            <executions>
+              <execution>
+                <id>attach-javadocs</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>${plugin.version.source}</version>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <goals>
+                  <goal>jar-no-fork</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-deploy-plugin</artifactId>
+            <version>${plugin.version.deploy}</version>
+            <configuration>
+              <skip>false</skip>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
   <distributionManagement>
     <snapshotRepository>
