@@ -1,5 +1,5 @@
 /*
- * Copyright © 2020 ${name}
+ * Copyright © 2020 Frank Hossfeld, Philipp Kohl
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,15 @@
  */
 package com.github.nalukit.iban4g.shared;
 
-import static com.github.nalukit.iban4g.shared.IbanFormatException.IbanFormatViolation.*;
+import static com.github.nalukit.iban4g.shared.IbanFormatException.IbanFormatViolation.ACCOUNT_NUMBER_NOT_NULL;
+import static com.github.nalukit.iban4g.shared.IbanFormatException.IbanFormatViolation.ACCOUNT_TYPE_NOT_NULL;
+import static com.github.nalukit.iban4g.shared.IbanFormatException.IbanFormatViolation.BANK_CODE_NOT_NULL;
+import static com.github.nalukit.iban4g.shared.IbanFormatException.IbanFormatViolation.BRANCH_CODE_NOT_NULL;
+import static com.github.nalukit.iban4g.shared.IbanFormatException.IbanFormatViolation.COUNTRY_CODE_NOT_NULL;
+import static com.github.nalukit.iban4g.shared.IbanFormatException.IbanFormatViolation.IBAN_FORMATTING;
+import static com.github.nalukit.iban4g.shared.IbanFormatException.IbanFormatViolation.IDENTIFICATION_NUMBER_NOT_NULL;
+import static com.github.nalukit.iban4g.shared.IbanFormatException.IbanFormatViolation.NATIONAL_CHECK_DIGIT_NOT_NULL;
+import static com.github.nalukit.iban4g.shared.IbanFormatException.IbanFormatViolation.OWNER_ACCOUNT_NUMBER_NOT_NULL;
 
 import com.github.nalukit.iban4g.shared.bban.BbanStructure;
 import com.github.nalukit.iban4g.shared.bban.BbanStructureEntry;
@@ -71,8 +79,8 @@ public final class Iban {
           IBAN_FORMATTING,
           StringUtils.format(
               "Iban must be formatted using 4 characters and space combination. "
-                  + "Instead of [%s]",
-              iban));
+                  + "Expected: [%s] - Instead of [%s] - 0002",
+              ibanObj.toFormattedString(), iban));
     }
     return valueOf(iban);
   }
@@ -92,15 +100,6 @@ public final class Iban {
     return new Iban(iban);
   }
 
-  /**
-   * Returns formatted version of Iban.
-   *
-   * @return A string representing formatted Iban for printing.
-   */
-  public String toFormattedString() {
-    return IbanUtil.toFormattedString(value);
-  }
-
   public static Iban random() {
     return Iban.builder().buildRandom();
   }
@@ -111,6 +110,19 @@ public final class Iban {
 
   public static Iban random(CountryCode cc) {
     return Iban.builder().countryCode(cc).buildRandom();
+  }
+
+  public static Builder builder() {
+    return new Builder();
+  }
+
+  /**
+   * Returns formatted version of Iban.
+   *
+   * @return A string representing formatted Iban for printing.
+   */
+  public String toFormattedString() {
+    return IbanUtil.toFormattedString(value);
   }
 
   /**
@@ -219,10 +231,6 @@ public final class Iban {
   @Override
   public String toString() {
     return value;
-  }
-
-  public static Builder builder() {
-    return new Builder();
   }
 
   /** Iban Builder Class */

@@ -1,5 +1,5 @@
 /*
- * Copyright © 2020 ${name}
+ * Copyright © 2020 Frank Hossfeld, Philipp Kohl
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -132,12 +132,6 @@ public class BbanStructureEntry {
     return length;
   }
 
-  public enum EntryCharacterType {
-    n, // Digits (numeric characters 0 to 9 only)
-    a, // Upper case letters (alphabetic characters A-Z only)
-    c // upper and lower case alphanumeric characters (A-Z, a-z and 0-9)
-  }
-
   @Override
   public String toString() {
     return "BbanStructureEntry{"
@@ -148,5 +142,11 @@ public class BbanStructureEntry {
         + ", length="
         + length
         + '}';
+  }
+
+  public enum EntryCharacterType {
+    n, // Digits (numeric characters 0 to 9 only)
+    a, // Upper case letters (alphabetic characters A-Z only)
+    c // upper and lower case alphanumeric characters (A-Z, a-z and 0-9)
   }
 }

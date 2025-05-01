@@ -2,6 +2,7 @@
 # Those patterns should go in a global gitignore or repository-specific excludes.
 # See http://www.gwtproject.org/makinggwtbetter.html#global_gitignore
 
+.idea/
 target/
 .flattened-pom.xml
 

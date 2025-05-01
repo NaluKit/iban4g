@@ -1,5 +1,5 @@
 /*
- * Copyright © 2020 ${name}
+ * Copyright © 2020 Frank Hossfeld, Philipp Kohl
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,20 @@
  */
 package com.github.nalukit.iban4g.shared;
 
-import static com.github.nalukit.iban4g.shared.IbanFormatException.IbanFormatViolation.*;
+import static com.github.nalukit.iban4g.shared.IbanFormatException.IbanFormatViolation.BBAN_LENGTH;
+import static com.github.nalukit.iban4g.shared.IbanFormatException.IbanFormatViolation.BBAN_ONLY_DIGITS;
+import static com.github.nalukit.iban4g.shared.IbanFormatException.IbanFormatViolation.BBAN_ONLY_DIGITS_OR_LETTERS;
+import static com.github.nalukit.iban4g.shared.IbanFormatException.IbanFormatViolation.BBAN_ONLY_UPPER_CASE_LETTERS;
+import static com.github.nalukit.iban4g.shared.IbanFormatException.IbanFormatViolation.CHECK_DIGIT_ONLY_DIGITS;
+import static com.github.nalukit.iban4g.shared.IbanFormatException.IbanFormatViolation.CHECK_DIGIT_TWO_DIGITS;
+import static com.github.nalukit.iban4g.shared.IbanFormatException.IbanFormatViolation.COUNTRY_CODE_EXISTS;
+import static com.github.nalukit.iban4g.shared.IbanFormatException.IbanFormatViolation.COUNTRY_CODE_TWO_LETTERS;
+import static com.github.nalukit.iban4g.shared.IbanFormatException.IbanFormatViolation.COUNTRY_CODE_UPPER_CASE_LETTERS;
+import static com.github.nalukit.iban4g.shared.IbanFormatException.IbanFormatViolation.IBAN_FORMATTING;
+import static com.github.nalukit.iban4g.shared.IbanFormatException.IbanFormatViolation.IBAN_NOT_EMPTY;
+import static com.github.nalukit.iban4g.shared.IbanFormatException.IbanFormatViolation.IBAN_NOT_NULL;
+import static com.github.nalukit.iban4g.shared.IbanFormatException.IbanFormatViolation.IBAN_VALID_CHARACTERS;
+import static com.github.nalukit.iban4g.shared.IbanFormatException.IbanFormatViolation.UNKNOWN;
 
 import com.github.nalukit.iban4g.shared.bban.BbanEntryType;
 import com.github.nalukit.iban4g.shared.bban.BbanStructure;
@@ -31,9 +44,8 @@ public final class IbanUtil {
   private static final int COUNTRY_CODE_INDEX = 0;
   private static final int COUNTRY_CODE_LENGTH = 2;
   private static final int CHECK_DIGIT_INDEX = COUNTRY_CODE_LENGTH;
+  private static final int BBAN_INDEX = CHECK_DIGIT_INDEX + IbanUtil.CHECK_DIGIT_LENGTH;
   private static final int CHECK_DIGIT_LENGTH = 2;
-  private static final int BBAN_INDEX = CHECK_DIGIT_INDEX + CHECK_DIGIT_LENGTH;
-
   private static final String ASSERT_UPPER_LETTERS = "[%s] must contain only upper case letters.";
   private static final String ASSERT_DIGITS_AND_LETTERS =
       "[%s] must contain only digits or letters.";
@@ -60,8 +72,8 @@ public final class IbanUtil {
             IBAN_FORMATTING,
             StringUtils.format(
                 "Iban must be formatted using 4 characters and space combination. "
-                    + "Instead of [%s]",
-                iban));
+                    + "Expected: [%s] - Instead of [%s] - 0001",
+                toFormattedString(ibanWithoutSpaces), iban));
       }
     } else {
       validate(iban);

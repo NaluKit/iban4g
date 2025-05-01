@@ -1,5 +1,5 @@
 /*
- * Copyright © 2020 ${name}
+ * Copyright © 2020 Frank Hossfeld, Philipp Kohl
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,23 @@ import org.junit.Test;
 
 public class BbanStructureEntryTest {
 
+  private static void assertSeededRandomBbanStructureEntryEquals(
+      BbanStructureEntry entry, String expected, int seed) {
+    String generated = entry.getRandom(new Random(seed));
+    assertEquals(
+        "expect that creating " + entry + " with seed '" + seed + "' is deterministic",
+        expected,
+        generated);
+  }
+
+  private static String getDistinctSortedChars(String s) {
+    return Stream.of(s.split("(?!^)"))
+        .distinct()
+        .sorted()
+        .map(Objects::toString)
+        .collect(Collectors.joining(""));
+  }
+
   @Test
   public void expectRandomAccountNumberIsDeterministicWhenSeeded() {
     BbanStructureEntry entry = BbanStructureEntry.accountNumber(10, 'a');
@@ -51,15 +68,6 @@ public class BbanStructureEntryTest {
     assertSeededRandomBbanStructureEntryEquals(entry, "XSJXQ4EAASPP", 1);
     assertSeededRandomBbanStructureEntryEquals(entry, "4OKJX66R7O22", 2);
     assertSeededRandomBbanStructureEntryEquals(entry, "EK6POILGJDLA", 3);
-  }
-
-  private static void assertSeededRandomBbanStructureEntryEquals(
-      BbanStructureEntry entry, String expected, int seed) {
-    String generated = entry.getRandom(new Random(seed));
-    assertEquals(
-        "expect that creating " + entry + " with seed '" + seed + "' is deterministic",
-        expected,
-        generated);
   }
 
   @Test
@@ -152,13 +160,5 @@ public class BbanStructureEntryTest {
             //                + "abcdefghijklmnopqrstuvwxyz"
             + "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
         distinctChars);
-  }
-
-  private static String getDistinctSortedChars(String s) {
-    return Stream.of(s.split("(?!^)"))
-        .distinct()
-        .sorted()
-        .map(Objects::toString)
-        .collect(Collectors.joining(""));
   }
 }

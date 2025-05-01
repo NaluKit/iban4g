@@ -1,5 +1,5 @@
 /*
- * Copyright © 2020 ${name}
+ * Copyright © 2020 Frank Hossfeld, Philipp Kohl
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,11 @@
  */
 package com.github.nalukit.iban4g;
 
-import com.github.nalukit.iban4g.shared.*;
+import com.github.nalukit.iban4g.shared.BicTest;
+import com.github.nalukit.iban4g.shared.BicUtilTest;
+import com.github.nalukit.iban4g.shared.CountryCodeTest;
+import com.github.nalukit.iban4g.shared.IbanTest;
+import com.github.nalukit.iban4g.shared.IbanUtilTest;
 import com.google.gwt.junit.tools.GWTTestSuite;
 import junit.framework.Test;
 

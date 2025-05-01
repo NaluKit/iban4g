@@ -1,5 +1,5 @@
 /*
- * Copyright © 2020 ${name}
+ * Copyright © 2020 Frank Hossfeld, Philipp Kohl
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -551,35 +551,6 @@ public enum CountryCode {
   }
 
   /**
-   * Get the country name.
-   *
-   * @return The country name.
-   */
-  public String getName() {
-    return name;
-  }
-
-  /**
-   * Get the <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> code.
-   *
-   * @return The <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>
-   *     code.
-   */
-  public String getAlpha2() {
-    return name();
-  }
-
-  /**
-   * Get the <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> code.
-   *
-   * @return The <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a>
-   *     code.
-   */
-  public String getAlpha3() {
-    return alpha3;
-  }
-
-  /**
    * Get a CountryCode that corresponds to the given ISO 3166-1 <a
    * href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">alpha-2</a> or <a
    * href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">alpha-3</a> code.
@@ -631,5 +602,34 @@ public enum CountryCode {
    */
   private static CountryCode getByAlpha3Code(final String code) {
     return alpha3Map.get(code);
+  }
+
+  /**
+   * Get the country name.
+   *
+   * @return The country name.
+   */
+  public String getName() {
+    return name;
+  }
+
+  /**
+   * Get the <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> code.
+   *
+   * @return The <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>
+   *     code.
+   */
+  public String getAlpha2() {
+    return name();
+  }
+
+  /**
+   * Get the <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> code.
+   *
+   * @return The <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a>
+   *     code.
+   */
+  public String getAlpha3() {
+    return alpha3;
   }
 }

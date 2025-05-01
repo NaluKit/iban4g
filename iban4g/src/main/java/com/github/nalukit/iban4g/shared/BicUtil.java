@@ -1,5 +1,5 @@
 /*
- * Copyright © 2020 ${name}
+ * Copyright © 2020 Frank Hossfeld, Philipp Kohl
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,12 @@
  */
 package com.github.nalukit.iban4g.shared;
 
-import static com.github.nalukit.iban4g.shared.BicFormatException.BicFormatViolation.*;
+import static com.github.nalukit.iban4g.shared.BicFormatException.BicFormatViolation.BIC_LENGTH_8_OR_11;
+import static com.github.nalukit.iban4g.shared.BicFormatException.BicFormatViolation.BIC_NOT_EMPTY;
+import static com.github.nalukit.iban4g.shared.BicFormatException.BicFormatViolation.BIC_NOT_NULL;
+import static com.github.nalukit.iban4g.shared.BicFormatException.BicFormatViolation.BIC_ONLY_UPPER_CASE_LETTERS;
+import static com.github.nalukit.iban4g.shared.BicFormatException.BicFormatViolation.COUNTRY_CODE_ONLY_UPPER_CASE_LETTERS;
+import static com.github.nalukit.iban4g.shared.BicFormatException.BicFormatViolation.UNKNOWN;
 
 /** Bic Utility Class */
 public class BicUtil {
@@ -26,10 +31,10 @@ public class BicUtil {
   private static final int BANK_CODE_INDEX = 0;
   private static final int BANK_CODE_LENGTH = 4;
   private static final int COUNTRY_CODE_INDEX = BANK_CODE_INDEX + BANK_CODE_LENGTH;
+  private static final int LOCATION_CODE_INDEX = COUNTRY_CODE_INDEX + BicUtil.COUNTRY_CODE_LENGTH;
+  private static final int BRANCH_CODE_INDEX = LOCATION_CODE_INDEX + BicUtil.LOCATION_CODE_LENGTH;
   private static final int COUNTRY_CODE_LENGTH = 2;
-  private static final int LOCATION_CODE_INDEX = COUNTRY_CODE_INDEX + COUNTRY_CODE_LENGTH;
   private static final int LOCATION_CODE_LENGTH = 2;
-  private static final int BRANCH_CODE_INDEX = LOCATION_CODE_INDEX + LOCATION_CODE_LENGTH;
   private static final int BRANCH_CODE_LENGTH = 3;
 
   /**

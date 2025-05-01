@@ -1,5 +1,5 @@
 /*
- * Copyright © 2020 ${name}
+ * Copyright © 2020 Frank Hossfeld, Philipp Kohl
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,22 @@ import java.util.Random;
 import org.junit.Test;
 
 public class IbanTest extends GWTTestCase {
+
+  private static void assertIbanUtilRandomWithSeedEquals(String expected, int seed) {
+    Iban generated = Iban.random(new Random(seed));
+    assertEquals(
+        "expect that creating an IBAN with seed '" + seed + "' is deterministic",
+        expected,
+        generated.toFormattedString());
+  }
+
+  private static void assertIbanBuilderRandomWithSeedEquals(String expected, int seed) {
+    Iban generated = Iban.builder().random(new Random(seed)).buildRandom();
+    assertEquals(
+        "expect that creating an IBAN with seed '" + seed + "' is deterministic",
+        expected,
+        generated.toFormattedString());
+  }
 
   @Override
   public String getModuleName() {
@@ -512,27 +528,11 @@ public class IbanTest extends GWTTestCase {
     assertIbanUtilRandomWithSeedEquals("XK51 0018 2949 1527 4166", 3);
   }
 
-  private static void assertIbanUtilRandomWithSeedEquals(String expected, int seed) {
-    Iban generated = Iban.random(new Random(seed));
-    assertEquals(
-        "expect that creating an IBAN with seed '" + seed + "' is deterministic",
-        expected,
-        generated.toFormattedString());
-  }
-
   @Test
   public void ibanBuilderConstructionSeeded() {
     assertIbanUtilRandomWithSeedEquals("WF67 8734 4468 89P1 RIYK UO5K 809", 1);
     assertIbanUtilRandomWithSeedEquals("XK91 2079 0697 8464 4467", 2);
     assertIbanUtilRandomWithSeedEquals("XK51 0018 2949 1527 4166", 3);
-  }
-
-  private static void assertIbanBuilderRandomWithSeedEquals(String expected, int seed) {
-    Iban generated = Iban.builder().random(new Random(seed)).buildRandom();
-    assertEquals(
-        "expect that creating an IBAN with seed '" + seed + "' is deterministic",
-        expected,
-        generated.toFormattedString());
   }
 
   @Test

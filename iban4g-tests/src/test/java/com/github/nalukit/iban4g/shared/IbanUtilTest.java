@@ -1,5 +1,5 @@
 /*
- * Copyright © 2020 ${name}
+ * Copyright © 2020 Frank Hossfeld, Philipp Kohl
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,15 +47,15 @@ public class IbanUtilTest {
       this.expectedIbanString = expectedIbanString;
     }
 
+    @Parameterized.Parameters
+    public static Collection<Object[]> ibanParameters() {
+      return TestDataHelper.getIbanData();
+    }
+
     @Test
     public void checkDigitCalculationWithCountryCodeAndBbanShouldReturnCheckDigit() {
       String checkDigit = IbanUtil.calculateCheckDigit(iban);
       assertThat(checkDigit, is(equalTo(expectedIbanString.substring(2, 4))));
-    }
-
-    @Parameterized.Parameters
-    public static Collection<Object[]> ibanParameters() {
-      return TestDataHelper.getIbanData();
     }
   }
 
@@ -68,15 +68,15 @@ public class IbanUtilTest {
       this.invalidCharacter = invalidCharacter;
     }
 
+    @Parameterized.Parameters
+    public static Collection<Character[]> invalidCharacters() {
+      return Arrays.asList(new Character[][] {{'\u216C'}, {'+'}});
+    }
+
     @Test(expected = IbanFormatException.class)
     public void checkDigitCalculationWithNonNumericBbanShouldThrowException() {
 
       IbanUtil.calculateCheckDigit("AT000159260" + invalidCharacter + "076545510730339");
-    }
-
-    @Parameterized.Parameters
-    public static Collection<Character[]> invalidCharacters() {
-      return Arrays.asList(new Character[][] {{'\u216C'}, {'+'}});
     }
   }
 
@@ -289,11 +289,6 @@ public class IbanUtilTest {
       this.ibanString = ibanString;
     }
 
-    @Test
-    public void ibanValidationWithValidIbanShouldNotThrowException() {
-      IbanUtil.validate(ibanString);
-    }
-
     @Parameterized.Parameters
     public static Collection<Object[]> ibanParameters() {
       final Collection<Object[]> data = new ArrayList<Object[]>(TestDataHelper.getIbanData());
@@ -329,6 +324,11 @@ public class IbanUtilTest {
 
       return data;
     }
+
+    @Test
+    public void ibanValidationWithValidIbanShouldNotThrowException() {
+      IbanUtil.validate(ibanString);
+    }
   }
 
   @RunWith(Parameterized.class)
@@ -342,15 +342,15 @@ public class IbanUtilTest {
       this.expectedIbanString = expectedIbanString;
     }
 
+    @Parameterized.Parameters
+    public static Collection<Object[]> ibanParameters() {
+      return TestDataHelper.getIbanData();
+    }
+
     @Test
     public void getIbanLengthShouldReturnValidLength() {
       assertThat(
           IbanUtil.getIbanLength(iban.getCountryCode()), is(equalTo(expectedIbanString.length())));
-    }
-
-    @Parameterized.Parameters
-    public static Collection<Object[]> ibanParameters() {
-      return TestDataHelper.getIbanData();
     }
   }
 

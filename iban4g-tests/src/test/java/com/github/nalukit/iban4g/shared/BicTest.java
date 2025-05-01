@@ -1,5 +1,5 @@
 /*
- * Copyright © 2020 ${name}
+ * Copyright © 2020 Frank Hossfeld, Philipp Kohl
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,15 @@ import org.junit.runners.Parameterized;
 
 @RunWith(Enclosed.class)
 public class BicTest {
+
+  @Test
+  public void bicShouldReturnBic8Code() {
+    Bic bic01 = Bic.valueOf("DEUTDEFF500");
+    assertThat(bic01.getBic8(), is(equalTo("DEUTDEFF")));
+
+    Bic bic02 = Bic.valueOf("DEUTDEFF");
+    assertThat(bic02.getBic8(), is(equalTo("DEUTDEFF")));
+  }
 
   public static class BicCreationTest1 {
 
@@ -120,15 +129,6 @@ public class BicTest {
     }
   }
 
-  @Test
-  public void bicShouldReturnBic8Code() {
-    Bic bic01 = Bic.valueOf("DEUTDEFF500");
-    assertThat(bic01.getBic8(), is(equalTo("DEUTDEFF")));
-
-    Bic bic02 = Bic.valueOf("DEUTDEFF");
-    assertThat(bic02.getBic8(), is(equalTo("DEUTDEFF")));
-  }
-
   @RunWith(Parameterized.class)
   public static class BicCreationTest2 {
 
@@ -138,14 +138,14 @@ public class BicTest {
       this.bicString = bicString;
     }
 
-    @Test
-    public void bicConstructionWithValueOfShouldReturnBic() {
-      assertThat(Bic.valueOf(bicString), is(notNullValue()));
-    }
-
     @Parameterized.Parameters
     public static Collection<Object[]> bicParameters() {
       return TestDataHelper.getBicData();
+    }
+
+    @Test
+    public void bicConstructionWithValueOfShouldReturnBic() {
+      assertThat(Bic.valueOf(bicString), is(notNullValue()));
     }
   }
 }

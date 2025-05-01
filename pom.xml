@@ -1,18 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<!--
+
+    Copyright © 2020 Frank Hossfeld, Philipp Kohl
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.github.nalukit</groupId>
   <artifactId>iban4g-parent</artifactId>
-
-  <version>dev</version>
-
+  <version>${revision}</version>
   <packaging>pom</packaging>
 
   <name>iban4g parent</name>
+
   <description>A library for International Bank Account Number (IBAN) generation to use with Java, GWT or J2CL.</description>
   <url>https://github.com/nalukit/iban4g</url>
+
+  <inceptionYear>2020</inceptionYear>
 
   <licenses>
     <license>
@@ -48,8 +66,6 @@
     <url>https://github.com/nalukit/iban4g/issues</url>
   </issueManagement>
 
-  <inceptionYear>2020</inceptionYear>
-
   <modules>
     <module>iban4g</module>
     <module>iban4g-tests</module>
@@ -58,12 +74,12 @@
   </modules>
 
   <properties>
-    <revision>HEAD-SNAPSHOT</revision>
+    <revision>2.2.1</revision>
 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
 
     <maven.compiler.plugin>3.8.1</maven.compiler.plugin>
     <maven.deploy.plugin>3.0.0-M1</maven.deploy.plugin>
@@ -74,6 +90,8 @@
     <maven.surfire.plugin>3.0.0-M1</maven.surfire.plugin>
 
     <elemental2.version>1.1.0</elemental2.version>
+
+    <plugin.version.versions>2.18.0</plugin.version.versions>
   </properties>
 
   <build>
@@ -110,12 +128,10 @@
             <exclude>**/AUTHORS</exclude>
             <exclude>**/src/test/resources/**</exclude>
             <exclude>**/src/main/resources/**</exclude>
-            <exclude>**/pom.xml</exclude>
-            <exclude>**/.flattened-pom.xml</exclude>
           </excludes>
           <properties>
             <year>${project.inceptionYear}</year>
-            <name>${project.organization.name}</name>
+            <name>Frank Hossfeld, Philipp Kohl</name>
           </properties>
         </configuration>
         <executions>
@@ -173,6 +189,39 @@
       </plugins>
     </pluginManagement>
   </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+        <version>${plugin.version.versions}</version>
+        <configuration>
+          <ruleSet>
+            <ignoreVersions>
+              <igonreVersion>
+                <type>regex</type>
+                <version>(.+-M\d)</version>
+              </igonreVersion>
+              <igonreVersion>
+                <type>regex</type>
+                <version>.+-(alpha|beta).+</version>
+              </igonreVersion>
+            </ignoreVersions>
+          </ruleSet>
+        </configuration>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>dependency-updates-report</report>
+              <report>plugin-updates-report</report>
+              <report>property-updates-report</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+    </plugins>
+  </reporting>
 
   <dependencyManagement>
     <dependencies>

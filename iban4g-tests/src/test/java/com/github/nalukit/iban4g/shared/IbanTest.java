@@ -1,5 +1,5 @@
 /*
- * Copyright © 2020 ${name}
+ * Copyright © 2020 Frank Hossfeld, Philipp Kohl
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,6 +43,11 @@ public class IbanTest {
       this.expectedIbanString = expectedIbanString;
     }
 
+    @Parameterized.Parameters
+    public static Collection<Object[]> ibanParameters() {
+      return TestDataHelper.getIbanData();
+    }
+
     @Test
     public void ibanConstructionWithSupportedCountriesShouldReturnIban() {
       assertThat(iban.toString(), is(equalTo(expectedIbanString)));
@@ -51,11 +56,6 @@ public class IbanTest {
     @Test
     public void ibanConstructionWithValueOfShouldReturnIban() {
       assertThat(Iban.valueOf(expectedIbanString), is(equalTo(iban)));
-    }
-
-    @Parameterized.Parameters
-    public static Collection<Object[]> ibanParameters() {
-      return TestDataHelper.getIbanData();
     }
   }
 
@@ -309,6 +309,22 @@ public class IbanTest {
 
   public static class IbanGenerationExceptionalTest {
 
+    private static void assertIbanUtilRandomWithSeedEquals(String expected, int seed) {
+      Iban generated = Iban.random(new Random(seed));
+      assertEquals(
+          "expect that creating an IBAN with seed '" + seed + "' is deterministic",
+          expected,
+          generated.toFormattedString());
+    }
+
+    private static void assertIbanBuilderRandomWithSeedEquals(String expected, int seed) {
+      Iban generated = Iban.random(new Random(seed));
+      assertEquals(
+          "expect that creating an IBAN with seed '" + seed + "' is deterministic",
+          expected,
+          generated.toFormattedString());
+    }
+
     @Test(expected = UnsupportedCountryException.class)
     public void ibanConstructionWithNonSupportedCountryShouldThrowException() {
       new Iban.Builder()
@@ -456,22 +472,6 @@ public class IbanTest {
         new Iban.Builder().buildRandom();
         Iban.random();
       }
-    }
-
-    private static void assertIbanUtilRandomWithSeedEquals(String expected, int seed) {
-      Iban generated = Iban.random(new Random(seed));
-      assertEquals(
-          "expect that creating an IBAN with seed '" + seed + "' is deterministic",
-          expected,
-          generated.toFormattedString());
-    }
-
-    private static void assertIbanBuilderRandomWithSeedEquals(String expected, int seed) {
-      Iban generated = Iban.random(new Random(seed));
-      assertEquals(
-          "expect that creating an IBAN with seed '" + seed + "' is deterministic",
-          expected,
-          generated.toFormattedString());
     }
 
     @Test
