@@ -15,17 +15,11 @@
  */
 package com.github.nalukit.iban4g.shared;
 
-/**
- * Iban Format Enum
- */
+/** Iban Format Enum */
 public enum IbanFormat {
-  /**
-   * Default Iban Format. Groups of four characters separated by a single space.
-   */
+  /** Default Iban Format. Groups of four characters separated by a single space. */
   Default,
 
-  /**
-   * No Format.
-   */
+  /** No Format. */
   None
 }

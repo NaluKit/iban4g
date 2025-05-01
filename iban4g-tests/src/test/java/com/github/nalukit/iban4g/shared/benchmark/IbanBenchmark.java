@@ -28,18 +28,18 @@ public class IbanBenchmark {
 
   private static final long LOOPS_COUNT = 1000000;
 
-  @Rule
-  public TestRule benchmarkRun = new BenchmarkRule();
+  @Rule public TestRule benchmarkRun = new BenchmarkRule();
 
   @BenchmarkOptions(benchmarkRounds = 3, warmupRounds = 1)
   @Test
   public void ibanConstruction() {
     for (int i = 0; i < LOOPS_COUNT; i++) {
-      Iban iban = Iban.builder()
-                      .countryCode(CountryCode.DE)
-                      .bankCode("52060170")
-                      .accountNumber("0012335785")
-                      .build();
+      Iban iban =
+          Iban.builder()
+              .countryCode(CountryCode.DE)
+              .bankCode("52060170")
+              .accountNumber("0012335785")
+              .build();
     }
   }
 

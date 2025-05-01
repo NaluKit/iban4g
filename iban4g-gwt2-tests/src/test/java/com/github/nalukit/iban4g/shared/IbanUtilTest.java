@@ -16,11 +16,9 @@
 package com.github.nalukit.iban4g.shared;
 
 import com.google.gwt.junit.client.GWTTestCase;
-
 import java.util.Map;
 
-public class IbanUtilTest
-    extends GWTTestCase {
+public class IbanUtilTest extends GWTTestCase {
 
   @Override
   public String getModuleName() {
@@ -31,15 +29,12 @@ public class IbanUtilTest
     Map<String, Iban> testData = TestDataHelper.getIbanData();
     for (String iban : testData.keySet()) {
       String checkDigit = IbanUtil.calculateCheckDigit(iban);
-      assertEquals(iban.substring(2,
-                                  4),
-                   checkDigit);
+      assertEquals(iban.substring(2, 4), checkDigit);
     }
   }
 
   public void testCheckDigitCalculationWithNonNumericBbanShouldThrowException() {
-    char[] characterList = new char[] { '\u216C',
-                                        '+' };
+    char[] characterList = new char[] {'\u216C', '+'};
     for (char invalidCharacter : characterList) {
       try {
         IbanUtil.calculateCheckDigit("AT000159260" + invalidCharacter + "076545510730339");
@@ -62,13 +57,11 @@ public class IbanUtilTest
   }
 
   public void testUnformattedIbanValidationWithNoneFormattingShouldNotThrowException() {
-    IbanUtil.validate("AT611904300234573201",
-                      IbanFormat.None);
+    IbanUtil.validate("AT611904300234573201", IbanFormat.None);
   }
 
   public void testFormattedIbanValidationWithDefaultFormattingShouldNotThrowException() {
-    IbanUtil.validate("AT61 1904 3002 3457 3201",
-                      IbanFormat.Default);
+    IbanUtil.validate("AT61 1904 3002 3457 3201", IbanFormat.Default);
   }
 
   public void testIbanValidationWithNullShouldThrowException() {
@@ -76,13 +69,12 @@ public class IbanUtilTest
       IbanUtil.validate(null);
       fail();
     } catch (IbanFormatException e) {
-      if (!e.getMessage()
-            .contains("Null can't be a valid Iban")) {
+      if (!e.getMessage().contains("Null can't be a valid Iban")) {
         fail();
       }
-      IbanFormatViolationMatcher matcher = new IbanFormatViolationMatcher(IbanFormatException.IbanFormatViolation.IBAN_NOT_NULL);
-      assertTrue(matcher.describeTo(),
-                 matcher.matchesSafely(e));
+      IbanFormatViolationMatcher matcher =
+          new IbanFormatViolationMatcher(IbanFormatException.IbanFormatViolation.IBAN_NOT_NULL);
+      assertTrue(matcher.describeTo(), matcher.matchesSafely(e));
     }
   }
 
@@ -91,13 +83,13 @@ public class IbanUtilTest
       IbanUtil.validate("");
       fail();
     } catch (IbanFormatException e) {
-      if (!e.getMessage()
-            .contains("Empty string can't be a valid Iban")) {
+      if (!e.getMessage().contains("Empty string can't be a valid Iban")) {
         fail();
       }
-      IbanFormatViolationMatcher ibanFormatViolationMatcher = new IbanFormatViolationMatcher(IbanFormatException.IbanFormatViolation.IBAN_NOT_EMPTY);
-      assertTrue(ibanFormatViolationMatcher.describeTo(),
-                 ibanFormatViolationMatcher.matchesSafely(e));
+      IbanFormatViolationMatcher ibanFormatViolationMatcher =
+          new IbanFormatViolationMatcher(IbanFormatException.IbanFormatViolation.IBAN_NOT_EMPTY);
+      assertTrue(
+          ibanFormatViolationMatcher.describeTo(), ibanFormatViolationMatcher.matchesSafely(e));
     }
   }
 
@@ -106,16 +98,19 @@ public class IbanUtilTest
       IbanUtil.validate("A");
       fail();
     } catch (IbanFormatException e) {
-      if (!e.getMessage()
-            .contains("Iban must contain 2 char country code.")) {
+      if (!e.getMessage().contains("Iban must contain 2 char country code.")) {
         fail();
       }
-      IbanFormatViolationMatcher ibanFormatViolationMatcher = new IbanFormatViolationMatcher(IbanFormatException.IbanFormatViolation.COUNTRY_CODE_TWO_LETTERS);
-      assertTrue(ibanFormatViolationMatcher.describeTo(),
-                 ibanFormatViolationMatcher.matchesSafely(e));
-      IbanFormatExceptionActualValueMatcher ibanFormatExceptionActualValueMatcher = new IbanFormatExceptionActualValueMatcher("A");
-      assertTrue(ibanFormatExceptionActualValueMatcher.describeTo(),
-                 ibanFormatExceptionActualValueMatcher.matchesSafely(e));
+      IbanFormatViolationMatcher ibanFormatViolationMatcher =
+          new IbanFormatViolationMatcher(
+              IbanFormatException.IbanFormatViolation.COUNTRY_CODE_TWO_LETTERS);
+      assertTrue(
+          ibanFormatViolationMatcher.describeTo(), ibanFormatViolationMatcher.matchesSafely(e));
+      IbanFormatExceptionActualValueMatcher ibanFormatExceptionActualValueMatcher =
+          new IbanFormatExceptionActualValueMatcher("A");
+      assertTrue(
+          ibanFormatExceptionActualValueMatcher.describeTo(),
+          ibanFormatExceptionActualValueMatcher.matchesSafely(e));
     }
   }
 
@@ -124,16 +119,19 @@ public class IbanUtilTest
       IbanUtil.validate("AT");
       fail();
     } catch (IbanFormatException e) {
-      if (!e.getMessage()
-            .contains("Iban must contain 2 digit check digit.")) {
+      if (!e.getMessage().contains("Iban must contain 2 digit check digit.")) {
         fail();
       }
-      IbanFormatViolationMatcher ibanFormatViolationMatcher = new IbanFormatViolationMatcher(IbanFormatException.IbanFormatViolation.CHECK_DIGIT_TWO_DIGITS);
-      assertTrue(ibanFormatViolationMatcher.describeTo(),
-                 ibanFormatViolationMatcher.matchesSafely(e));
-      IbanFormatExceptionActualValueMatcher ibanFormatExceptionActualValueMatcher = new IbanFormatExceptionActualValueMatcher("");
-      assertTrue(ibanFormatExceptionActualValueMatcher.describeTo(),
-                 ibanFormatExceptionActualValueMatcher.matchesSafely(e));
+      IbanFormatViolationMatcher ibanFormatViolationMatcher =
+          new IbanFormatViolationMatcher(
+              IbanFormatException.IbanFormatViolation.CHECK_DIGIT_TWO_DIGITS);
+      assertTrue(
+          ibanFormatViolationMatcher.describeTo(), ibanFormatViolationMatcher.matchesSafely(e));
+      IbanFormatExceptionActualValueMatcher ibanFormatExceptionActualValueMatcher =
+          new IbanFormatExceptionActualValueMatcher("");
+      assertTrue(
+          ibanFormatExceptionActualValueMatcher.describeTo(),
+          ibanFormatExceptionActualValueMatcher.matchesSafely(e));
     }
   }
 
@@ -142,16 +140,19 @@ public class IbanUtilTest
       IbanUtil.validate("AT4T");
       fail();
     } catch (IbanFormatException e) {
-      if (!e.getMessage()
-            .contains("Iban's check digit should contain only digits.")) {
+      if (!e.getMessage().contains("Iban's check digit should contain only digits.")) {
         fail();
       }
-      IbanFormatViolationMatcher ibanFormatViolationMatcher = new IbanFormatViolationMatcher(IbanFormatException.IbanFormatViolation.CHECK_DIGIT_ONLY_DIGITS);
-      assertTrue(ibanFormatViolationMatcher.describeTo(),
-                 ibanFormatViolationMatcher.matchesSafely(e));
-      IbanFormatExceptionActualValueMatcher ibanFormatExceptionActualValueMatcher = new IbanFormatExceptionActualValueMatcher("4T");
-      assertTrue(ibanFormatExceptionActualValueMatcher.describeTo(),
-                 ibanFormatExceptionActualValueMatcher.matchesSafely(e));
+      IbanFormatViolationMatcher ibanFormatViolationMatcher =
+          new IbanFormatViolationMatcher(
+              IbanFormatException.IbanFormatViolation.CHECK_DIGIT_ONLY_DIGITS);
+      assertTrue(
+          ibanFormatViolationMatcher.describeTo(), ibanFormatViolationMatcher.matchesSafely(e));
+      IbanFormatExceptionActualValueMatcher ibanFormatExceptionActualValueMatcher =
+          new IbanFormatExceptionActualValueMatcher("4T");
+      assertTrue(
+          ibanFormatExceptionActualValueMatcher.describeTo(),
+          ibanFormatExceptionActualValueMatcher.matchesSafely(e));
     }
   }
 
@@ -160,15 +161,20 @@ public class IbanUtilTest
       IbanUtil.validate("AT48");
       fail();
     } catch (IbanFormatException e) {
-      IbanFormatViolationMatcher ibanFormatViolationMatcher = new IbanFormatViolationMatcher(IbanFormatException.IbanFormatViolation.BBAN_LENGTH);
-      assertTrue(ibanFormatViolationMatcher.describeTo(),
-                 ibanFormatViolationMatcher.matchesSafely(e));
-      IbanFormatExceptionActualValueMatcher ibanFormatExceptionActualValueMatcher = new IbanFormatExceptionActualValueMatcher("0");
-      assertTrue(ibanFormatExceptionActualValueMatcher.describeTo(),
-                 ibanFormatExceptionActualValueMatcher.matchesSafely(e));
-      IbanFormatExceptionExpectedValueMatcher ibanFormatExceptionExpectedValueMatcher = new IbanFormatExceptionExpectedValueMatcher("16");
-      assertTrue(ibanFormatExceptionExpectedValueMatcher.describeTo(),
-                 ibanFormatExceptionExpectedValueMatcher.matchesSafely(e));
+      IbanFormatViolationMatcher ibanFormatViolationMatcher =
+          new IbanFormatViolationMatcher(IbanFormatException.IbanFormatViolation.BBAN_LENGTH);
+      assertTrue(
+          ibanFormatViolationMatcher.describeTo(), ibanFormatViolationMatcher.matchesSafely(e));
+      IbanFormatExceptionActualValueMatcher ibanFormatExceptionActualValueMatcher =
+          new IbanFormatExceptionActualValueMatcher("0");
+      assertTrue(
+          ibanFormatExceptionActualValueMatcher.describeTo(),
+          ibanFormatExceptionActualValueMatcher.matchesSafely(e));
+      IbanFormatExceptionExpectedValueMatcher ibanFormatExceptionExpectedValueMatcher =
+          new IbanFormatExceptionExpectedValueMatcher("16");
+      assertTrue(
+          ibanFormatExceptionExpectedValueMatcher.describeTo(),
+          ibanFormatExceptionExpectedValueMatcher.matchesSafely(e));
     }
   }
 
@@ -177,16 +183,19 @@ public class IbanUtilTest
       IbanUtil.validate("at611904300234573201");
       fail();
     } catch (IbanFormatException e) {
-      if (!e.getMessage()
-            .contains("Iban country code must contain upper case letters")) {
+      if (!e.getMessage().contains("Iban country code must contain upper case letters")) {
         fail();
       }
-      IbanFormatViolationMatcher ibanFormatViolationMatcher = new IbanFormatViolationMatcher(IbanFormatException.IbanFormatViolation.COUNTRY_CODE_UPPER_CASE_LETTERS);
-      assertTrue(ibanFormatViolationMatcher.describeTo(),
-                 ibanFormatViolationMatcher.matchesSafely(e));
-      IbanFormatExceptionActualValueMatcher ibanFormatExceptionActualValueMatcher = new IbanFormatExceptionActualValueMatcher("at");
-      assertTrue(ibanFormatExceptionActualValueMatcher.describeTo(),
-                 ibanFormatExceptionActualValueMatcher.matchesSafely(e));
+      IbanFormatViolationMatcher ibanFormatViolationMatcher =
+          new IbanFormatViolationMatcher(
+              IbanFormatException.IbanFormatViolation.COUNTRY_CODE_UPPER_CASE_LETTERS);
+      assertTrue(
+          ibanFormatViolationMatcher.describeTo(), ibanFormatViolationMatcher.matchesSafely(e));
+      IbanFormatExceptionActualValueMatcher ibanFormatExceptionActualValueMatcher =
+          new IbanFormatExceptionActualValueMatcher("at");
+      assertTrue(
+          ibanFormatExceptionActualValueMatcher.describeTo(),
+          ibanFormatExceptionActualValueMatcher.matchesSafely(e));
     }
   }
 
@@ -195,16 +204,19 @@ public class IbanUtilTest
       IbanUtil.validate(" _611904300234573201");
       fail();
     } catch (IbanFormatException e) {
-      if (!e.getMessage()
-            .contains("Iban country code must contain upper case letters")) {
+      if (!e.getMessage().contains("Iban country code must contain upper case letters")) {
         fail();
       }
-      IbanFormatViolationMatcher ibanFormatViolationMatcher = new IbanFormatViolationMatcher(IbanFormatException.IbanFormatViolation.COUNTRY_CODE_UPPER_CASE_LETTERS);
-      assertTrue(ibanFormatViolationMatcher.describeTo(),
-                 ibanFormatViolationMatcher.matchesSafely(e));
-      IbanFormatExceptionActualValueMatcher ibanFormatExceptionActualValueMatcher = new IbanFormatExceptionActualValueMatcher(" _");
-      assertTrue(ibanFormatExceptionActualValueMatcher.describeTo(),
-                 ibanFormatExceptionActualValueMatcher.matchesSafely(e));
+      IbanFormatViolationMatcher ibanFormatViolationMatcher =
+          new IbanFormatViolationMatcher(
+              IbanFormatException.IbanFormatViolation.COUNTRY_CODE_UPPER_CASE_LETTERS);
+      assertTrue(
+          ibanFormatViolationMatcher.describeTo(), ibanFormatViolationMatcher.matchesSafely(e));
+      IbanFormatExceptionActualValueMatcher ibanFormatExceptionActualValueMatcher =
+          new IbanFormatExceptionActualValueMatcher(" _");
+      assertTrue(
+          ibanFormatExceptionActualValueMatcher.describeTo(),
+          ibanFormatExceptionActualValueMatcher.matchesSafely(e));
     }
   }
 
@@ -221,13 +233,14 @@ public class IbanUtilTest
       IbanUtil.validate("JJ611904300234573201");
       fail();
     } catch (IbanFormatException e) {
-      if (!e.getMessage()
-            .contains("Iban contains non existing country code.")) {
+      if (!e.getMessage().contains("Iban contains non existing country code.")) {
         fail();
       }
-      IbanFormatViolationMatcher ibanFormatViolationMatcher = new IbanFormatViolationMatcher(IbanFormatException.IbanFormatViolation.COUNTRY_CODE_EXISTS);
-      assertTrue(ibanFormatViolationMatcher.describeTo(),
-                 ibanFormatViolationMatcher.matchesSafely(e));
+      IbanFormatViolationMatcher ibanFormatViolationMatcher =
+          new IbanFormatViolationMatcher(
+              IbanFormatException.IbanFormatViolation.COUNTRY_CODE_EXISTS);
+      assertTrue(
+          ibanFormatViolationMatcher.describeTo(), ibanFormatViolationMatcher.matchesSafely(e));
     }
   }
 
@@ -236,16 +249,13 @@ public class IbanUtilTest
       IbanUtil.validate("AT621904300234573201");
       fail();
     } catch (InvalidCheckDigitException e) {
-      if (!e.getMessage()
-            .contains("invalid check digit: 62")) {
+      if (!e.getMessage().contains("invalid check digit: 62")) {
         fail();
       }
-      if (!e.getMessage()
-            .contains("expected check digit is: 61")) {
+      if (!e.getMessage().contains("expected check digit is: 61")) {
         fail();
       }
-      if (!e.getMessage()
-            .contains("AT621904300234573201")) {
+      if (!e.getMessage().contains("AT621904300234573201")) {
         fail();
       }
     }
@@ -256,12 +266,10 @@ public class IbanUtilTest
       IbanUtil.validate("AT61 1904300234573201");
       fail();
     } catch (IbanFormatException e) {
-      if (!e.getMessage()
-            .contains("length is 17")) {
+      if (!e.getMessage().contains("length is 17")) {
         fail();
       }
-      if (!e.getMessage()
-            .contains("expected BBAN length is: 16")) {
+      if (!e.getMessage().contains("expected BBAN length is: 16")) {
         fail();
       }
     }
@@ -280,8 +288,7 @@ public class IbanUtilTest
       IbanUtil.validate("AT61190430023457320");
       fail();
     } catch (IbanFormatException e) {
-      if (!e.getMessage()
-            .contains("expected BBAN length is:")) {
+      if (!e.getMessage().contains("expected BBAN length is:")) {
         fail();
       }
     }
@@ -292,8 +299,7 @@ public class IbanUtilTest
       IbanUtil.validate("AT611C04300234573201");
       fail();
     } catch (IbanFormatException e) {
-      if (!e.getMessage()
-            .contains("must contain only digits")) {
+      if (!e.getMessage().contains("must contain only digits")) {
         fail();
       }
     }
@@ -304,8 +310,7 @@ public class IbanUtilTest
       IbanUtil.validate("DE8937040044053201300A");
       fail();
     } catch (IbanFormatException e) {
-      if (!e.getMessage()
-            .contains("must contain only digits")) {
+      if (!e.getMessage().contains("must contain only digits")) {
         fail();
       }
     }
@@ -316,8 +321,7 @@ public class IbanUtilTest
       IbanUtil.validate("IT6010542811101000000123456");
       fail();
     } catch (IbanFormatException e) {
-      if (!e.getMessage()
-            .contains("must contain only upper case letters")) {
+      if (!e.getMessage().contains("must contain only upper case letters")) {
         fail();
       }
     }
@@ -325,12 +329,10 @@ public class IbanUtilTest
 
   public void testUnformattedIbanValidationWithDefaultFormattingShouldThrowException() {
     try {
-      IbanUtil.validate("AT611904300234573201",
-                        IbanFormat.Default);
+      IbanUtil.validate("AT611904300234573201", IbanFormat.Default);
       fail();
     } catch (IbanFormatException e) {
-      if (!e.getMessage()
-            .contains("Iban must be formatted using 4 characters and space")) {
+      if (!e.getMessage().contains("Iban must be formatted using 4 characters and space")) {
         fail();
       }
     }
@@ -338,12 +340,10 @@ public class IbanUtilTest
 
   public void testFormattedIbanValidationWithNoneFormattingShouldThrowException() {
     try {
-      IbanUtil.validate("AT61 1904 3002 3457 3201",
-                        IbanFormat.None);
+      IbanUtil.validate("AT61 1904 3002 3457 3201", IbanFormat.None);
       fail();
     } catch (IbanFormatException e) {
-      if (!e.getMessage()
-            .contains("expected BBAN length is: 16")) {
+      if (!e.getMessage().contains("expected BBAN length is: 16")) {
         fail();
       }
     }
@@ -360,16 +360,15 @@ public class IbanUtilTest
   public void testGetIbanLengthShouldReturnValidLength() {
     Map<String, Iban> testData = TestDataHelper.getIbanData();
     for (String ibanString : testData.keySet()) {
-      assertEquals(ibanString.length(),
-                   IbanUtil.getIbanLength(testData.get(ibanString)
-                                                  .getCountryCode()));
+      assertEquals(
+          ibanString.length(), IbanUtil.getIbanLength(testData.get(ibanString).getCountryCode()));
     }
   }
 
   public static class IbanFormatViolationMatcher {
 
     private final IbanFormatException.IbanFormatViolation expectedViolation;
-    private       IbanFormatException.IbanFormatViolation actualViolation;
+    private IbanFormatException.IbanFormatViolation actualViolation;
 
     IbanFormatViolationMatcher(IbanFormatException.IbanFormatViolation violation) {
       expectedViolation = violation;
@@ -385,12 +384,10 @@ public class IbanUtilTest
     }
   }
 
-
-
   public static class IbanFormatExceptionActualValueMatcher {
 
     private final String expectedValue;
-    private       String actualValue;
+    private String actualValue;
 
     IbanFormatExceptionActualValueMatcher(String expectedValue) {
       this.expectedValue = expectedValue;
@@ -406,12 +403,10 @@ public class IbanUtilTest
     }
   }
 
-
-
   public static class IbanFormatExceptionExpectedValueMatcher {
 
     private final String expectedValue;
-    private       String actualValue;
+    private String actualValue;
 
     IbanFormatExceptionExpectedValueMatcher(String expectedValue) {
       this.expectedValue = expectedValue;

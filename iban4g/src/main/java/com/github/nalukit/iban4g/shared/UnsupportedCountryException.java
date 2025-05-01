@@ -15,19 +15,14 @@
  */
 package com.github.nalukit.iban4g.shared;
 
-/**
- * Thrown to indicate that requested country is not supported.
- */
-public class UnsupportedCountryException
-    extends Iban4gException {
+/** Thrown to indicate that requested country is not supported. */
+public class UnsupportedCountryException extends Iban4gException {
 
   private static final long serialVersionUID = -3733353745417164234L;
 
   private String countryCode;
 
-  /**
-   * Constructs a <code>UnsupportedCountryException</code> with no detail message and cause.
-   */
+  /** Constructs a <code>UnsupportedCountryException</code> with no detail message and cause. */
   public UnsupportedCountryException() {
     super();
   }
@@ -50,10 +45,8 @@ public class UnsupportedCountryException
    * @param s the detail message.
    * @param t the cause.
    */
-  public UnsupportedCountryException(final String s,
-                                     final Throwable t) {
-    super(s,
-          t);
+  public UnsupportedCountryException(final String s, final Throwable t) {
+    super(s, t);
   }
 
   /**

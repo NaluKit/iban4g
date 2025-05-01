@@ -17,8 +17,7 @@ package com.github.nalukit.iban4g.shared;
 
 import com.google.gwt.junit.client.GWTTestCase;
 
-public class CountryCodeTest
-    extends GWTTestCase {
+public class CountryCodeTest extends GWTTestCase {
 
   @Override
   public String getModuleName() {
@@ -28,52 +27,42 @@ public class CountryCodeTest
   public void testGetByCodeWithAlpha2CodeShouldReturnCountry() {
     for (CountryCode code : CountryCode.values()) {
       CountryCode newCode = CountryCode.getByCode(code.getAlpha2());
-      assertEquals(code,
-                   newCode);
+      assertEquals(code, newCode);
     }
   }
 
   public void testGetByCodeWithLowerCaseAlpha2CodeShouldReturnCountry() {
     for (CountryCode code : CountryCode.values()) {
-      CountryCode newCode = CountryCode.getByCode(code.getAlpha2()
-                                                      .toLowerCase());
-      assertEquals(code,
-                   newCode);
+      CountryCode newCode = CountryCode.getByCode(code.getAlpha2().toLowerCase());
+      assertEquals(code, newCode);
     }
   }
 
   public void testGetByCodeWithUpperCaseAlpha2CodeShouldReturnCountry() {
     for (CountryCode code : CountryCode.values()) {
-      CountryCode newCode = CountryCode.getByCode(code.getAlpha2()
-                                                      .toUpperCase());
-      assertEquals(code,
-                   newCode);
+      CountryCode newCode = CountryCode.getByCode(code.getAlpha2().toUpperCase());
+      assertEquals(code, newCode);
     }
   }
 
   public void testGetByCodeWithAlpha3CodeShouldReturnCountryCode() {
     for (CountryCode code : CountryCode.values()) {
       CountryCode newCode = CountryCode.getByCode(code.getAlpha3());
-      assertEquals(code,
-                   newCode);
+      assertEquals(code, newCode);
     }
   }
 
   public void testGetByCodeWithLowerCaseAlpha3CodeShouldReturnCountry() {
     for (CountryCode code : CountryCode.values()) {
-      CountryCode newCode = CountryCode.getByCode(code.getAlpha3()
-                                                      .toLowerCase());
-      assertEquals(code,
-                   newCode);
+      CountryCode newCode = CountryCode.getByCode(code.getAlpha3().toLowerCase());
+      assertEquals(code, newCode);
     }
   }
 
   public void testGetByCodeWithUpperCaseAlpha3CodeShouldReturnCountry() {
     for (CountryCode code : CountryCode.values()) {
-      CountryCode newCode = CountryCode.getByCode(code.getAlpha3()
-                                                      .toUpperCase());
-      assertEquals(code,
-                   newCode);
+      CountryCode newCode = CountryCode.getByCode(code.getAlpha3().toUpperCase());
+      assertEquals(code, newCode);
     }
   }
 
@@ -98,17 +87,14 @@ public class CountryCodeTest
   }
 
   public void testGetNameWithDECodeShouldReturnGermany() {
-    assertEquals("Germany",
-                 CountryCode.DE.getName());
+    assertEquals("Germany", CountryCode.DE.getName());
   }
 
   public void testGetAlpha2WithDECodeShouldReturnGermany() {
-    assertEquals("DE",
-                 CountryCode.DE.getAlpha2());
+    assertEquals("DE", CountryCode.DE.getAlpha2());
   }
 
   public void testGetAlpha3WithDECodeShouldReturnGermany() {
-    assertEquals("DEU",
-                 CountryCode.DE.getAlpha3());
+    assertEquals("DEU", CountryCode.DE.getAlpha3());
   }
 }

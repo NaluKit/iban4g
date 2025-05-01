@@ -19,9 +19,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Class which represents bban structure
- */
+/** Class which represents bban structure */
 public class BbanStructure {
 
   private final BbanStructureEntry[] entries;

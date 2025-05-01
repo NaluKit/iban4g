@@ -15,20 +15,15 @@
  */
 package com.github.nalukit.iban4g.shared;
 
-/**
- * Thrown to indicate that Iban's check digit is invalid
- */
-public class InvalidCheckDigitException
-    extends Iban4gException {
+/** Thrown to indicate that Iban's check digit is invalid */
+public class InvalidCheckDigitException extends Iban4gException {
 
   private static final long serialVersionUID = -9222165415290480187L;
 
   private String actual;
   private String expected;
 
-  /**
-   * Constructs a <code>InvalidCheckDigitException</code> with no detail message.
-   */
+  /** Constructs a <code>InvalidCheckDigitException</code> with no detail message. */
   public InvalidCheckDigitException() {
     super();
   }
@@ -46,15 +41,13 @@ public class InvalidCheckDigitException
    * Constructs a <code>InvalidCheckDigitException</code> with the specified actual, expected and
    * detail message.
    *
-   * @param actual   the actual check digit.
+   * @param actual the actual check digit.
    * @param expected the expected check digit.
-   * @param s        the detail message.
+   * @param s the detail message.
    */
-  public InvalidCheckDigitException(final String actual,
-                                    final String expected,
-                                    final String s) {
+  public InvalidCheckDigitException(final String actual, final String expected, final String s) {
     super(s);
-    this.actual   = actual;
+    this.actual = actual;
     this.expected = expected;
   }
 
@@ -65,10 +58,8 @@ public class InvalidCheckDigitException
    * @param s the detail message.
    * @param t the cause.
    */
-  public InvalidCheckDigitException(final String s,
-                                    final Throwable t) {
-    super(s,
-          t);
+  public InvalidCheckDigitException(final String s, final Throwable t) {
+    super(s, t);
   }
 
   /**

@@ -20,14 +20,12 @@ import java.util.List;
 
 public class StringUtils {
 
-  public static String format(final String format,
-                              final Object... args) {
-    String       value  = format;
+  public static String format(final String format, final Object... args) {
+    String value = format;
     List<String> splits = new ArrayList<>();
     while (value.contains("%s")) {
-      int    pos   = value.indexOf("%s");
-      String split = value.substring(0,
-                                     pos);
+      int pos = value.indexOf("%s");
+      String split = value.substring(0, pos);
       splits.add(split);
       value = value.substring(pos + 2);
     }

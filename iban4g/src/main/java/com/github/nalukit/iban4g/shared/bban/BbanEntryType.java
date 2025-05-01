@@ -15,9 +15,7 @@
  */
 package com.github.nalukit.iban4g.shared.bban;
 
-/**
- * Basic Bank Account Number Entry Types.
- */
+/** Basic Bank Account Number Entry Types. */
 public enum BbanEntryType {
   bank_code,
   branch_code,
