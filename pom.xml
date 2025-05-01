@@ -329,65 +329,16 @@
         </plugins>
       </build>
     </profile>
-
-    <profile>
-      <id>site</id>
-      <modules>
-        <module>iban4g</module>
-      </modules>
-
-      <reporting>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-javadoc-plugin</artifactId>
-            <version>${plugin.version.javadoc}</version>
-            <configuration>
-              <detectLinks>true</detectLinks>
-              <links>
-                <link>http://www.gwtproject.org/javadoc/latest/</link>
-              </links>
-              <javadocExecutable>${java.home}/../bin/javadoc</javadocExecutable>
-            </configuration>
-            <reportSets>
-              <reportSet>
-                <id>aggregate</id>
-                <reports>
-                  <report>aggregate</report>
-                </reports>
-              </reportSet>
-            </reportSets>
-          </plugin>
-          <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>versions-maven-plugin</artifactId>
-            <version>${plugin.version.versions}</version>
-            <configuration>
-              <ruleSet>
-                <ignoreVersions>
-                  <igonreVersion>
-                    <type>regex</type>
-                    <version>(.+-M\d)</version>
-                  </igonreVersion>
-                  <igonreVersion>
-                    <type>regex</type>
-                    <version>.+-(alpha|beta).+</version>
-                  </igonreVersion>
-                </ignoreVersions>
-              </ruleSet>
-            </configuration>
-            <reportSets>
-              <reportSet>
-                <reports>
-                  <report>dependency-updates-report</report>
-                  <report>plugin-updates-report</report>
-                  <report>property-updates-report</report>
-                </reports>
-              </reportSet>
-            </reportSets>
-          </plugin>
-        </plugins>
-      </reporting>
-    </profile>
   </profiles>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
 </project>
