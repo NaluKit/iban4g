@@ -26,7 +26,6 @@
     <version>${revision}</version>
   </parent>
   <artifactId>iban4g-tests</artifactId>
-  <version>${revision}</version>
   <packaging>jar</packaging>
 
   <name>iban4g JUnit Tests</name>
@@ -74,7 +73,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>${maven.surfire.plugin}</version>
+        <version>${plugin.version.surfire}</version>
         <configuration>
           <!-- Excludes integration tests when unit tests are run. -->
           <excludes>
@@ -91,7 +90,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-deploy-plugin</artifactId>
-        <version>${maven.deploy.plugin}</version>
+        <version>${plugin.version.deploy}</version>
         <configuration>
           <skip>true</skip>
         </configuration>

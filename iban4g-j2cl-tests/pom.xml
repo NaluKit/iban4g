@@ -26,7 +26,6 @@
     <version>${revision}</version>
   </parent>
   <artifactId>iban4g-j2cl-tests</artifactId>
-  <version>${revision}</version>
 
   <name>iban4g J2CL Tests</name>
   <description>Test cases for the J2Cl tests</description>
@@ -104,13 +103,27 @@
             <goals>
               <goal>test</goal>
             </goals>
+            <configuration>
+              <defines>
+                <gwt.enableDebugId>true</gwt.enableDebugId>
+                <gwt.cspCompatModeEnabled>true</gwt.cspCompatModeEnabled>
+                <gwt.strictCspTestingEnabled>true</gwt.strictCspTestingEnabled>
+              </defines>
+              <tests>
+                <test>org.gwtproject.editor.client.DirtyEditorTest</test>
+                <test>org.gwtproject.editor.client.EditorErrorTest</test>
+                <test>org.gwtproject.editor.client.SimpleBeanEditorTest</test>
+                <test>org.gwtproject.editor.client.impl.DelegateMapTest</test>
+                <test>org.gwtproject.editor.client.adapters.ListEditorWrapperTest</test>
+              </tests>
+            </configuration>
           </execution>
         </executions>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>${maven.surfire.plugin}</version>
+        <version>${plugin.version.surfire}</version>
         <!--        <configuration>-->
         <!--          <skipTests>true</skipTests>-->
         <!--        </configuration>-->
@@ -118,7 +131,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-deploy-plugin</artifactId>
-        <version>${maven.deploy.plugin}</version>
+        <version>${plugin.version.deploy}</version>
         <configuration>
           <skip>true</skip>
         </configuration>
