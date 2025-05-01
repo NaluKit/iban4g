@@ -19,7 +19,8 @@ package com.github.nalukit.iban4g.shared;
  * Thrown to indicate that the application has attempted to convert a string to Bic or to validate
  * Bic's string representation, but the string does not have the appropriate format.
  */
-public class BicFormatException extends Iban4gException {
+public class BicFormatException
+    extends Iban4gException {
 
   private static final long serialVersionUID = 1764207967955765664L;
 
@@ -28,7 +29,9 @@ public class BicFormatException extends Iban4gException {
   private String expected;
   private String actual;
 
-  /** Constructs a <code>BicFormatException</code> with no detail message. */
+  /**
+   * Constructs a <code>BicFormatException</code> with no detail message.
+   */
   public BicFormatException() {
     super();
   }
@@ -48,8 +51,10 @@ public class BicFormatException extends Iban4gException {
    * @param s the detail message.
    * @param t the cause.
    */
-  public BicFormatException(final String s, final Throwable t) {
-    super(s, t);
+  public BicFormatException(final String s,
+                            final Throwable t) {
+    super(s,
+          t);
   }
 
   /**
@@ -57,15 +62,17 @@ public class BicFormatException extends Iban4gException {
    * expected value and detail message.
    *
    * @param violation the violation.
-   * @param actual the actual value.
-   * @param expected the expected value.
-   * @param s the detail message.
+   * @param actual    the actual value.
+   * @param expected  the expected value.
+   * @param s         the detail message.
    */
-  public BicFormatException(
-      BicFormatViolation violation, String actual, String expected, final String s) {
+  public BicFormatException(BicFormatViolation violation,
+                            String actual,
+                            String expected,
+                            final String s) {
     super(s);
-    this.actual = actual;
-    this.expected = expected;
+    this.actual          = actual;
+    this.expected        = expected;
     this.formatViolation = violation;
   }
 
@@ -73,9 +80,10 @@ public class BicFormatException extends Iban4gException {
    * Constructs a <code>BicFormatException</code> with the specified violation and detail message.
    *
    * @param violation the violation.
-   * @param s the detail message.
+   * @param s         the detail message.
    */
-  public BicFormatException(BicFormatViolation violation, final String s) {
+  public BicFormatException(BicFormatViolation violation,
+                            final String s) {
     super(s);
     this.formatViolation = violation;
   }
@@ -85,12 +93,14 @@ public class BicFormatException extends Iban4gException {
    * detail message.
    *
    * @param violation the violation.
-   * @param actual the actual value.
-   * @param s the detail message.
+   * @param actual    the actual value.
+   * @param s         the detail message.
    */
-  public BicFormatException(BicFormatViolation violation, String actual, final String s) {
+  public BicFormatException(BicFormatViolation violation,
+                            String actual,
+                            final String s) {
     super(s);
-    this.actual = actual;
+    this.actual          = actual;
     this.formatViolation = violation;
   }
 

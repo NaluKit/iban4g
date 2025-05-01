@@ -21,17 +21,20 @@ import com.github.nalukit.iban4g.shared.bban.BbanEntryType;
  * Thrown to indicate that the application has attempted to convert a string to Iban, but that the
  * string does not have the appropriate format.
  */
-public class IbanFormatException extends Iban4gException {
+public class IbanFormatException
+    extends Iban4gException {
 
   private static final long serialVersionUID = -2715142907876721085L;
 
   private IbanFormatViolation formatViolation;
-  private String expected;
-  private String actual;
-  private BbanEntryType bbanEntryType;
-  private char invalidCharacter;
+  private String              expected;
+  private String              actual;
+  private BbanEntryType       bbanEntryType;
+  private char                invalidCharacter;
 
-  /** Constructs a <code>IbanFormatException</code> with no detail message. */
+  /**
+   * Constructs a <code>IbanFormatException</code> with no detail message.
+   */
   public IbanFormatException() {
     super();
   }
@@ -51,8 +54,10 @@ public class IbanFormatException extends Iban4gException {
    * @param s the detail message.
    * @param t the cause.
    */
-  public IbanFormatException(final String s, final Throwable t) {
-    super(s, t);
+  public IbanFormatException(final String s,
+                             final Throwable t) {
+    super(s,
+          t);
   }
 
   /**
@@ -69,18 +74,17 @@ public class IbanFormatException extends Iban4gException {
    * expected value and detail message.
    *
    * @param violation the violation.
-   * @param actual the actual value.
-   * @param expected the expected value.
-   * @param s the detail message.
+   * @param actual    the actual value.
+   * @param expected  the expected value.
+   * @param s         the detail message.
    */
-  public IbanFormatException(
-      final IbanFormatViolation violation,
-      final String actual,
-      final String expected,
-      final String s) {
+  public IbanFormatException(final IbanFormatViolation violation,
+                             final String actual,
+                             final String expected,
+                             final String s) {
     super(s);
-    this.expected = expected;
-    this.actual = actual;
+    this.expected        = expected;
+    this.actual          = actual;
     this.formatViolation = violation;
   }
 
@@ -89,13 +93,14 @@ public class IbanFormatException extends Iban4gException {
    * detail message.
    *
    * @param violation the violation.
-   * @param actual the actual value.
-   * @param s the detail message.
+   * @param actual    the actual value.
+   * @param s         the detail message.
    */
-  public IbanFormatException(
-      final IbanFormatViolation violation, final String actual, final String s) {
+  public IbanFormatException(final IbanFormatViolation violation,
+                             final String actual,
+                             final String s) {
     super(s);
-    this.actual = actual;
+    this.actual          = actual;
     this.formatViolation = violation;
   }
 
@@ -103,22 +108,21 @@ public class IbanFormatException extends Iban4gException {
    * Constructs a <code>IbanFormatException</code> with the specified violation, entryType, actual
    * value, invalidCharacter and detail message.
    *
-   * @param violation the violation.
-   * @param entryType the bban entry type.
-   * @param actual the actual value.
+   * @param violation        the violation.
+   * @param entryType        the bban entry type.
+   * @param actual           the actual value.
    * @param invalidCharacter the invalid character.
-   * @param s the detail message.
+   * @param s                the detail message.
    */
-  public IbanFormatException(
-      final IbanFormatViolation violation,
-      final BbanEntryType entryType,
-      final String actual,
-      final char invalidCharacter,
-      final String s) {
+  public IbanFormatException(final IbanFormatViolation violation,
+                             final BbanEntryType entryType,
+                             final String actual,
+                             final char invalidCharacter,
+                             final String s) {
     super(s);
-    this.actual = actual;
-    this.formatViolation = violation;
-    this.bbanEntryType = entryType;
+    this.actual           = actual;
+    this.formatViolation  = violation;
+    this.bbanEntryType    = entryType;
     this.invalidCharacter = invalidCharacter;
   }
 
@@ -126,9 +130,10 @@ public class IbanFormatException extends Iban4gException {
    * Constructs a <code>IbanFormatException</code> with the specified violation and detail message.
    *
    * @param violation the violation.
-   * @param s the detail message.
+   * @param s         the detail message.
    */
-  public IbanFormatException(final IbanFormatViolation violation, final String s) {
+  public IbanFormatException(final IbanFormatViolation violation,
+                             final String s) {
     super(s);
     this.formatViolation = violation;
   }

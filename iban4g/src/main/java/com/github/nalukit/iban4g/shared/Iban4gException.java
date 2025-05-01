@@ -24,7 +24,8 @@ package com.github.nalukit.iban4g.shared;
  * @see BicFormatException
  */
 @SuppressWarnings("serial")
-public abstract class Iban4gException extends RuntimeException {
+public abstract class Iban4gException
+    extends RuntimeException {
 
   public Iban4gException() {
     super();
@@ -34,8 +35,10 @@ public abstract class Iban4gException extends RuntimeException {
     super(message);
   }
 
-  public Iban4gException(final String message, final Throwable cause) {
-    super(message, cause);
+  public Iban4gException(final String message,
+                         final Throwable cause) {
+    super(message,
+          cause);
   }
 
   public Iban4gException(final Throwable cause) {

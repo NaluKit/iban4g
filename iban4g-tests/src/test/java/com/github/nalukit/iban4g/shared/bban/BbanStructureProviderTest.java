@@ -26,10 +26,11 @@ public class BbanStructureProviderTest {
   public void addBbanStructure() {
     try {
       BbanStructureProvider.get()
-          .addBbanStructure(
-              CountryCode.DE,
-              new BbanStructure(
-                  BbanStructureEntry.bankCode(8, 'n'), BbanStructureEntry.accountNumber(10, 'n')));
+                           .addBbanStructure(CountryCode.DE,
+                                             new BbanStructure(BbanStructureEntry.bankCode(8,
+                                                                                           'n'),
+                                                               BbanStructureEntry.accountNumber(10,
+                                                                                                'n')));
       Assert.fail("expected exception!");
     } catch (BbanStructureLoadException e) {
     }

@@ -74,7 +74,7 @@
   </modules>
 
   <properties>
-    <revision>2.2.1</revision>
+    <revision>2.2.2</revision>
 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
@@ -84,7 +84,6 @@
     <maven.compiler.plugin>3.8.1</maven.compiler.plugin>
     <maven.deploy.plugin>3.0.0-M1</maven.deploy.plugin>
     <maven.flatten.plugin>1.2.2</maven.flatten.plugin>
-    <maven.fmt.plugin>2.9</maven.fmt.plugin>
     <maven.install.plugin>3.0.0-M1</maven.install.plugin>
     <maven.license.plugin>4.1</maven.license.plugin>
     <maven.surfire.plugin>3.0.0-M1</maven.surfire.plugin>
@@ -96,18 +95,6 @@
 
   <build>
     <plugins>
-      <plugin>
-        <groupId>com.coveo</groupId>
-        <artifactId>fmt-maven-plugin</artifactId>
-        <version>${maven.fmt.plugin}</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>check</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
       <plugin>
         <groupId>com.mycila</groupId>
         <artifactId>license-maven-plugin</artifactId>
