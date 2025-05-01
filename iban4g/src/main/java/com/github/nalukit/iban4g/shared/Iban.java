@@ -80,8 +80,7 @@ public final class Iban {
           StringUtils.format(
               "Iban must be formatted using 4 characters and space combination. "
                   + "Expected: [%s] - Instead of [%s] - 0002",
-              ibanObj.toFormattedString(),
-              iban));
+              ibanObj.toFormattedString(), iban));
     }
     return valueOf(iban);
   }
