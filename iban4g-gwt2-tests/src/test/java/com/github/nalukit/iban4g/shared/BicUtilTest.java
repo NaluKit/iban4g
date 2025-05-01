@@ -17,7 +17,8 @@ package com.github.nalukit.iban4g.shared;
 
 import com.google.gwt.junit.client.GWTTestCase;
 
-public class BicUtilTest extends GWTTestCase {
+public class BicUtilTest
+    extends GWTTestCase {
 
   @Override
   public String getModuleName() {
@@ -29,7 +30,8 @@ public class BicUtilTest extends GWTTestCase {
       BicUtil.validate(null);
       fail();
     } catch (BicFormatException e) {
-      if (!e.getMessage().contains("Null can't be a valid Bic")) {
+      if (!e.getMessage()
+            .contains("Null can't be a valid Bic")) {
         fail();
       }
     }
@@ -40,7 +42,8 @@ public class BicUtilTest extends GWTTestCase {
       BicUtil.validate("");
       fail();
     } catch (BicFormatException e) {
-      if (!e.getMessage().contains("Empty string can't be a valid Bic")) {
+      if (!e.getMessage()
+            .contains("Empty string can't be a valid Bic")) {
         fail();
       }
     }
@@ -51,7 +54,8 @@ public class BicUtilTest extends GWTTestCase {
       BicUtil.validate("DEUTFF");
       fail();
     } catch (BicFormatException e) {
-      if (!e.getMessage().contains("Bic length must be 8 or 11")) {
+      if (!e.getMessage()
+            .contains("Bic length must be 8 or 11")) {
         fail();
       }
     }
@@ -62,7 +66,8 @@ public class BicUtilTest extends GWTTestCase {
       BicUtil.validate("DEUTFFDEUTFF");
       fail();
     } catch (BicFormatException e) {
-      if (!e.getMessage().contains("Bic length must be 8 or 11")) {
+      if (!e.getMessage()
+            .contains("Bic length must be 8 or 11")) {
         fail();
       }
     }
@@ -73,7 +78,8 @@ public class BicUtilTest extends GWTTestCase {
       BicUtil.validate("DEUTdeFF");
       fail();
     } catch (BicFormatException e) {
-      if (!e.getMessage().contains("Bic must contain only upper case letters")) {
+      if (!e.getMessage()
+            .contains("Bic must contain only upper case letters")) {
         fail();
       }
     }
@@ -84,7 +90,8 @@ public class BicUtilTest extends GWTTestCase {
       BicUtil.validate("DEU1DEFF");
       fail();
     } catch (BicFormatException e) {
-      if (!e.getMessage().contains("Bank code must contain only letters")) {
+      if (!e.getMessage()
+            .contains("Bank code must contain only letters")) {
         fail();
       }
     }
@@ -95,7 +102,8 @@ public class BicUtilTest extends GWTTestCase {
       BicUtil.validate("DEUTDDFF");
       fail();
     } catch (UnsupportedCountryException e) {
-      if (!e.getMessage().contains("Country code 'DD' is not supported.")) {
+      if (!e.getMessage()
+            .contains("Country code 'DD' is not supported.")) {
         fail();
       }
     }
@@ -106,7 +114,8 @@ public class BicUtilTest extends GWTTestCase {
       BicUtil.validate("DEUT_1FF");
       fail();
     } catch (BicFormatException e) {
-      if (!e.getMessage().contains("Bic country code must contain upper case letters")) {
+      if (!e.getMessage()
+            .contains("Bic country code must contain upper case letters")) {
         fail();
       }
     }
@@ -117,7 +126,8 @@ public class BicUtilTest extends GWTTestCase {
       BicUtil.validate("DEUTDEF ");
       fail();
     } catch (BicFormatException e) {
-      if (!e.getMessage().contains("Location code must contain only letters or digits")) {
+      if (!e.getMessage()
+            .contains("Location code must contain only letters or digits")) {
         fail();
       }
     }
@@ -128,7 +138,8 @@ public class BicUtilTest extends GWTTestCase {
       BicUtil.validate("DEUTDEFF50_");
       fail();
     } catch (BicFormatException e) {
-      if (!e.getMessage().contains("Branch code must contain only letters or digits")) {
+      if (!e.getMessage()
+            .contains("Branch code must contain only letters or digits")) {
         fail();
       }
     }

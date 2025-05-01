@@ -15,20 +15,21 @@
  */
 package com.github.nalukit.iban4g.shared;
 
-import static org.hamcrest.core.StringContains.containsString;
-
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 
+import static org.hamcrest.core.StringContains.containsString;
+
 @RunWith(Enclosed.class)
 public class BicUtilTest {
 
   public static class InvalidBicValidationTest {
 
-    @Rule public ExpectedException expectedException = ExpectedException.none();
+    @Rule
+    public ExpectedException expectedException = ExpectedException.none();
 
     @Test
     public void bicValidationWithNullShouldThrowException() {
@@ -82,24 +83,21 @@ public class BicUtilTest {
     @Test
     public void bicValidationWithInvalidCountryCodeShouldThrowException() {
       expectedException.expect(BicFormatException.class);
-      expectedException.expectMessage(
-          containsString("Bic country code must contain upper case letters"));
+      expectedException.expectMessage(containsString("Bic country code must contain upper case letters"));
       BicUtil.validate("DEUT_1FF");
     }
 
     @Test
     public void bicValidationWithInvalidLocationCodeShouldThrowException() {
       expectedException.expect(BicFormatException.class);
-      expectedException.expectMessage(
-          containsString("Location code must contain only letters or digits"));
+      expectedException.expectMessage(containsString("Location code must contain only letters or digits"));
       BicUtil.validate("DEUTDEF ");
     }
 
     @Test
     public void bicValidationWithInvalidBranchCodeShouldThrowException() {
       expectedException.expect(BicFormatException.class);
-      expectedException.expectMessage(
-          containsString("Branch code must contain only letters or digits"));
+      expectedException.expectMessage(containsString("Branch code must contain only letters or digits"));
       BicUtil.validate("DEUTDEFF50_");
     }
   }

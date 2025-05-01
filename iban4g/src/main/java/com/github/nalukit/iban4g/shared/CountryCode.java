@@ -24,505 +24,755 @@ import java.util.Map;
  * <p><a href="http://en.wikipedia.org/wiki/ISO_3166-1">ISO 3166-1</a> country code.
  */
 public enum CountryCode {
-  AD("Andorra", "AND"),
+  AD("Andorra",
+     "AND"),
 
-  AE("United Arab Emirates", "ARE"),
+  AE("United Arab Emirates",
+     "ARE"),
 
-  AF("Afghanistan", "AFG"),
+  AF("Afghanistan",
+     "AFG"),
 
-  AG("Antigua and Barbuda", "ATG"),
+  AG("Antigua and Barbuda",
+     "ATG"),
 
-  AI("Anguilla", "AIA"),
+  AI("Anguilla",
+     "AIA"),
 
-  AL("Albania", "ALB"),
+  AL("Albania",
+     "ALB"),
 
-  AM("Armenia", "ARM"),
+  AM("Armenia",
+     "ARM"),
 
-  AO("Angola", "AGO"),
+  AO("Angola",
+     "AGO"),
 
-  AQ("Antarctica", "ATA"),
+  AQ("Antarctica",
+     "ATA"),
 
-  AR("Argentina", "ARG"),
+  AR("Argentina",
+     "ARG"),
 
-  AS("American Samoa", "ASM"),
+  AS("American Samoa",
+     "ASM"),
 
-  AT("Austria", "AUT"),
+  AT("Austria",
+     "AUT"),
 
-  AU("Australia", "AUS"),
+  AU("Australia",
+     "AUS"),
 
-  AW("Aruba", "ABW"),
+  AW("Aruba",
+     "ABW"),
 
-  AX("\u212Bland Islands", "ALA"),
+  AX("\u212Bland Islands",
+     "ALA"),
 
-  AZ("Azerbaijan", "AZE"),
+  AZ("Azerbaijan",
+     "AZE"),
 
-  BA("Bosnia and Herzegovina", "BIH"),
+  BA("Bosnia and Herzegovina",
+     "BIH"),
 
-  BB("Barbados", "BRB"),
+  BB("Barbados",
+     "BRB"),
 
-  BD("Bangladesh", "BGD"),
+  BD("Bangladesh",
+     "BGD"),
 
-  BE("Belgium", "BEL"),
+  BE("Belgium",
+     "BEL"),
 
-  BF("Burkina Faso", "BFA"),
+  BF("Burkina Faso",
+     "BFA"),
 
-  BG("Bulgaria", "BGR"),
+  BG("Bulgaria",
+     "BGR"),
 
-  BH("Bahrain", "BHR"),
+  BH("Bahrain",
+     "BHR"),
 
-  BI("Burundi", "BDI"),
+  BI("Burundi",
+     "BDI"),
 
-  BJ("Benin", "BEN"),
+  BJ("Benin",
+     "BEN"),
 
-  BL("Saint Barth\u00E9lemy", "BLM"),
+  BL("Saint Barth\u00E9lemy",
+     "BLM"),
 
-  BM("Bermuda", "BMU"),
+  BM("Bermuda",
+     "BMU"),
 
-  BN("Brunei Darussalam", "BRN"),
+  BN("Brunei Darussalam",
+     "BRN"),
 
-  BO("Plurinational State of Bolivia", "BOL"),
+  BO("Plurinational State of Bolivia",
+     "BOL"),
 
-  BQ("Bonaire, Sint Eustatius and Saba", "BES"),
+  BQ("Bonaire, Sint Eustatius and Saba",
+     "BES"),
 
-  BR("Brazil", "BRA"),
+  BR("Brazil",
+     "BRA"),
 
-  BS("Bahamas", "BHS"),
+  BS("Bahamas",
+     "BHS"),
 
-  BT("Bhutan", "BTN"),
+  BT("Bhutan",
+     "BTN"),
 
-  BV("Bouvet Island", "BVT"),
+  BV("Bouvet Island",
+     "BVT"),
 
-  BW("Botswana", "BWA"),
+  BW("Botswana",
+     "BWA"),
 
-  BY("Belarus", "BLR"),
+  BY("Belarus",
+     "BLR"),
 
-  BZ("Belize", "BLZ"),
+  BZ("Belize",
+     "BLZ"),
 
-  CA("Canada", "CAN"),
+  CA("Canada",
+     "CAN"),
 
-  CC("Cocos Islands", "CCK"),
+  CC("Cocos Islands",
+     "CCK"),
 
-  CD("The Democratic Republic of the Congo", "COD"),
+  CD("The Democratic Republic of the Congo",
+     "COD"),
 
-  CF("Central African Republic", "CAF"),
+  CF("Central African Republic",
+     "CAF"),
 
-  CG("Congo", "COG"),
+  CG("Congo",
+     "COG"),
 
-  CH("Switzerland", "CHE"),
+  CH("Switzerland",
+     "CHE"),
 
-  CI("C\u00F4te d'Ivoire", "CIV"),
+  CI("C\u00F4te d'Ivoire",
+     "CIV"),
 
-  CK("Cook Islands", "COK"),
+  CK("Cook Islands",
+     "COK"),
 
-  CL("Chile", "CHL"),
+  CL("Chile",
+     "CHL"),
 
-  CM("Cameroon", "CMR"),
+  CM("Cameroon",
+     "CMR"),
 
-  CN("China", "CHN"),
+  CN("China",
+     "CHN"),
 
-  CO("Colombia", "COL"),
+  CO("Colombia",
+     "COL"),
 
-  CR("Costa Rica", "CRI"),
+  CR("Costa Rica",
+     "CRI"),
 
-  CU("Cuba", "CUB"),
+  CU("Cuba",
+     "CUB"),
 
-  CV("Cape Verde", "CPV"),
+  CV("Cape Verde",
+     "CPV"),
 
-  CW("Cura\u00E7ao", "CUW"),
+  CW("Cura\u00E7ao",
+     "CUW"),
 
-  CX("Christmas Island", "CXR"),
+  CX("Christmas Island",
+     "CXR"),
 
-  CY("Cyprus", "CYP"),
+  CY("Cyprus",
+     "CYP"),
 
-  CZ("Czech Republic", "CZE"),
+  CZ("Czech Republic",
+     "CZE"),
 
-  DE("Germany", "DEU"),
+  DE("Germany",
+     "DEU"),
 
-  DJ("Djibouti", "DJI"),
+  DJ("Djibouti",
+     "DJI"),
 
-  DK("Denmark", "DNK"),
+  DK("Denmark",
+     "DNK"),
 
-  DM("Dominica", "DMA"),
+  DM("Dominica",
+     "DMA"),
 
-  DO("Dominican Republic", "DOM"),
+  DO("Dominican Republic",
+     "DOM"),
 
-  DZ("Algeria", "DZA"),
+  DZ("Algeria",
+     "DZA"),
 
-  EC("Ecuador", "ECU"),
+  EC("Ecuador",
+     "ECU"),
 
-  EE("Estonia", "EST"),
+  EE("Estonia",
+     "EST"),
 
-  EG("Egypt", "EGY"),
+  EG("Egypt",
+     "EGY"),
 
-  EH("Western Sahara", "ESH"),
+  EH("Western Sahara",
+     "ESH"),
 
-  ER("Eritrea", "ERI"),
+  ER("Eritrea",
+     "ERI"),
 
-  ES("Spain", "ESP"),
+  ES("Spain",
+     "ESP"),
 
-  ET("Ethiopia", "ETH"),
+  ET("Ethiopia",
+     "ETH"),
 
-  FI("Finland", "FIN"),
+  FI("Finland",
+     "FIN"),
 
-  FJ("Fiji", "FJI"),
+  FJ("Fiji",
+     "FJI"),
 
-  FK("Falkland Islands", "FLK"),
+  FK("Falkland Islands",
+     "FLK"),
 
-  FM("Federated States of Micronesia", "FSM"),
+  FM("Federated States of Micronesia",
+     "FSM"),
 
-  FO("Faroe Islands", "FRO"),
+  FO("Faroe Islands",
+     "FRO"),
 
-  FR("France", "FRA"),
+  FR("France",
+     "FRA"),
 
-  GA("Gabon", "GAB"),
+  GA("Gabon",
+     "GAB"),
 
-  GB("United Kingdom", "GBR"),
+  GB("United Kingdom",
+     "GBR"),
 
-  GD("Grenada", "GRD"),
+  GD("Grenada",
+     "GRD"),
 
-  GE("Georgia", "GEO"),
+  GE("Georgia",
+     "GEO"),
 
-  GF("French Guiana", "GUF"),
+  GF("French Guiana",
+     "GUF"),
 
-  GG("Guernsey", "GGY"),
+  GG("Guernsey",
+     "GGY"),
 
-  GH("Ghana", "GHA"),
+  GH("Ghana",
+     "GHA"),
 
-  GI("Gibraltar", "GIB"),
+  GI("Gibraltar",
+     "GIB"),
 
-  GL("Greenland", "GRL"),
+  GL("Greenland",
+     "GRL"),
 
-  GM("Gambia", "GMB"),
+  GM("Gambia",
+     "GMB"),
 
-  GN("Guinea", "GIN"),
+  GN("Guinea",
+     "GIN"),
 
-  GP("Guadeloupe", "GLP"),
+  GP("Guadeloupe",
+     "GLP"),
 
-  GQ("Equatorial Guinea", "GNQ"),
+  GQ("Equatorial Guinea",
+     "GNQ"),
 
-  GR("Greece", "GRC"),
+  GR("Greece",
+     "GRC"),
 
-  GS("South Georgia and the South Sandwich Islands", "SGS"),
+  GS("South Georgia and the South Sandwich Islands",
+     "SGS"),
 
-  GT("Guatemala", "GTM"),
+  GT("Guatemala",
+     "GTM"),
 
-  GU("Guam", "GUM"),
+  GU("Guam",
+     "GUM"),
 
-  GW("Guinea-Bissau", "GNB"),
+  GW("Guinea-Bissau",
+     "GNB"),
 
-  GY("Guyana", "GUY"),
+  GY("Guyana",
+     "GUY"),
 
-  HK("Hong Kong", "HKG"),
+  HK("Hong Kong",
+     "HKG"),
 
-  HM("Heard Island and McDonald Islands", "HMD"),
+  HM("Heard Island and McDonald Islands",
+     "HMD"),
 
-  HN("Honduras", "HND"),
+  HN("Honduras",
+     "HND"),
 
-  HR("Croatia", "HRV"),
+  HR("Croatia",
+     "HRV"),
 
-  HT("Haiti", "HTI"),
+  HT("Haiti",
+     "HTI"),
 
-  HU("Hungary", "HUN"),
+  HU("Hungary",
+     "HUN"),
 
-  ID("Indonesia", "IDN"),
+  ID("Indonesia",
+     "IDN"),
 
-  IE("Ireland", "IRL"),
+  IE("Ireland",
+     "IRL"),
 
-  IL("Israel", "ISR"),
+  IL("Israel",
+     "ISR"),
 
-  IM("Isle of Man", "IMN"),
+  IM("Isle of Man",
+     "IMN"),
 
-  IN("India", "IND"),
+  IN("India",
+     "IND"),
 
-  IO("British Indian Ocean Territory", "IOT"),
+  IO("British Indian Ocean Territory",
+     "IOT"),
 
-  IQ("Iraq", "IRQ"),
+  IQ("Iraq",
+     "IRQ"),
 
-  IR("Islamic Republic of Iran", "IRN"),
+  IR("Islamic Republic of Iran",
+     "IRN"),
 
-  IS("Iceland", "ISL"),
+  IS("Iceland",
+     "ISL"),
 
-  IT("Italy", "ITA"),
+  IT("Italy",
+     "ITA"),
 
-  JE("Jersey", "JEY"),
+  JE("Jersey",
+     "JEY"),
 
-  JM("Jamaica", "JAM"),
+  JM("Jamaica",
+     "JAM"),
 
-  JO("Jordan", "JOR"),
+  JO("Jordan",
+     "JOR"),
 
-  JP("Japan", "JPN"),
+  JP("Japan",
+     "JPN"),
 
-  KE("Kenya", "KEN"),
+  KE("Kenya",
+     "KEN"),
 
-  KG("Kyrgyzstan", "KGZ"),
+  KG("Kyrgyzstan",
+     "KGZ"),
 
-  KH("Cambodia", "KHM"),
+  KH("Cambodia",
+     "KHM"),
 
-  KI("Kiribati", "KIR"),
+  KI("Kiribati",
+     "KIR"),
 
-  KM("Comoros", "COM"),
+  KM("Comoros",
+     "COM"),
 
-  KN("Saint Kitts and Nevis", "KNA"),
+  KN("Saint Kitts and Nevis",
+     "KNA"),
 
-  KP("Democratic People's Republic of Korea", "PRK"),
+  KP("Democratic People's Republic of Korea",
+     "PRK"),
 
-  KR("Republic of Korea", "KOR"),
+  KR("Republic of Korea",
+     "KOR"),
 
-  KW("Kuwait", "KWT"),
+  KW("Kuwait",
+     "KWT"),
 
-  KY("Cayman Islands", "CYM"),
+  KY("Cayman Islands",
+     "CYM"),
 
-  KZ("Kazakhstan", "KAZ"),
+  KZ("Kazakhstan",
+     "KAZ"),
 
-  LA("Lao People's Democratic Republic", "LAO"),
+  LA("Lao People's Democratic Republic",
+     "LAO"),
 
-  LB("Lebanon", "LBN"),
+  LB("Lebanon",
+     "LBN"),
 
-  LC("Saint Lucia", "LCA"),
+  LC("Saint Lucia",
+     "LCA"),
 
-  LI("Liechtenstein", "LIE"),
+  LI("Liechtenstein",
+     "LIE"),
 
-  LK("Sri Lanka", "LKA"),
+  LK("Sri Lanka",
+     "LKA"),
 
-  LR("Liberia", "LBR"),
+  LR("Liberia",
+     "LBR"),
 
-  LS("Lesotho", "LSO"),
+  LS("Lesotho",
+     "LSO"),
 
-  LT("Lithuania", "LTU"),
+  LT("Lithuania",
+     "LTU"),
 
-  LU("Luxembourg", "LUX"),
+  LU("Luxembourg",
+     "LUX"),
 
-  LV("Latvia", "LVA"),
+  LV("Latvia",
+     "LVA"),
 
-  LY("Libya", "LBY"),
+  LY("Libya",
+     "LBY"),
 
-  MA("Morocco", "MAR"),
+  MA("Morocco",
+     "MAR"),
 
-  MC("Monaco", "MCO"),
+  MC("Monaco",
+     "MCO"),
 
-  MD("Republic of Moldova", "MDA"),
+  MD("Republic of Moldova",
+     "MDA"),
 
-  ME("Montenegro", "MNE"),
+  ME("Montenegro",
+     "MNE"),
 
-  MF("Saint Martin", "MAF"),
+  MF("Saint Martin",
+     "MAF"),
 
-  MG("Madagascar", "MDG"),
+  MG("Madagascar",
+     "MDG"),
 
-  MH("Marshall Islands", "MHL"),
+  MH("Marshall Islands",
+     "MHL"),
 
-  MK("The former Yugoslav Republic of Macedonia", "MKD"),
+  MK("The former Yugoslav Republic of Macedonia",
+     "MKD"),
 
-  ML("Mali", "MLI"),
+  ML("Mali",
+     "MLI"),
 
-  MM("Myanmar", "MMR"),
+  MM("Myanmar",
+     "MMR"),
 
-  MN("Mongolia", "MNG"),
+  MN("Mongolia",
+     "MNG"),
 
-  MO("Macao", "MAC"),
+  MO("Macao",
+     "MAC"),
 
-  MP("Northern Mariana Islands", "MNP"),
+  MP("Northern Mariana Islands",
+     "MNP"),
 
-  MQ("Martinique", "MTQ"),
+  MQ("Martinique",
+     "MTQ"),
 
-  MR("Mauritania", "MRT"),
+  MR("Mauritania",
+     "MRT"),
 
-  MS("Montserrat", "MSR"),
+  MS("Montserrat",
+     "MSR"),
 
-  MT("Malta", "MLT"),
+  MT("Malta",
+     "MLT"),
 
-  MU("Mauritius", "MUS"),
+  MU("Mauritius",
+     "MUS"),
 
-  MV("Maldives", "MDV"),
+  MV("Maldives",
+     "MDV"),
 
-  MW("Malawi", "MWI"),
+  MW("Malawi",
+     "MWI"),
 
-  MX("Mexico", "MEX"),
+  MX("Mexico",
+     "MEX"),
 
-  MY("Malaysia", "MYS"),
+  MY("Malaysia",
+     "MYS"),
 
-  MZ("Mozambique", "MOZ"),
+  MZ("Mozambique",
+     "MOZ"),
 
-  NA("Namibia", "NAM"),
+  NA("Namibia",
+     "NAM"),
 
-  NC("New Caledonia", "NCL"),
+  NC("New Caledonia",
+     "NCL"),
 
-  NE("Niger", "NER"),
+  NE("Niger",
+     "NER"),
 
-  NF("Norfolk Island", "NFK"),
+  NF("Norfolk Island",
+     "NFK"),
 
-  NG("Nigeria", "NGA"),
+  NG("Nigeria",
+     "NGA"),
 
-  NI("Nicaragua", "NIC"),
+  NI("Nicaragua",
+     "NIC"),
 
-  NL("Netherlands", "NLD"),
+  NL("Netherlands",
+     "NLD"),
 
-  NO("Norway", "NOR"),
+  NO("Norway",
+     "NOR"),
 
-  NP("Nepal", "NPL"),
+  NP("Nepal",
+     "NPL"),
 
-  NR("Nauru", "NRU"),
+  NR("Nauru",
+     "NRU"),
 
-  NU("Niue", "NIU"),
+  NU("Niue",
+     "NIU"),
 
-  NZ("New Zealand", "NZL"),
+  NZ("New Zealand",
+     "NZL"),
 
-  OM("Oman", "OMN"),
+  OM("Oman",
+     "OMN"),
 
-  PA("Panama", "PAN"),
+  PA("Panama",
+     "PAN"),
 
-  PE("Peru", "PER"),
+  PE("Peru",
+     "PER"),
 
-  PF("French Polynesia", "PYF"),
+  PF("French Polynesia",
+     "PYF"),
 
-  PG("Papua New Guinea", "PNG"),
+  PG("Papua New Guinea",
+     "PNG"),
 
-  PH("Philippines", "PHL"),
+  PH("Philippines",
+     "PHL"),
 
-  PK("Pakistan", "PAK"),
+  PK("Pakistan",
+     "PAK"),
 
-  PL("Poland", "POL"),
+  PL("Poland",
+     "POL"),
 
-  PM("Saint Pierre and Miquelon", "SPM"),
+  PM("Saint Pierre and Miquelon",
+     "SPM"),
 
-  PN("Pitcairn", "PCN"),
+  PN("Pitcairn",
+     "PCN"),
 
-  PR("Puerto Rico", "PRI"),
+  PR("Puerto Rico",
+     "PRI"),
 
-  PS("Occupied Palestinian Territory", "PSE"),
+  PS("Occupied Palestinian Territory",
+     "PSE"),
 
-  PT("Portugal", "PRT"),
+  PT("Portugal",
+     "PRT"),
 
-  PW("Palau", "PLW"),
+  PW("Palau",
+     "PLW"),
 
-  PY("Paraguay", "PRY"),
+  PY("Paraguay",
+     "PRY"),
 
-  QA("Qatar", "QAT"),
+  QA("Qatar",
+     "QAT"),
 
-  RE("R\u00E9union", "REU"),
+  RE("R\u00E9union",
+     "REU"),
 
-  RO("Romania", "ROU"),
+  RO("Romania",
+     "ROU"),
 
-  RS("Serbia", "SRB"),
+  RS("Serbia",
+     "SRB"),
 
-  RU("Russian Federation", "RUS"),
+  RU("Russian Federation",
+     "RUS"),
 
-  RW("Rwanda", "RWA"),
+  RW("Rwanda",
+     "RWA"),
 
-  SA("Saudi Arabia", "SAU"),
+  SA("Saudi Arabia",
+     "SAU"),
 
-  SB("Solomon Islands", "SLB"),
+  SB("Solomon Islands",
+     "SLB"),
 
-  SC("Seychelles", "SYC"),
+  SC("Seychelles",
+     "SYC"),
 
-  SD("Sudan", "SDN"),
+  SD("Sudan",
+     "SDN"),
 
-  SE("Sweden", "SWE"),
+  SE("Sweden",
+     "SWE"),
 
-  SG("Singapore", "SGP"),
+  SG("Singapore",
+     "SGP"),
 
-  SH("Saint Helena, Ascension and Tristan da Cunha", "SHN"),
+  SH("Saint Helena, Ascension and Tristan da Cunha",
+     "SHN"),
 
-  SI("Slovenia", "SVN"),
+  SI("Slovenia",
+     "SVN"),
 
-  SJ("Svalbard and Jan Mayen", "SJM"),
+  SJ("Svalbard and Jan Mayen",
+     "SJM"),
 
-  SK("Slovakia", "SVK"),
+  SK("Slovakia",
+     "SVK"),
 
-  SL("Sierra Leone", "SLE"),
+  SL("Sierra Leone",
+     "SLE"),
 
-  SM("San Marino", "SMR"),
+  SM("San Marino",
+     "SMR"),
 
-  SN("Senegal", "SEN"),
+  SN("Senegal",
+     "SEN"),
 
-  SO("Somalia", "SOM"),
+  SO("Somalia",
+     "SOM"),
 
-  SR("Suriname", "SUR"),
+  SR("Suriname",
+     "SUR"),
 
-  SS("South Sudan", "SSD"),
+  SS("South Sudan",
+     "SSD"),
 
-  ST("Sao Tome and Principe", "STP"),
+  ST("Sao Tome and Principe",
+     "STP"),
 
-  SV("El Salvador", "SLV"),
+  SV("El Salvador",
+     "SLV"),
 
-  SX("Sint Maarten", "SXM"),
+  SX("Sint Maarten",
+     "SXM"),
 
-  SY("Syrian Arab Republic", "SYR"),
+  SY("Syrian Arab Republic",
+     "SYR"),
 
-  SZ("Swaziland", "SWZ"),
+  SZ("Swaziland",
+     "SWZ"),
 
-  TC("Turks and Caicos Islands", "TCA"),
+  TC("Turks and Caicos Islands",
+     "TCA"),
 
-  TD("Chad", "TCD"),
+  TD("Chad",
+     "TCD"),
 
-  TF("French Southern Territories", "ATF"),
+  TF("French Southern Territories",
+     "ATF"),
 
-  TG("Togo", "TGO"),
+  TG("Togo",
+     "TGO"),
 
-  TH("Thailand", "THA"),
+  TH("Thailand",
+     "THA"),
 
-  TJ("Tajikistan", "TJK"),
+  TJ("Tajikistan",
+     "TJK"),
 
-  TK("Tokelau", "TKL"),
+  TK("Tokelau",
+     "TKL"),
 
-  TL("Timor-Leste", "TLS"),
+  TL("Timor-Leste",
+     "TLS"),
 
-  TM("Turkmenistan", "TKM"),
+  TM("Turkmenistan",
+     "TKM"),
 
-  TN("Tunisia", "TUN"),
+  TN("Tunisia",
+     "TUN"),
 
-  TO("Tonga", "TON"),
+  TO("Tonga",
+     "TON"),
 
-  TR("Turkey", "TUR"),
+  TR("Turkey",
+     "TUR"),
 
-  TT("Trinidad and Tobago", "TTO"),
+  TT("Trinidad and Tobago",
+     "TTO"),
 
-  TV("Tuvalu", "TUV"),
+  TV("Tuvalu",
+     "TUV"),
 
-  TW("Taiwan, Province of China", "TWN"),
+  TW("Taiwan, Province of China",
+     "TWN"),
 
-  TZ("United Republic of Tanzania", "TZA"),
+  TZ("United Republic of Tanzania",
+     "TZA"),
 
-  UA("Ukraine", "UKR"),
+  UA("Ukraine",
+     "UKR"),
 
-  UG("Uganda", "UGA"),
+  UG("Uganda",
+     "UGA"),
 
-  UM("United States Minor Outlying Islands", "UMI"),
+  UM("United States Minor Outlying Islands",
+     "UMI"),
 
-  US("United States", "USA"),
+  US("United States",
+     "USA"),
 
-  UY("Uruguay", "URY"),
+  UY("Uruguay",
+     "URY"),
 
-  UZ("Uzbekistan", "UZB"),
+  UZ("Uzbekistan",
+     "UZB"),
 
-  VA("Holy See", "VAT"),
+  VA("Holy See",
+     "VAT"),
 
-  VC("Saint Vincent and the Grenadines", "VCT"),
+  VC("Saint Vincent and the Grenadines",
+     "VCT"),
 
-  VE("Bolivarian Republic of Venezuela", "VEN"),
+  VE("Bolivarian Republic of Venezuela",
+     "VEN"),
 
-  VG("British Virgin Islands", "VGB"),
+  VG("British Virgin Islands",
+     "VGB"),
 
-  VI("Virgin Islands, U.S.", "VIR"),
+  VI("Virgin Islands, U.S.",
+     "VIR"),
 
-  VN("Viet Nam", "VNM"),
+  VN("Viet Nam",
+     "VNM"),
 
-  VU("Vanuatu", "VUT"),
+  VU("Vanuatu",
+     "VUT"),
 
-  WF("Wallis and Futuna", "WLF"),
+  WF("Wallis and Futuna",
+     "WLF"),
 
-  WS("Samoa", "WSM"),
+  WS("Samoa",
+     "WSM"),
 
-  XK("Kosovo", "UNK"),
+  XK("Kosovo",
+     "UNK"),
 
-  YE("Yemen", "YEM"),
+  YE("Yemen",
+     "YEM"),
 
-  YT("Mayotte", "MYT"),
+  YT("Mayotte",
+     "MYT"),
 
-  ZA("South Africa", "ZAF"),
+  ZA("South Africa",
+     "ZAF"),
 
-  ZM("Zambia", "ZMB"),
+  ZM("Zambia",
+     "ZMB"),
 
-  ZW("Zimbabwe", "ZWE");
+  ZW("Zimbabwe",
+     "ZWE");
 
   /**
    * Country alpha3 code map, maps alpha3 codes to country codes <a
@@ -532,11 +782,14 @@ public enum CountryCode {
 
   static {
     for (final CountryCode cc : values()) {
-      alpha3Map.put(cc.getAlpha3(), cc);
+      alpha3Map.put(cc.getAlpha3(),
+                    cc);
     }
   }
 
-  /** Country name */
+  /**
+   * Country name
+   */
   private final String name;
 
   /**
@@ -545,38 +798,10 @@ public enum CountryCode {
    */
   private final String alpha3;
 
-  CountryCode(final String name, final String alpha3) {
-    this.name = name;
+  CountryCode(final String name,
+              final String alpha3) {
+    this.name   = name;
     this.alpha3 = alpha3;
-  }
-
-  /**
-   * Get the country name.
-   *
-   * @return The country name.
-   */
-  public String getName() {
-    return name;
-  }
-
-  /**
-   * Get the <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> code.
-   *
-   * @return The <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>
-   *     code.
-   */
-  public String getAlpha2() {
-    return name();
-  }
-
-  /**
-   * Get the <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> code.
-   *
-   * @return The <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a>
-   *     code.
-   */
-  public String getAlpha3() {
-    return alpha3;
   }
 
   /**
@@ -585,7 +810,7 @@ public enum CountryCode {
    * href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">alpha-3</a> code.
    *
    * @param code An ISO 3166-1 <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">alpha-2</a>
-   *     or <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">alpha-3</a> code.
+   *             or <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">alpha-3</a> code.
    * @return A CountryCode instance, or null if not found.
    */
   public static CountryCode getByCode(final String code) {
@@ -610,7 +835,7 @@ public enum CountryCode {
    * href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">alpha-2</a> code.
    *
    * @param code An ISO 3166-1 <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">alpha-2</a>
-   *     code.
+   *             code.
    * @return A CountryCode instance, or null if not found.
    */
   private static CountryCode getByAlpha2Code(final String code) {
@@ -626,10 +851,39 @@ public enum CountryCode {
    * href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">alpha-3</a> code.
    *
    * @param code An ISO 3166-1 <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">alpha-3</a>
-   *     code.
+   *             code.
    * @return A CountryCode instance, or null if not found.
    */
   private static CountryCode getByAlpha3Code(final String code) {
     return alpha3Map.get(code);
+  }
+
+  /**
+   * Get the country name.
+   *
+   * @return The country name.
+   */
+  public String getName() {
+    return name;
+  }
+
+  /**
+   * Get the <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> code.
+   *
+   * @return The <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>
+   * code.
+   */
+  public String getAlpha2() {
+    return name();
+  }
+
+  /**
+   * Get the <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> code.
+   *
+   * @return The <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a>
+   * code.
+   */
+  public String getAlpha3() {
+    return alpha3;
   }
 }
