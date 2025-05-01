@@ -15,14 +15,15 @@
  */
 package com.github.nalukit.iban4g.shared;
 
+import com.google.j2cl.junit.apt.J2clTestInput;
+import org.junit.Test;
+
+import java.util.List;
+
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotNull;
 import static junit.framework.TestCase.assertNotSame;
 import static junit.framework.TestCase.fail;
-
-import com.google.j2cl.junit.apt.J2clTestInput;
-import java.util.List;
-import org.junit.Test;
 
 @J2clTestInput(BicTest.class)
 public class BicTest {
@@ -41,7 +42,8 @@ public class BicTest {
     Bic bic1 = Bic.valueOf("DEUTDEFF500");
     Bic bic2 = Bic.valueOf("DEUTDEFF500");
 
-    assertEquals(bic1, bic2);
+    assertEquals(bic1,
+                 bic2);
   }
 
   @Test
@@ -49,14 +51,16 @@ public class BicTest {
     Bic bic1 = Bic.valueOf("DEUTDEFF500");
     Bic bic2 = Bic.valueOf("DEUTDEFF501");
 
-    assertNotSame(bic1, bic2);
+    assertNotSame(bic1,
+                  bic2);
   }
 
   @Test
   public void testBicsWithStringValueAndBicShouldNotBeEqual() {
     Bic bic = Bic.valueOf("DEUTDEFF500");
 
-    assertNotSame(bic, "DEUTDEFF500");
+    assertNotSame(bic,
+                  "DEUTDEFF500");
   }
 
   @Test
@@ -64,7 +68,8 @@ public class BicTest {
     Bic bic1 = Bic.valueOf("DEUTDEFF500");
     Bic bic2 = Bic.valueOf("DEUTDEFF500");
 
-    assertEquals(bic1.hashCode(), bic2.hashCode());
+    assertEquals(bic1.hashCode(),
+                 bic2.hashCode());
   }
 
   @Test
@@ -72,49 +77,56 @@ public class BicTest {
     Bic bic1 = Bic.valueOf("DEUTDEFF500");
     Bic bic2 = Bic.valueOf("DEUTDEFF501");
 
-    assertNotSame(bic1.hashCode(), bic2.hashCode());
+    assertNotSame(bic1.hashCode(),
+                  bic2.hashCode());
   }
 
   @Test
   public void testBicShouldReturnBankCode() {
     Bic bic = Bic.valueOf("DEUTDEFF500");
 
-    assertEquals(bic.getBankCode(), "DEUT");
+    assertEquals(bic.getBankCode(),
+                 "DEUT");
   }
 
   @Test
   public void testBicShouldReturnCountryCode() {
     Bic bic = Bic.valueOf("DEUTDEFF500");
 
-    assertEquals(bic.getCountryCode(), CountryCode.DE);
+    assertEquals(bic.getCountryCode(),
+                 CountryCode.DE);
   }
 
   @Test
   public void testBicShouldReturnBranchCode() {
     Bic bic = Bic.valueOf("DEUTDEFF500");
 
-    assertEquals(bic.getBranchCode(), "500");
+    assertEquals(bic.getBranchCode(),
+                 "500");
   }
 
   @Test
   public void testBicWithoutBrnachCodeShouldReturnNull() {
     Bic bic = Bic.valueOf("DEUTDEFF");
 
-    assertEquals(bic.getBranchCode(), null);
+    assertEquals(bic.getBranchCode(),
+                 null);
   }
 
   @Test
   public void testBicShouldReturnLocationCode() {
     Bic bic = Bic.valueOf("DEUTDEFF500");
 
-    assertEquals(bic.getLocationCode(), "FF");
+    assertEquals(bic.getLocationCode(),
+                 "FF");
   }
 
   @Test
   public void testBicToStringShouldReturnString() {
     Bic bic = Bic.valueOf("DEUTDEFF500");
 
-    assertEquals(bic.toString(), "DEUTDEFF500");
+    assertEquals(bic.toString(),
+                 "DEUTDEFF500");
   }
 
   @Test
@@ -128,9 +140,11 @@ public class BicTest {
   @Test
   public void bicShouldReturnBic8Code() {
     Bic bic01 = Bic.valueOf("DEUTDEFF500");
-    assertEquals(bic01.getBic8(), "DEUTDEFF");
+    assertEquals(bic01.getBic8(),
+                 "DEUTDEFF");
 
     Bic bic02 = Bic.valueOf("DEUTDEFF");
-    assertEquals(bic02.getBic8(), "DEUTDEFF");
+    assertEquals(bic02.getBic8(),
+                 "DEUTDEFF");
   }
 }

@@ -15,6 +15,13 @@
  */
 package com.github.nalukit.iban4g.shared;
 
+import org.junit.Test;
+import org.junit.experimental.runners.Enclosed;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+
+import java.util.Collection;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -22,22 +29,18 @@ import static org.hamcrest.core.IsNot.not;
 import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.Assert.assertNotEquals;
 
-import java.util.Collection;
-import org.junit.Test;
-import org.junit.experimental.runners.Enclosed;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-
 @RunWith(Enclosed.class)
 public class BicTest {
 
   @Test
   public void bicShouldReturnBic8Code() {
     Bic bic01 = Bic.valueOf("DEUTDEFF500");
-    assertThat(bic01.getBic8(), is(equalTo("DEUTDEFF")));
+    assertThat(bic01.getBic8(),
+               is(equalTo("DEUTDEFF")));
 
     Bic bic02 = Bic.valueOf("DEUTDEFF");
-    assertThat(bic02.getBic8(), is(equalTo("DEUTDEFF")));
+    assertThat(bic02.getBic8(),
+               is(equalTo("DEUTDEFF")));
   }
 
   public static class BicCreationTest1 {
@@ -52,7 +55,8 @@ public class BicTest {
       Bic bic1 = Bic.valueOf("DEUTDEFF500");
       Bic bic2 = Bic.valueOf("DEUTDEFF500");
 
-      assertThat(bic1, is(equalTo(bic2)));
+      assertThat(bic1,
+                 is(equalTo(bic2)));
     }
 
     @Test
@@ -60,14 +64,16 @@ public class BicTest {
       Bic bic1 = Bic.valueOf("DEUTDEFF500");
       Bic bic2 = Bic.valueOf("DEUTDEFF501");
 
-      assertThat(bic1, is(not(equalTo(bic2))));
+      assertThat(bic1,
+                 is(not(equalTo(bic2))));
     }
 
     @Test
     public void bicsWithStringValueAndBicShouldNotBeEqual() {
       Bic bic = Bic.valueOf("DEUTDEFF500");
 
-      assertNotEquals(bic, "DEUTDEFF500");
+      assertNotEquals(bic,
+                      "DEUTDEFF500");
     }
 
     @Test
@@ -75,7 +81,8 @@ public class BicTest {
       Bic bic1 = Bic.valueOf("DEUTDEFF500");
       Bic bic2 = Bic.valueOf("DEUTDEFF500");
 
-      assertThat(bic1.hashCode(), is(equalTo(bic2.hashCode())));
+      assertThat(bic1.hashCode(),
+                 is(equalTo(bic2.hashCode())));
     }
 
     @Test
@@ -83,51 +90,60 @@ public class BicTest {
       Bic bic1 = Bic.valueOf("DEUTDEFF500");
       Bic bic2 = Bic.valueOf("DEUTDEFF501");
 
-      assertThat(bic1.hashCode(), is(not(equalTo(bic2.hashCode()))));
+      assertThat(bic1.hashCode(),
+                 is(not(equalTo(bic2.hashCode()))));
     }
 
     @Test
     public void bicShouldReturnBankCode() {
       Bic bic = Bic.valueOf("DEUTDEFF500");
 
-      assertThat(bic.getBankCode(), is(equalTo("DEUT")));
+      assertThat(bic.getBankCode(),
+                 is(equalTo("DEUT")));
     }
 
     @Test
     public void bicShouldReturnCountryCode() {
       Bic bic = Bic.valueOf("DEUTDEFF500");
 
-      assertThat(bic.getCountryCode(), is(equalTo(CountryCode.DE)));
+      assertThat(bic.getCountryCode(),
+                 is(equalTo(CountryCode.DE)));
     }
 
     @Test
     public void bicShouldReturnBranchCode() {
       Bic bic = Bic.valueOf("DEUTDEFF500");
 
-      assertThat(bic.getBranchCode(), is(equalTo("500")));
+      assertThat(bic.getBranchCode(),
+                 is(equalTo("500")));
     }
 
     @Test
     public void bicWithoutBrnachCodeShouldReturnNull() {
       Bic bic = Bic.valueOf("DEUTDEFF");
 
-      assertThat(bic.getBranchCode(), is(equalTo(null)));
+      assertThat(bic.getBranchCode(),
+                 is(equalTo(null)));
     }
 
     @Test
     public void bicShouldReturnLocationCode() {
       Bic bic = Bic.valueOf("DEUTDEFF500");
 
-      assertThat(bic.getLocationCode(), is(equalTo("FF")));
+      assertThat(bic.getLocationCode(),
+                 is(equalTo("FF")));
     }
 
     @Test
     public void bicToStringShouldReturnString() {
       Bic bic = Bic.valueOf("DEUTDEFF500");
 
-      assertThat(bic.toString(), is(equalTo("DEUTDEFF500")));
+      assertThat(bic.toString(),
+                 is(equalTo("DEUTDEFF500")));
     }
   }
+
+
 
   @RunWith(Parameterized.class)
   public static class BicCreationTest2 {
@@ -145,7 +161,8 @@ public class BicTest {
 
     @Test
     public void bicConstructionWithValueOfShouldReturnBic() {
-      assertThat(Bic.valueOf(bicString), is(notNullValue()));
+      assertThat(Bic.valueOf(bicString),
+                 is(notNullValue()));
     }
   }
 }

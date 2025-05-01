@@ -21,9 +21,12 @@ import com.github.nalukit.iban4g.shared.Iban4gException;
  * Thrown to indicate that the application has attempted to convert a string to Iban, but that the
  * string does not have the appropriate format.
  */
-public class BbanStructureLoadException extends Iban4gException {
+public class BbanStructureLoadException
+    extends Iban4gException {
 
-  /** Constructs a <code>IbanFormatException</code> with no detail message. */
+  /**
+   * Constructs a <code>IbanFormatException</code> with no detail message.
+   */
   public BbanStructureLoadException() {
     super();
   }
