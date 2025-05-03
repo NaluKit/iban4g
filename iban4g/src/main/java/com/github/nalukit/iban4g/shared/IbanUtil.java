@@ -73,7 +73,7 @@ public final class IbanUtil {
       validate(ibanWithoutSpaces);
       if (!toFormattedString(ibanWithoutSpaces).equals(iban)) {
         throw new IbanFormatException(IBAN_FORMATTING,
-                                      StringUtils.format("Iban must be formatted using 4 characters and space combination. " + "Expected: [%s] - Instead of [%s] - 0001",
+                                      StringUtils.format("Iban must be formatted using 4 characters and space combination (0001). " + "Expected: [%s] - Instead of [%s]",
                                                          toFormattedString(ibanWithoutSpaces),
                                                          iban));
       }
