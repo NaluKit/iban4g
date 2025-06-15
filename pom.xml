@@ -26,7 +26,6 @@
   <packaging>pom</packaging>
 
   <name>iban4g parent</name>
-
   <description>A library for International Bank Account Number (IBAN) generation to use with Java, GWT or J2CL.</description>
   <url>https://github.com/nalukit/iban4g</url>
 
@@ -66,13 +65,6 @@
     <url>https://github.com/nalukit/iban4g/issues</url>
   </issueManagement>
 
-  <modules>
-    <module>iban4g</module>
-    <module>iban4g-tests</module>
-    <module>iban4g-gwt2-tests</module>
-    <module>iban4g-j2cl-tests</module>
-  </modules>
-
   <properties>
     <revision>HEAD-SNAPSHOT</revision>
 
@@ -83,8 +75,8 @@
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
 
+    <plugin.version.central>0.7.0</plugin.version.central>
     <plugin.version.compiler>3.14.0</plugin.version.compiler>
-    <plugin.version.deploy>3.1.1</plugin.version.deploy>
     <plugin.version.flatten>1.2.2</plugin.version.flatten>
     <plugin.version.gpg>3.1.0</plugin.version.gpg>
     <plugin.version.javadoc>3.6.3</plugin.version.javadoc>
@@ -184,14 +176,6 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-deploy-plugin</artifactId>
-        <version>${plugin.version.deploy}</version>
-        <configuration>
-          <skip>true</skip>
-        </configuration>
-      </plugin>
     </plugins>
     <pluginManagement>
       <plugins>
@@ -208,66 +192,99 @@
     </pluginManagement>
   </build>
 
-  <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>${plugin.version.javadoc}</version>
-        <configuration>
-          <detectLinks>true</detectLinks>
-          <links>
-            <link>http://www.gwtproject.org/javadoc/latest/</link>
-          </links>
-          <javadocExecutable>${java.home}/../bin/javadoc</javadocExecutable>
-        </configuration>
-        <reportSets>
-          <reportSet>
-            <id>aggregate</id>
-            <reports>
-              <report>aggregate</report>
-            </reports>
-          </reportSet>
-        </reportSets>
-      </plugin>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>versions-maven-plugin</artifactId>
-        <version>${plugin.version.versions}</version>
-        <configuration>
-          <ruleSet>
-            <ignoreVersions>
-              <igonreVersion>
-                <type>regex</type>
-                <version>(.+-M\d)</version>
-              </igonreVersion>
-              <igonreVersion>
-                <type>regex</type>
-                <version>.+-(alpha|beta).+</version>
-              </igonreVersion>
-            </ignoreVersions>
-          </ruleSet>
-        </configuration>
-        <reportSets>
-          <reportSet>
-            <reports>
-              <report>dependency-updates-report</report>
-              <report>plugin-updates-report</report>
-              <report>property-updates-report</report>
-            </reports>
-          </reportSet>
-        </reportSets>
-      </plugin>
-    </plugins>
-  </reporting>
-
   <profiles>
+    <profile>
+      <id>build</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <modules>
+        <module>iban4g</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>development</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <modules>
+        <module>iban4g</module>
+        <module>iban4g-tests</module>
+        <module>iban4g-gwt2-tests</module>
+        <module>iban4g-j2cl-tests</module>
+      </modules>
+    </profile>
     <profile>
       <id>release</id>
       <modules>
         <module>iban4g</module>
       </modules>
       <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-gpg-plugin</artifactId>
+              <version>${plugin.version.gpg.maven}</version>
+              <executions>
+                <execution>
+                  <id>sign-artifacts</id>
+                  <phase>verify</phase>
+                  <goals>
+                    <goal>sign</goal>
+                  </goals>
+                </execution>
+              </executions>
+              <configuration>
+                <!-- Prevent gpg from using pinentry programs -->
+                <gpgArguments>
+                  <arg>--pinentry-mode</arg>
+                  <arg>loopback</arg>
+                </gpgArguments>
+              </configuration>
+            </plugin>
+            <plugin>
+              <groupId>org.sonatype.central</groupId>
+              <artifactId>central-publishing-maven-plugin</artifactId>
+              <version>${plugin.version.central}</version>
+              <extensions>true</extensions>
+              <configuration>
+                <publishingServerId>central</publishingServerId>
+                <centralBaseUrl>https://central.sonatype.com</centralBaseUrl>
+                <centralSnapshotsUrl>https://central.sonatype.com/repository/maven-snapshots/</centralSnapshotsUrl>
+              </configuration>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-javadoc-plugin</artifactId>
+              <version>${plugin.version.javadoc}</version>
+              <configuration>
+                <javadocExecutable>${java.doc.executable}</javadocExecutable>
+              </configuration>
+              <executions>
+                <execution>
+                  <id>attach-javadocs</id>
+                  <goals>
+                    <goal>jar</goal>
+                  </goals>
+                </execution>
+              </executions>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-source-plugin</artifactId>
+              <version>${plugin.version.source}</version>
+              <executions>
+                <execution>
+                  <id>attach-sources</id>
+                  <goals>
+                    <goal>jar-no-fork</goal>
+                  </goals>
+                </execution>
+              </executions>
+            </plugin>
+          </plugins>
+        </pluginManagement>
         <plugins>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
@@ -283,10 +300,22 @@
               </execution>
             </executions>
             <configuration>
+              <!-- Prevent gpg from using pinentry programs -->
               <gpgArguments>
                 <arg>--pinentry-mode</arg>
                 <arg>loopback</arg>
               </gpgArguments>
+            </configuration>
+          </plugin>
+          <plugin>
+            <groupId>org.sonatype.central</groupId>
+            <artifactId>central-publishing-maven-plugin</artifactId>
+            <version>${plugin.version.central}</version>
+            <extensions>true</extensions>
+            <configuration>
+              <publishingServerId>central</publishingServerId>
+              <centralBaseUrl>https://central.sonatype.com</centralBaseUrl>
+              <centralSnapshotsUrl>https://central.sonatype.com/repository/maven-snapshots/</centralSnapshotsUrl>
             </configuration>
           </plugin>
           <plugin>
@@ -318,27 +347,8 @@
               </execution>
             </executions>
           </plugin>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-deploy-plugin</artifactId>
-            <version>${plugin.version.deploy}</version>
-            <configuration>
-              <skip>false</skip>
-            </configuration>
-          </plugin>
         </plugins>
       </build>
     </profile>
   </profiles>
-
-  <distributionManagement>
-    <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-    <repository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
-  </distributionManagement>
 </project>
