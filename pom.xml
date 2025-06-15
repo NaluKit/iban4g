@@ -66,7 +66,7 @@
   </issueManagement>
 
   <properties>
-    <revision>HEAD-SNAPSHOT</revision>
+    <revision>2.3.0</revision>
 
     <elemental2.version>1.1.0</elemental2.version>
 
