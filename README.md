@@ -94,9 +94,9 @@ try {
 
 ```xml
 <dependency>
-  <groupId>com.github.nalukit</groupId>
+  <groupId>io.github.nalukit</groupId>
   <artifactId>iban4g</artifactId>
-  <version>2.2.0</version>
+  <version>3.0.0</version>
 </dependency>
 ```
 
@@ -133,3 +133,10 @@ Copyright 2015 Artur Mkrtchyan
 Modifications Copyright 2020 Frank Hossfeld
 
 Licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
+
+## Migration to io.github
+
+Migration to the new namespace is quite simple. There only to things to do:
+
+1. change the groupId from `com.github.nalukit` to `ìo.github.nalukit`
+2. replace all imports from `import com.github.nalukit` to `import io.github.nalukit`  
