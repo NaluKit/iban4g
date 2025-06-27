@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+  <!-- Other module inherits                                      -->
+  <inherits name="io.github.nalukit.iban4g.Iban4g"/>
+
+  <!-- sources -->
+  <source path="shared"/>
+</module>
