@@ -21,7 +21,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.github.nalukit</groupId>
+    <groupId>io.github.nalukit</groupId>
     <artifactId>iban4g-parent</artifactId>
     <version>${revision}</version>
   </parent>
@@ -74,7 +74,7 @@
     </dependency>
 
     <dependency>
-      <groupId>com.github.nalukit</groupId>
+      <groupId>io.github.nalukit</groupId>
       <artifactId>iban4g</artifactId>
       <version>${revision}</version>
       <scope>test</scope>

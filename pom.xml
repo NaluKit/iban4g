@@ -20,7 +20,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.github.nalukit</groupId>
+  <groupId>io.github.nalukit</groupId>
   <artifactId>iban4g-parent</artifactId>
   <version>${revision}</version>
   <packaging>pom</packaging>
@@ -66,7 +66,7 @@
   </issueManagement>
 
   <properties>
-    <revision>2.3.0</revision>
+    <revision>3.0.0</revision>
 
     <elemental2.version>1.1.0</elemental2.version>
 
