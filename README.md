@@ -1,3 +1,16 @@
+# Looking ahead: Pololei
+
+[Pololei](https://github.com/NaluKit/pololei) is the successor to iban4g,
+providing a redesigned API for working with IBANs and BICs in Java and GWT.
+
+It builds on the experience gained with iban4g and adds structured validation
+results, access to BBAN fields, configurable national check digit validation,
+and optional modules for SEPA Creditor Identifiers and EPC QR payment payloads.
+
+For new projects, we recommend starting with Pololei. If you are already using
+iban4g, please review Pololei's documentation and migration guide: migrating
+requires changes to dependencies, imports, and API calls.
+
 # IBAN4G
 
 ![GWT3/J2CL compatible](https://img.shields.io/badge/GWT3/J2CL-compatible-brightgreen.svg)  [![License](https://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html) [![Chat on Gitter](https://badges.gitter.im/hal/elemento.svg)](https://gitter.im/Nalukit42/Lobby) [![Build & Deploy](https://github.com/NaluKit/iban4g/actions/workflows/build.yaml/badge.svg)](https://github.com/NaluKit/iban4g/actions/workflows/build.yaml) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.nalukit/iban4g/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.nalukit/iban4g)
